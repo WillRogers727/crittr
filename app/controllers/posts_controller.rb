@@ -2,6 +2,7 @@ class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update, :destroy] #so that code doesnt have to be repeated
 
 	def index #index through all of the various posts
+		@posts = Post.all.order("created_at DESC")
 	end
 
 	def show
