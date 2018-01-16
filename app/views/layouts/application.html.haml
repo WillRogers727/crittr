@@ -4,15 +4,12 @@
   %title Crittr
   = csrf_meta_tags 
   = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' 
+  %link{ "rel" => "stylesheet", href: "https://fonts.googleapis.com/css?family=Heebo:400,700", type: "text/css"}
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' 
 
 %body
   %header.topBar
-    #logo
-      %p Crittr
-    #buttons
-      = link_to "New Post", new_post_path
-
+    =image_tag "crittrLogo.png", :class => "topLogo"
 
   %div.sideBar
 

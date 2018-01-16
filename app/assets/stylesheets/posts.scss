@@ -6,11 +6,17 @@
 
 .title {
 	font-size: 30px;
-	margin-top: 30px;
-	margin-bottom: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .date {
-	margin-bottom: 20px;
+	padding-bottom: 20px;
+}
+
+.postContainer {
+	border-top: 1px solid #151515;
+	border-bottom: 1px solid #151515;
+	margin: 15px 0 15px 0;
 }
 
