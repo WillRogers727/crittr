@@ -1,0 +1,24 @@
+!!!
+%html
+%head
+  %title Crittr
+  = csrf_meta_tags 
+  = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' 
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' 
+
+%body
+  %header.topBar
+    #logo
+      %p Crittr
+    #buttons
+      = link_to "New Post", new_post_path
+
+
+  %div.sideBar
+
+  .container    
+    %p.notice= notice
+    %p.alert= alert
+
+  .postsContainer
+    =yield
