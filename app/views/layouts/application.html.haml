@@ -10,6 +10,13 @@
 %body
   %header.topBar
     =image_tag "crittrLogo.png", :class => "topLogo"
+    #buttons
+      - if user_signed_in?
+        
+      -else
+        = link_to "Sign Up", new_user_registration_path
+        = link_to "Sign In", new_user_session_path
+      
 
   %div.sideBar
 
