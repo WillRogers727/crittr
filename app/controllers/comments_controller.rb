@@ -1,40 +1,30 @@
 class CommentsController < ApplicationController
-	def create
-		@post = Post.find(params[:post_id])
-		@comment = @post.comments.create(params[:comment].permit(:comment))
-		@comment.user_id = current_user.id if current_user
-		@comment.save
+	before_action :authenticate_user!
 
-		if @comment.save
-			redirect_to post_path(@post)
-		else
-			render 'new'
-		end
+	def create
+
+		@comment = @commentable.comments.new comment_params
+		@comment.user = current_user
+		@comment.save
+		redirect_to @commentable, notice: "Your Comment was successfully posted"
+		
 	end
 
 	def edit
-		@post = Post.find(params[:post_id]) #find post
-		@comment = @post.comments.find(params[:id]) #find comment
 	end
 
 	def update
-		@post = Post.find(params[:post_id]) #find post
-		@comment = @post.comments.find(params[:id]) #find comment
-
-		if @comment.update(params[:comment].permit(:comment))
-			redirect_to post_path(@post)
-		else
-			render 'edit'
-		end
 	end
 
 
 	def destroy
-		@post = Post.find(params[:post_id]) #find post
-		@comment = @post.comments.find(params[:id]) #find comment
-		@comment.destroy
-		redirect_to post_path(@post)
 	end
+
+	private
+
+  def comment_params
+    params.require(:comment).permit(:comment)
+  end 
 
 
 end

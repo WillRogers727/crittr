@@ -1,0 +1,13 @@
+%h1.forumTitle Image Forum
+#buttons
+	- if user_signed_in?
+		= link_to "New Artwork", new_artwork_path
+
+- @artworks.each do |artwork|
+	%div.postContainer
+		%h2.title= link_to artwork.title, artwork
+		%p.date
+			Published
+			= time_ago_in_words(artwork.created_at)
+			ago by
+			= artwork.user.email
