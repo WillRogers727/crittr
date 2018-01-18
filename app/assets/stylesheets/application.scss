@@ -133,14 +133,22 @@ p {
 
 /* ========== SIDE NAVIGATION BAR ========== */
 
-.sideBar {
+.mainBody {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+}
+
+.sidebar {
 	width: 200px;
+	min-width: 200px;
 	height: 100vh;
-	position: fixed;
-	z-index: 1;
 	background-color: #151515;
 	margin: 0;
 	padding: 0;
+	float: left;
 }
 
 /* ========================================= */
@@ -152,7 +160,7 @@ p {
 }
 
 .postsContainer {
-	width: calc(100vh-200px);
+	width: 100%;
 	height: auto;
 	padding: 75px 0 0 0;
 }

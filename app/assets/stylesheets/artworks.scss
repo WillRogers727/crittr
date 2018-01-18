@@ -20,22 +20,62 @@
 .artworkThumbSection {
 	width: 100%;
 	height: auto;
-	background-color: #151515;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 }
 
-.artworkContainer {
-	width: 300px;
-	height: 225px;
-	background-color: #b4620a;
-	border: 1px solid #000;
-	margin: 10px;
+.thumbnail {
+	width: 100%;
+	height: auto;
+
 }
 
-.artTitleSection {
+.thumbnail img {
 	width: 100%;
+	height: auto;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+}
+
+.info {
+	width: 100%;
+	height: auto;
+	background-color: #d5d5d5;
+}
+
+.info h2 {
+	font-size: 20px;
+}
+
+.extraInfo {
+	width: 100%;
+	height: auto;
+	font-size: 14px;
+	color: #d5d5d5;
+	height: 30px;
+}
+
+.extraInfo p {
+	line-height: 30px;
+	padding-left: 5px;
+}
+
+.artworkContainer {
+	width: 300px;
+	height: auto;
+	margin: 10px;
+	border-radius: 8px;
+	background-color: #222222;
+	-webkit-box-shadow: 10px 10px 10px -7px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 10px -7px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 10px -7px rgba(0,0,0,0.75);
+}
+
+/*--------------------------------------------*/
+
+.artTitleSection {
+	width: auto;
 	height: 75px;
 	background-color: #ebebeb;
 	margin: 0;

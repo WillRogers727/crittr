@@ -1,15 +1,23 @@
-%h1.forumTitle Image Forum
-#buttons
-	- if user_signed_in?
-		= link_to "New Artwork", new_artwork_path
+.mainBody
 
-.artworkThumbSection
-	- @artworks.each do |artwork|
-		%div.artworkContainer
-			= image_tag artwork.image.url(:thumb)
-			%h2.title= link_to artwork.title, artwork
-			%p.date
-				Published
-				= time_ago_in_words(artwork.created_at)
-				ago by
-				= artwork.user.email
+	= render "layouts/sidebar"
+
+	.gallery
+		%h1.forumTitle Image Forum
+		#buttons
+			- if user_signed_in?
+				= link_to "New Artwork", new_artwork_path
+
+		.artworkThumbSection
+			- @artworks.each do |artwork|
+				%div.artworkContainer
+					.thumbnail
+						= image_tag artwork.image.url(:thumb)
+					.info	
+						%h2.title= link_to artwork.title, artwork
+					.extraInfo	
+						%p.date
+							Posted
+							= time_ago_in_words(artwork.created_at)
+							ago
+							
