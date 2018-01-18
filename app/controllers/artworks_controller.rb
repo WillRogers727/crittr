@@ -43,7 +43,7 @@ private
 
 
 	def artwork_params
-		params.require(:artwork).permit(:title, :description)
+		params.require(:artwork).permit(:title, :description, :image)
 	end
 
 
