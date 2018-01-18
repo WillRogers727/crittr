@@ -14,7 +14,7 @@ def new
 end
 
 def create
-	@artwork = current_user.artworks.build
+	@artwork = current_user.artworks.build(artwork_params)
 
 	if @artwork.save
 			redirect_to @artwork #if artwork is saved redirect to it's page
