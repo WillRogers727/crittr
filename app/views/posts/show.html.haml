@@ -2,21 +2,10 @@
 %p= @post.content
 
 
-
 = render partial: "comments/comments", locals: {commentable: @post}
 
-= render "comments/form", locals: {commentable: @post}
+= render partial: "comments/form", locals: {commentable: @post}
 
-
-
-/ #comments
-
-/ 	= @post.comments.each do |comment|
-/ 		=	render 'comments/comment', locals: { parent: @post, comment: @comment}
-	
-
-/ 	%h3 Reply to thread
-/ 	= render "comments/form", locals: {parent: @post}
 
 = link_to "Edit", edit_post_path(@post)
 = link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}

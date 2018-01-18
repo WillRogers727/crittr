@@ -4,14 +4,7 @@
 
 
 = render partial: "comments/comments", locals: {commentable: @artwork}
-= render "comments/form", locals: {commentable: @artwork}
-
-/ #comments
-	
-/ 	= render @artwork.comments
-
-/ 	%h3 Reply to thread
-/ 	= render "comments/form", locals: {parent: @artwork}
+= render partial: "comments/form", locals: {commentable: @artwork}
 
 = link_to "Edit", edit_artwork_path(@artwork)
 = link_to "Delete", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}

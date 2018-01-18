@@ -1,16 +1,11 @@
-/ .comment
-/ 	%p= comment.comment
-/ 	%p= comment.user.email
-
-/ 	= link_to "Delete Reply",  [comment.parent, comment], method: :delete, data: {confirm: "Are you sure?"}
-/ 	= link_to "Edit", edit_post_comment_path(comment.parent, comment)
 
 %h3 Comments
 /commentable variable is passed through and changes which comments are shown
 = commentable.comments.each do |comment| 
 	#comment
-		= comment.body
+		= comment.comment
 		= comment.user.email
+		=link_to "Delete Reply", [commentable, comment], method: :delete, data: {confirm: "Are you sure you want to do this?"}
 
 
-%h3 Reply to artwork
+%h3 Reply to thread
