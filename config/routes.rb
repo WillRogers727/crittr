@@ -13,6 +13,8 @@ Rails.application.routes.draw do
     resources :comments, module: :artworks
   end
 
+  resources :users, only: [:show, :index]
+
   # resources :posts do
   # 	resources :comments
   # end
