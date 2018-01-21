@@ -7,4 +7,10 @@ class User < ApplicationRecord
   has_many :posts
   has_many :artworks
   has_many :comments
+
+
+  has_attached_file :avatar, styles: { medium: "200x200#", thumb: "100x100#" }, default_url: "/images/blankAvatar.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
+  
 end

@@ -1,3 +1,11 @@
 %h1 User profile page
 
+= image_tag @user.avatar.url(:medium)
+
+%h2= @user.username
 %h2= @user.email
+
+= if current_user == @user #if current user's page then add sign put button
+	= link_to "Sign Out", destroy_user_session_path, method: :delete
+	= link_to "Edit Profile", edit_user_registration_path
+
