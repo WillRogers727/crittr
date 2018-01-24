@@ -7,7 +7,12 @@ Rails.application.routes.draw do
   # end
 
   resources :posts do
-    resources :comments, module: :posts
+    resources :comments, module: :posts do
+      # member do
+      #   put "like", to: "comments#upvote"
+      #   put "dislike", to: "comments#downvote"
+      # end
+    end
     member do
       put "like", to: "posts#upvote"
       put "dislike", to: "posts#downvote"
@@ -15,12 +20,25 @@ Rails.application.routes.draw do
   end
 
   resources :artworks do
-    resources :comments, module: :artworks
+    resources :comments, module: :artworks do
+      # member do
+      #   put "like", to: "comments#upvote"
+      #   put "dislike", to: "comments#downvote"
+      # end
+    end
     member do
       put "like", to: "artworks#upvote"
       put "dislike", to: "artworks#downvote"
     end
   end
+
+  resources :comments do
+    member do
+      put "like", to: "comments#upvote"
+      put "dislike", to: "comments#downvote"
+    end
+  end
+
 
   resources :users, only: [:show, :index]
 
