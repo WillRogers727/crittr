@@ -3,7 +3,8 @@ class PostsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show] #makes sure the user cannot just path to a new post page without signing in
 
 	def index #index through all of the various posts
-		@posts = Post.all.order("created_at DESC")
+		@search = Post.ransack(params[:q])
+		@posts = @search.result
 	end
 
 	def show
@@ -47,7 +48,7 @@ class PostsController < ApplicationController
 
 
 	def post_params
-		params.require(:post).permit(:title, :content)
+		params.require(:post).permit(:title, :content, :cat)
 	end
 
 end

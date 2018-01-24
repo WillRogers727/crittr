@@ -3,7 +3,8 @@ before_action :find_artwork, only: [:show, :edit, :update, :destroy] #so that co
 before_action :authenticate_user!, except: [:index, :show] #makes sure the user cannot just path to a new post page without signing in
 
 def index
-	@artworks = Artwork.all.order("created_at DESC")
+	@search = Artwork.ransack(params[:q])
+	@artworks = @search.result
 end
 
 def show
@@ -43,7 +44,7 @@ private
 
 
 	def artwork_params
-		params.require(:artwork).permit(:title, :description, :image)
+		params.require(:artwork).permit(:title, :description, :image, :cat)
 	end
 
 

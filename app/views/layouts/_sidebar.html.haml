@@ -1,2 +1,8 @@
 %div.sidebar
+	%h2 Art/Design Category
+	= search_form_for @search do |f|
+		= f.select  :cat_matches, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design]
+		= f.submit
+
+	
 	

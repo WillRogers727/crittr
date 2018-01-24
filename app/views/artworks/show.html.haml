@@ -4,6 +4,7 @@
 	= image_tag @artwork.image.url(:medium)
 .artDescriptionSection
 	%p= @artwork.description
+	%p= @artwork.cat
 
 
 = render partial: "comments/comments", locals: {commentable: @artwork}

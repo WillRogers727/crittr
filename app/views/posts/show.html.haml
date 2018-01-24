@@ -1,5 +1,6 @@
 %h1= @post.title
 %p= @post.content
+%p= @post.cat
 
 
 = render partial: "comments/comments", locals: {commentable: @post}

@@ -15,6 +15,9 @@
 						= image_tag artwork.image.url(:thumb)
 					.info	
 						%h2.title= link_to artwork.title, artwork
+						%p
+							Category: 
+							= artwork.cat	
 					.extraInfo	
 						%p.date
 							Posted
