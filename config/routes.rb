@@ -8,10 +8,18 @@ Rails.application.routes.draw do
 
   resources :posts do
     resources :comments, module: :posts
+    member do
+      put "like", to: "posts#upvote"
+      put "dislike", to: "posts#downvote"
+    end
   end
 
   resources :artworks do
     resources :comments, module: :artworks
+    member do
+      put "like", to: "artworks#upvote"
+      put "dislike", to: "artworks#downvote"
+    end
   end
 
   resources :users, only: [:show, :index]

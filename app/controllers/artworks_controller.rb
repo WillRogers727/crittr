@@ -35,6 +35,17 @@ def destroy
 	redirect_to root_path
 end
 
+def upvote
+	@artwork = Artwork.find(params[:id])
+	@artwork.upvote_by current_user
+	redirect_to @artwork 
+end
+
+def downvote
+	@artwork = Artwork.find(params[:id])
+	@artwork.downvote_by current_user
+	redirect_to @artwork #maybe change to - :back returns you to the same page - upvotes/downvotes can be on index and show pages
+end
 
 private
 

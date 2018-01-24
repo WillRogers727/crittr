@@ -18,3 +18,12 @@
 				%p
 					Category: 
 					= post.cat	
+				%p 
+					Upvotes:
+					= post.get_upvotes.size
+				%p
+					Downvotes:
+					= post.get_downvotes.size
+
+
+

@@ -18,6 +18,12 @@
 						%p
 							Category: 
 							= artwork.cat	
+						%p 
+							Upvotes:
+							= artwork.get_upvotes.size
+						%p
+							Downvotes:
+							= artwork.get_downvotes.size
 					.extraInfo	
 						%p.date
 							Posted

@@ -40,6 +40,18 @@ class PostsController < ApplicationController
 		redirect_to root_path
 	end
 
+	def upvote
+		@post = Post.find(params[:id])
+		@post.upvote_by current_user
+		redirect_to @post 
+	end
+
+	def downvote
+		@post = Post.find(params[:id])
+		@post.downvote_by current_user
+		redirect_to @post #maybe change to - :back returns you to the same page - upvotes/downvotes can be on index and show pages
+	end
+
 	private
 
 	def find_post

@@ -2,6 +2,14 @@
 %p= @post.content
 %p= @post.cat
 
+= if user_signed_in?
+	%div.upArrow
+		= link_to "Upvote", like_post_path(@post), method: :put
+		= @post.get_upvotes.size
+	%div.downArrow
+		= link_to "Downvote", dislike_post_path(@post), method: :put
+		= @post.get_downvotes.size
+
 
 = render partial: "comments/comments", locals: {commentable: @post}
 
