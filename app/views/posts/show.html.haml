@@ -2,7 +2,7 @@
 %p= @post.content
 %p= @post.cat
 
-= if user_signed_in?
+- if user_signed_in?
 	%div.upArrow
 		= link_to "Upvote", like_post_path(@post), method: :put
 		= @post.get_upvotes.size

@@ -1,7 +1,7 @@
 
 %h3 Comments
 /commentable variable is passed through and changes which comments are shown
-= commentable.comments.each do |comment| 
+- commentable.comments.each do |comment| 
 	#comment
 		= comment.comment
 		= comment.user.email

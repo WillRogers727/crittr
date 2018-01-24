@@ -5,7 +5,7 @@
 .artDescriptionSection
 	%p= @artwork.description
 	%p= @artwork.cat
-	= if user_signed_in?
+	- if user_signed_in?
 		%div.upArrow
 			= link_to "Upvote", like_artwork_path(@artwork), method: :put
 			= @artwork.get_upvotes.size
