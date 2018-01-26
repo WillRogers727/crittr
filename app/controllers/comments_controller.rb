@@ -1,13 +1,16 @@
 class CommentsController < ApplicationController
 	before_action :authenticate_user!
 
-	def create
+	# def show #index through all of the various posts
+	# 	@searchComments = Comment.ransack(params[:q])
+	# 	@comments = @searchComments.result
+	# end
 
+	def create
 		@comment = @commentable.comments.new comment_params
 		@comment.user = current_user
 		@comment.save
 		redirect_to @commentable, notice: "Your Comment was successfully posted"
-		
 	end
 
 	def edit

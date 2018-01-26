@@ -1,10 +1,14 @@
 %h3 Comments
 /commentable variable is passed through and changes which comments are shown
+/ - search_form_for @searchComments,remote: true do |f|
+/ 	= sort_link @searchComments, :created_at, "Date Commented"
+
+
 - commentable.comments.each do |comment| 
 	#comment
 		= comment.comment
 		= comment.user.email
-		%p 
+		%p
 			Ups:
 			= comment.get_upvotes.size
 		%p 
