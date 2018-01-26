@@ -18,7 +18,7 @@ Rails.application.routes.draw do
       put "dislike", to: "posts#downvote"
       put 'set_answered' #put is used to update values
     end
-     
+  end   
 
   resources :artworks do
     resources :comments, module: :artworks do

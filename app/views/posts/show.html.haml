@@ -23,6 +23,6 @@
 	- if current_user.id == @post.user_id
 		= link_to "Edit", edit_post_path(@post)
 		= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}
-		= link_to "Set as Answered", set_answered_post_path(@post), remote: true, method: :put
+		= link_to "Set as Answered", set_answered_post_path(@post), remote: true, method: :put 
 
 = link_to "Home", root_path
