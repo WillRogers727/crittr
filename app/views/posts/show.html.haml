@@ -1,6 +1,10 @@
 %h1= @post.title
 %p= @post.content
 %p= @post.cat
+- if @post.answered == true
+	%p.answered Answered
+- else
+	%p.unanswered Unanswered
 
 - if user_signed_in?
 	%div.upArrow
@@ -15,7 +19,10 @@
 
 = render partial: "comments/form", locals: {commentable: @post}
 
+- if user_signed_in?
+	- if current_user.id == @post.user_id
+		= link_to "Edit", edit_post_path(@post)
+		= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}
+		= link_to "Set as Answered", set_answered_post_path(@post), remote: true, method: :put
 
-= link_to "Edit", edit_post_path(@post)
-= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}
 = link_to "Home", root_path

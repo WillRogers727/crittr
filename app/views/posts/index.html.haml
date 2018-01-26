@@ -24,6 +24,11 @@
 				%p
 					Downvotes:
 					= post.get_downvotes.size
+				%p
+					- if post.answered == true
+						%p.answered Answered
+					- else
+						%p.unanswered Unanswered
 
 
 

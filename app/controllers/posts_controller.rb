@@ -52,6 +52,12 @@ class PostsController < ApplicationController
 		redirect_to @post #maybe change to - :back returns you to the same page - upvotes/downvotes can be on index and show pages
 	end
 
+	def set_answered
+		@post = Post.find(params[:id])
+		@post.update_attribute(:answered, true)
+		redirect_to @post
+	end
+
 	private
 
 	def find_post
