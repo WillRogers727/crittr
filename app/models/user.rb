@@ -9,7 +9,7 @@ class User < ApplicationRecord
   has_many :comments
 
 
-  has_attached_file :avatar, styles: { medium: "200x200#", thumb: "100x100#" }, default_url: "/images/blankAvatar.png"
+  has_attached_file :avatar, styles: { medium: "200x200#", thumb: "50x50#" }, default_url: ActionController::Base.helpers.asset_path("blankAvatar.png")
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   

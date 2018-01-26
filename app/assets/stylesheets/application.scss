@@ -112,6 +112,7 @@ p {
 	box-shadow: -1px 2px 25px -7px rgba(0,0,0,0.75);
 	display: flex;
 	flex-direction: row;
+	justify-content: space-between;
 }
 
 #divider {
@@ -126,7 +127,53 @@ p {
 
 .forumButtons {
 	line-height: 75px;
-	padding-left: 10px;
+}
+
+.profileButtons {
+	line-height: 75px;
+	padding-right: 20px;
+}
+
+.dropBtn {
+}
+
+.dropDown {
+	position: relative;
+	display: inline-block;
+}
+
+.dropDownContent {
+	display: none;
+	position: absolute;
+	min-width: 300px;
+	z-index: 3;
+	background-color: white;
+}
+
+.dropDownContent a {
+	color: black;
+	display: block;
+}
+
+.dropDown:hover .dropDownContent {
+	display: block;
+}
+
+.profileMenuSection {
+	height: 75px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.profileThumb {
+	height: 50px;
+}
+
+.profileThumb img {
+	width: 50px;
+	height: 50px;
 }
 
 /* ========================================= */
