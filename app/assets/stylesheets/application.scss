@@ -196,10 +196,27 @@ p {
 	margin: 0;
 	padding: 0;
 	float: left;
+	display: flex;
+	flex-direction: column;
 }
 
 .sidebarHeader {
 	color: #f7f7f7;
+}
+
+.sideSection {
+	width: 200px;
+	height: auto;
+	padding: 10px 5px 10px 5px;
+}
+
+.sorting {
+	display: flex;
+	flex-direction: column;
+}
+
+.sorting a {
+	padding: 5px 0 5px 0;
 }
 
 /* ========================================= */

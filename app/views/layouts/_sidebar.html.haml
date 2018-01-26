@@ -1,12 +1,14 @@
-%div.sidebar
-	%h2.sidebarHeader Art/Design Category
-	= search_form_for @search do |f|
-		= f.select  :cat_matches, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design]
-		= f.submit
+.sidebar
+	.category.sideSection
+		%h2.sidebarHeader Art/Design Category
+		= search_form_for @search do |f|
+			= f.select  :cat_matches, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design]
+			= f.submit
 
-	%h2.sidebarHeader Sort by
-	= sort_link @search, :created_at, "Date Created"
-	= sort_link @search, :title, "By Title"
+	.sorting.sideSection
+		%h2.sidebarHeader Sort by
+		= sort_link @search, :created_at, "Date Created"
+		= sort_link @search, :title, "By Title"
 	
 
 	
