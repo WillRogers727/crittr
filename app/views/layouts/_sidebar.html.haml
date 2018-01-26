@@ -9,6 +9,8 @@
 		%h2.sidebarHeader Sort by
 		= sort_link @search, :created_at, "Date Created"
 		= sort_link @search, :title, "By Title"
+		= sort_link @search, :cached_votes_up, "By Upvotes"
+		= sort_link @search, :cached_votes_down, "By Downvotes"
 	
 
 	
