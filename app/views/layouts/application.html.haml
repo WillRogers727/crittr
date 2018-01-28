@@ -13,8 +13,8 @@
       =image_tag "crittrLogo.png", :class => "topLogo"
     
     .forumButtons
-      = button_to "Question Forum", posts_path, class: 'leftButton'
-      = button_to "Image Forum", artworks_path, class: 'rightButton'   
+      = link_to "Question Forum", posts_path, class: 'leftButton fButton'
+      = link_to "Image Forum", artworks_path, class: 'rightButton fButton'   
       
     .profileButtons
       - if user_signed_in?
