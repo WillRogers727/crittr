@@ -1,7 +1,7 @@
 .artTitleSection
 	%h1.threadTitle= @artwork.title
 .artImageSection
-	= image_tag @artwork.image.url(:medium)
+	/ = image_tag @artwork.image.url(:medium)
 .artDescriptionSection
 	%p= @artwork.description
 	%p= @artwork.cat

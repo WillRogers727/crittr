@@ -1,6 +1,6 @@
-= simple_form_for @artwork do |f|
-	= f.input :image
+= simple_form_for @artwork, :html => {multipart: true} do |f|
 	= f.input :title
 	= f.input :description
 	= f.input :cat, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design]
+	= file_field_tag "images[]", type: :file, multiple: true
 	= f.submit

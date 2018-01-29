@@ -16,7 +16,7 @@
 			- @artworks.each do |artwork|
 				%div.artworkContainer
 					.thumbnail
-						= image_tag artwork.image.url(:thumb)
+						/ = image_tag artwork.image.url(:thumb)
 					.info	
 						%h2.title= link_to artwork.title, artwork
 						%p

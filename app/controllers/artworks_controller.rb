@@ -15,22 +15,55 @@ def new
 end
 
 def create
+	# @artwork = Artwork.new(artwork_params)
 	@artwork = current_user.artworks.build(artwork_params)
+	# respond_to do |format|
+		if @artwork.save
+			if params[:images]
+				params[:images].each { |image| 
+					@artwork.pictures.create(image: image)
+				}
+			end
 
-	if @artwork.save
-			redirect_to @artwork #if artwork is saved redirect to it's page
+			redirect_to @artwork, notice: "Artwork submitted successfully"
 		else
-			render 'new' #else render the form again
-		end
+			render 'new'
+		# end
+	end
+
+	# @artwork = current_user.artworks.build(artwork_params)
+
+	# if @artwork.save
+	# 		redirect_to @artwork #if artwork is saved redirect to it's page
+	# 	else
+	# 		render 'new' #else render the form again
+	# 	end
 end
 
 def edit
+	@artwork = Artwork.find(params[:id])
 end
 
 def update
+	@artwork = Artwork.find(params[:id])
+
+	respond_to do |format|
+		if @artwork.update_attributes(artwork_params)
+			if params[:images]
+				params[:images].each { |image| 
+					@artwork.pictures.create(image: image)
+				}
+			end
+
+			redirect_to @artwork, notice: "Artwork submitted successfully"
+		else
+			render 'edit'
+		end
+	end
 end
 
 def destroy
+	@artwork = Artwork.find(params[:id])
 	@artwork.destroy
 	redirect_to root_path
 end
@@ -55,7 +88,7 @@ private
 
 
 	def artwork_params
-		params.require(:artwork).permit(:title, :description, :image, :cat)
+		params.require(:artwork).permit(:title, :description, :cat, :pictures)
 	end
 
 
