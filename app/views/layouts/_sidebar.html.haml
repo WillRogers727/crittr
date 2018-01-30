@@ -1,4 +1,8 @@
 .sidebar
+	.forumLinks
+		= link_to "Artwork Forum", artworks_path, class: "fLink"
+		= link_to "Questions Forum", posts_path, class: "fLink"
+
 	.category.sideSection
 		%h2.sidebarHeader Art/Design Category
 		= search_form_for @search do |f|
