@@ -9,13 +9,8 @@
 
 %body
   %header.topBar
-    .logo
-      =image_tag "crittrLogo.png", :class => "topLogo"
-    
-    .forumButtons
-      = link_to "Question Forum", posts_path, class: 'leftButton fButton'
-      = link_to "Image Forum", artworks_path, class: 'rightButton fButton'   
-      
+    = link_to root_path, class: "logo" do 
+      =image_tag "crittrLogo.png", :class => "topLogo"      
     .profileButtons
       - if user_signed_in?
         .profileMenuSection

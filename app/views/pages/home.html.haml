@@ -1,0 +1,17 @@
+%h1.subHeader Welcome to Crittr.
+
+.mainLinks
+	=	link_to artworks_path, class: "linkLeft" do
+		.linkBox
+			%h2 
+				Artwork 
+				%br/
+				Forum
+	= link_to posts_path, class: "linkRight" do
+		.linkBox
+			%h2 
+				Question
+				%br/
+				Forum
+
+%h1 Current Top Artworks:

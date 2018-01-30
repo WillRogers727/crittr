@@ -140,42 +140,6 @@ p {
 	padding: 5px 0 0 10px;
 }
 
-.forumButtons {
-	height: 75px;
-	width: auto;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-}
-
-.fButton {
-	display: inline-block;
-	height: 45px;
-	width: 180px;
-	font-size: 1.4em;
-	background-color: #ebebeb;
-}
-
-.forumButtons input:hover {
-	cursor: pointer;
-	background-color: #d5d5d5;
-}
-
-.leftButton {
-	border: none;
-	border-right: 1px solid #151515;
-	border-top-left-radius: 8px;
-	border-bottom-left-radius: 8px;
-}
-
-.rightButton {
-	border: none;
-	border-left: 1px solid #151515;
-	border-top-right-radius: 8px;
-	border-bottom-right-radius: 8px;
-}
-
 .profileButtons {
 	line-height: 75px;
 	padding-right: 20px;

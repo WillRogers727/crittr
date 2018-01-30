@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :views
   devise_for :users
-  
+  root 'pages#home' #set site to default to the new home page
   # resources :posts, :artworks do
   # 	resources :comments, only: [:create, :destroy]
   # end
@@ -54,5 +54,4 @@ Rails.application.routes.draw do
   # end
 
 
-  root 'posts#index' #set site to default to posts
 end
