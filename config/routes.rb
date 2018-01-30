@@ -31,7 +31,7 @@ Rails.application.routes.draw do
     member do
       put "like", to: "artworks#upvote"
       put "dislike", to: "artworks#downvote"
-      post 'create_picture'
+      patch 'create_picture'
     end
   end
 

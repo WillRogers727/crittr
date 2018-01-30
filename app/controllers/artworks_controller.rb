@@ -84,10 +84,15 @@ end
 
 def create_picture
 	@artwork = Artwork.find(params[:id])
-	@picture = @artwork.pictures.create(image: image)
-	if @picture.save
-		@picture = Picture.new
+	# @picture = @artwork.pictures.create(image: image)
+	if params[:images]
+		params[:images].each { |image| 
+			@artwork.pictures.create(image: image)
+		}
 	end
+	@artwork.save
+	@pictures = @artwork.pictures
+	# render :action => :show
 	redirect_to @artwork
 end
 
