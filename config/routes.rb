@@ -27,9 +27,11 @@ Rails.application.routes.draw do
       #   put "dislike", to: "comments#downvote"
       # end
     end
+    resources :pictures
     member do
       put "like", to: "artworks#upvote"
       put "dislike", to: "artworks#downvote"
+      post 'create_picture'
     end
   end
 
@@ -40,6 +42,7 @@ Rails.application.routes.draw do
     end
   end
 
+  
 
   resources :users, only: [:show, :index]
 

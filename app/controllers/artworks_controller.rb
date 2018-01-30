@@ -8,6 +8,8 @@ def index
 end
 
 def show
+	@artwork = Artwork.find(params[:id])
+	@pictures = @artwork.pictures
 end
 
 def new
@@ -78,6 +80,15 @@ def downvote
 	@artwork = Artwork.find(params[:id])
 	@artwork.downvote_by current_user
 	redirect_to @artwork #maybe change to - :back returns you to the same page - upvotes/downvotes can be on index and show pages
+end
+
+def create_picture
+	@artwork = Artwork.find(params[:id])
+	@picture = @artwork.pictures.create(image: image)
+	if @picture.save
+		@picture = Picture.new
+	end
+	redirect_to @artwork
 end
 
 private

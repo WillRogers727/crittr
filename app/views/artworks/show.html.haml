@@ -1,6 +1,13 @@
 .artTitleSection
 	%h1.threadTitle= @artwork.title
 .artImageSection
+	- unless @pictures.empty?
+		- @pictures.each do |pic|
+			= image_tag pic.image.url
+			- if user_signed_in?
+				- if @artwork.user.id == current_user.id
+					- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
+						= link_to "Delete Image", pic, :data => { :confirm => "Are you sure?"}, :method => :delete
 	/ = image_tag @artwork.image.url(:medium)
 .artDescriptionSection
 	%p= @artwork.description
@@ -16,8 +23,16 @@
 
 = render partial: "comments/comments", locals: {commentable: @artwork}
 = render partial: "comments/form", locals: {commentable: @artwork}
+- if user_signed_in?
+	- if @artwork.user.id == current_user.id
+		= link_to "Edit", edit_artwork_path(@artwork)
+		= link_to "Delete", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}
+	
+	- form_for @artwork, :url => create_picture_artwork_path(@artwork) do |f|
+		= file_field_tag "images[]", type: :file, multiple: true
+		= f.submit #not sure why this form wont appear
+	
 
-= link_to "Edit", edit_artwork_path(@artwork)
-= link_to "Delete", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}
+	/ = link_to "Add new image", new_artwork_picture_path(@artwork)
 = link_to "Gallery", artworks_path
 
