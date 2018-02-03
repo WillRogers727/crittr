@@ -4,6 +4,50 @@
 */
 
 
-#comment {
-	border: 1px solid #000;
+.commentHeader {
+	font-family: 'Heebo', sans-serif;
+	font-size: 1.8em;
+	font-weight: 700;
+	color: #151515;
+	margin: 40px 5% 20px 5%;
+
+}
+ 
+.comment {
+	width: 90%;
+	margin: 20px 5% 20px 5%;
+	padding: 20px;
+	background-color: #d5d5d5;
+	border-radius: 8px;
+	-webkit-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+}
+
+.commentContent {
+	width: 100%;
+	height: auto;
+	line-height: 22px;
+	margin-bottom: 10px;
+	font-size: 1.2em;
+}
+
+.commentTopInfo {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+	margin-bottom: 10px;
+}
+
+.commentVoting {
+	display: flex;
+	flex-direction: row;
+}
+
+.commentBottomInfo {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	justify-content: space-between;
 }

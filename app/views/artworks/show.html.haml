@@ -1,4 +1,4 @@
-.artTitleSection
+.titleSection
 	%h1.threadTitle= @artwork.title
 .artImageSection
 	- unless @pictures.empty?
@@ -9,7 +9,7 @@
 					- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
 						= link_to "Delete Image", [@artwork, pic], :data => { :confirm => "Are you sure?"}, :method => :delete
 
-.artDescriptionSection
+.descriptionSection
 	%p= @artwork.description
 	%p= @artwork.cat
 	%p

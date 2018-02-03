@@ -263,3 +263,27 @@ p {
 	width: 30px;
 	height: 100px;
 }
+
+
+/* ===SHARED BY POST AND ARTWORK SHOW=== */
+
+.titleSection {
+	width: auto;
+	height: 75px;
+	background-color: #ebebeb;
+	margin: 0;
+	padding: 0;
+}
+
+.threadTitle {
+	line-height: 75px;
+	padding: 0 20% 0 20%;
+	font-size: 1.6em;
+}
+
+.descriptionSection {
+	width: 100%;
+	height: auto;
+	padding: 50px 20% 50px 20%;
+	background-color: #ebebeb;
+}
