@@ -1,6 +1,10 @@
 = simple_form_for @post do |f|
 	= f.input :title
 	= f.input :content
+	
+	= f.label :tag_list, "Tags (separated by comma)"
+	= f.input :tag_list
+
 	= f.input  :cat, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design]
 	= f.submit
 

@@ -5,7 +5,9 @@
 	%p.answered Answered
 - else
 	%p.unanswered Unanswered
-
+%p
+	Tags: 
+	= @post.tag_list
 - if user_signed_in?
 	%div.upArrow
 		= link_to "Upvote", like_post_path(@post), method: :put
