@@ -15,3 +15,26 @@
 				Forum
 
 %h1 Current Top Artworks:
+
+/ Turn this into a template later?
+.artworkThumbSection     
+	- @artworks.each do |artwork|
+		%div.artworkContainer
+			.thumbnail
+				/ = image_tag artwork.image.url(:thumb)
+			.info	
+			%h2.title= link_to artwork.title, artwork
+			%p
+				Category: 
+				= artwork.cat	
+			%p 
+				Upvotes:
+				= artwork.get_upvotes.size
+			%p
+				Downvotes:
+				= artwork.get_downvotes.size
+			.extraInfo	
+				%p.date
+					Posted
+					= time_ago_in_words(artwork.created_at)
+					ago

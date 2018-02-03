@@ -1,6 +1,16 @@
 = simple_form_for @artwork, :html => {multipart: true} do |f|
+	= f.label :title, "Post Title"
 	= f.input :title
+
+	= f.label :description, "Post Description"
 	= f.input :description
+
+	= f.label :tag_list, "Tags (separated by comma)"
+	= f.input :tag_list
+
+	=f.label :cat, "Art or Design Category"
 	= f.input :cat, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design]
+
+	= f.label "Post Image/s"
 	= file_field_tag "images[]", type: :file, multiple: true
 	= f.submit

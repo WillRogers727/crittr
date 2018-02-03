@@ -12,6 +12,9 @@
 .artDescriptionSection
 	%p= @artwork.description
 	%p= @artwork.cat
+	%p
+		Tags: 
+		= @artwork.tag_list
 	- if user_signed_in?
 		%div.upArrow
 			= link_to "Upvote", like_artwork_path(@artwork), method: :put
