@@ -1,0 +1,35 @@
+%h3.commentHeader Comments
+/commentable variable is passed through and changes which comments are shown
+/ - search_form_for @searchComments,remote: true do |f|
+/ 	= sort_link @searchComments, :created_at, "Date Commented"
+
+
+/ - commentable.comments.each do |comment| 
+.comment
+	.commentTopInfo
+		%p.commentDate
+			= time_ago_in_words(comment.created_at)
+			ago
+		.commentVoting
+			- if user_signed_in?
+				%div.upArrow
+					= link_to "Upvote", like_comment_path(comment), method: :put
+					= comment.get_upvotes.size
+				%div.downArrow
+					= link_to "Downvote", dislike_comment_path(comment), method: :put
+					= comment.get_downvotes.size
+	%p.commentContent	
+		= comment.comment
+	
+	.commentBottomInfo
+		%p.commentUser 
+			Posted by: 
+			= comment.user.username
+	
+		- if current_user.id == comment.user_id
+			=link_to "Delete Comment", [commentable, comment], method: :delete, data: {confirm: "Are you sure you want to do this?"}
+			= link_to "Reply", new_polymorphic_path([@commentable, Comment.new], :parent_id => comment)
+		
+		= nested_comments comment.children
+
+%h3 Reply to thread
