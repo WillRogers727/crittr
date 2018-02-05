@@ -1,13 +1,15 @@
 .titleSection
 	%h1.threadTitle= @artwork.title
 .artImageSection
-	- unless @pictures.empty?
-		- @pictures.each do |pic|
-			= image_tag pic.image.url
-			- if user_signed_in?
-				- if @artwork.user.id == current_user.id
-					- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
-						= link_to "Delete Image", [@artwork, pic], :data => { :confirm => "Are you sure?"}, :method => :delete
+	.artImageGallery
+		- unless @pictures.empty?
+			- @pictures.each do |pic|
+				.artImage
+					= image_tag pic.image.url
+					- if user_signed_in?
+						- if @artwork.user.id == current_user.id
+							- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
+								= link_to "Delete Image", [@artwork, pic], :data => { :confirm => "Are you sure?"}, :method => :delete
 
 .descriptionSection
 	%p= @artwork.description
