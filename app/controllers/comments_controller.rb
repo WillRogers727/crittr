@@ -4,21 +4,17 @@ class CommentsController < ApplicationController
 	def new
 		@parent_id = params.delete(:parent_id)
 		@commentable = find_commentable
-		@comment = Comment.new (:parent_id => @parent_id, 
-														:commentable_id => @commentable.id, 
-														:commentable_type => @commentable.class.to_s)
+		@comment = Comment.new(:parent_id => @parent_id, :commentable_id => @commentable.id, :commentable_type => @commentable.class.to_s)
 	end
 
 	def create
-		# @comment = @commentable.comments.new comment_params
-		# @comment.user = current_user
-		# @comment.save
-		# redirect_to @commentable, notice: "Your Comment was successfully posted"
 		@commentable = find_commentable
-		@comment = @commentable.comments.build(params[:comment])
+		@comment = @commentable.comments.build(params[:comment]) # This is the line that causes the error
+		# @comment = @commentable.comments.build(comment_params)--when changed to this, the submit button simply stops submitting anything
+		@comment.user = current_user
 		if @comment.save
 			flash[:notice] = "Successfully created comment"
-				edirect_to @commentable
+				redirect_to @commentable
 		else
 			flash[:error] = "Error adding comment"
 		end
@@ -45,7 +41,7 @@ class CommentsController < ApplicationController
 	private
 
   def comment_params
-    params.require(:comment).permit(:comment)
+    params.require(:comment).permit(:parent_id, :comment)
   end 
 
   def find_commentable

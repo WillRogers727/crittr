@@ -1,10 +1,5 @@
 %h3.commentHeader Comments
-/commentable variable is passed through and changes which comments are shown
-/ - search_form_for @searchComments,remote: true do |f|
-/ 	= sort_link @searchComments, :created_at, "Date Commented"
-
-
-/ - commentable.comments.each do |comment| 
+ 
 .comment
 	.commentTopInfo
 		%p.commentDate
@@ -31,5 +26,3 @@
 			= link_to "Reply", new_polymorphic_path([@commentable, Comment.new], :parent_id => comment)
 		
 		= nested_comments comment.children
-
-%h3 Reply to thread
