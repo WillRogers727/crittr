@@ -22,7 +22,7 @@
 
 
 / = render partial: "comments/comments", locals: {commentable: @post}
-
+%h3.commentHeader Comments
 = nested_comments @comments
 
 = render partial: "comments/form", locals: {commentable: @post}

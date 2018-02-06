@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
 
 	def create
 		@commentable = find_commentable
-		@comment = @commentable.comments.build(params[:comment]) # This is the line that causes the error
+		@comment = @commentable.comments.build(comment_params) # This is the line that causes the error
 		# @comment = @commentable.comments.build(comment_params)--when changed to this, the submit button simply stops submitting anything
 		@comment.user = current_user
 		if @comment.save
@@ -41,7 +41,7 @@ class CommentsController < ApplicationController
 	private
 
   def comment_params
-    params.require(:comment).permit(:parent_id, :comment)
+    params.require(:comment).permit(:comment, :parent_id, :commentable_id, :commentable_type)
   end 
 
   def find_commentable

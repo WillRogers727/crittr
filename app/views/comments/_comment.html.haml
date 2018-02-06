@@ -1,5 +1,3 @@
-%h3.commentHeader Comments
- 
 .comment
 	.commentTopInfo
 		%p.commentDate
@@ -22,7 +20,7 @@
 			= comment.user.username
 	
 		- if current_user.id == comment.user_id
-			=link_to "Delete Comment", [commentable, comment], method: :delete, data: {confirm: "Are you sure you want to do this?"}
+			=link_to "Delete Comment", [@commentable, comment], method: :delete, data: {confirm: "Are you sure you want to do this?"}
 			= link_to "Reply", new_polymorphic_path([@commentable, Comment.new], :parent_id => comment)
 		
 		= nested_comments comment.children
