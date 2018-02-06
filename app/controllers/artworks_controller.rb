@@ -1,6 +1,7 @@
 class ArtworksController < ApplicationController
 before_action :find_artwork, only: [:show, :edit, :update, :destroy] #so that code doesnt have to be repeated
 before_action :authenticate_user!, except: [:index, :show] #makes sure the user cannot just path to a new post page without signing in
+include Commentable
 
 def index
 	@search = Artwork.ransack(params[:q])
