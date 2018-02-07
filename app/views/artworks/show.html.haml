@@ -59,6 +59,8 @@
 
 %script{type: "text/javascript"}
 	:plain
+		$('.image-1').addClass('visible');
+		$('.image-1').removeClass('hidden');
 		$('input[type=radio][name=artToggle]').change(function() {
 			var num = this.value;
 			var imgClass = "image-"+num;
