@@ -3,7 +3,7 @@
 .questionSection
 	%p= @post.content
 
-.descriptionSection	
+.descriptionSection
 	%p= @post.cat
 	- if @post.answered == true
 		%p.answered Answered
@@ -21,7 +21,7 @@
 			= @post.get_downvotes.size
 
 
-/ = render partial: "comments/comments", locals: {commentable: @post}
+
 %h3.commentHeader Comments
 = nested_comments @comments
 

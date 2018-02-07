@@ -12,4 +12,13 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery3
+//= require jquery_ujs
 //= require_tree .
+
+
+
+// $(document).on('artworks#show:loaded', function(){
+//     alert("Artwork show page loaded");
+// });
+

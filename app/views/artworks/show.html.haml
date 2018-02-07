@@ -3,13 +3,23 @@
 .artImageSection
 	.artImageGallery
 		- unless @pictures.empty?
+			- c = 1 #counter to assign class names to images
 			- @pictures.each do |pic|
-				.artImage
+				.artImage{class: "hidden image-" + c.to_s}
 					= image_tag pic.image.url
+					- c+=1 #add one to counter per loop
 					- if user_signed_in?
 						- if @artwork.user.id == current_user.id
 							- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
 								= link_to "Delete Image", [@artwork, pic], :data => { :confirm => "Are you sure?"}, :method => :delete
+	
+	.artToggles
+		- i = 1 # counter to assign class names to toggles
+		- unless @pictures.size <= 1
+			- while (i <= @pictures.size) do
+				%input{:type => "radio", :name => "artToggle", :checked => "", :class => "artToggle", :value => i.to_s}
+				- i+=1 #add one to counter per loop
+
 
 .descriptionSection
 	%p= @artwork.description
@@ -47,3 +57,14 @@
 	/ = link_to "Add new image", new_artwork_picture_path(@artwork)
 = link_to "Gallery", artworks_path
 
+%script{type: "text/javascript"}
+	:plain
+		$('input[type=radio][name=artToggle]').change(function() {
+			var num = this.value;
+			var imgClass = "image-"+num;
+			$('.artImage').removeClass('visible');
+			$('.artImage').addClass('hidden');
+			$('.'+imgClass).addClass('visible');
+			$('.'+imgClass).removeClass('hidden');
+			
+		});
