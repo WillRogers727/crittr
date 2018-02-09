@@ -97,12 +97,13 @@ def create_picture
 	redirect_to @artwork
 end
 
+
+
 private
 
 	def find_artwork
-		@artwork = Artwork.find(params[:id])
+		@artwork = Artwork.includes(:pictures).find(params[:id])
 	end
-
 
 	def artwork_params
 		params.require(:artwork).permit(:title, :description, :cat, :pictures, :tag_list)

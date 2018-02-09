@@ -33,29 +33,21 @@
 			= @artwork.get_upvotes.size
 		%div.downArrow
 			= link_to "Downvote", dislike_artwork_path(@artwork), method: :put
-			= @artwork.get_downvotes.size
+			= @artwork.get_downvotes.size	
+	- if user_signed_in?
+		- if @artwork.user.id == current_user.id
+			= link_to "Delete", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}
+			.addImageSection
+				%h3 Add another Image:
+				= render partial: "picture_form"
 
-= render partial: "picture_form"
 
-
-/ = render partial: "comments/comments", locals: {commentable: @artwork}
 
 %h3.commentHeader Comments
-= nested_comments @comments
 
 = render partial: "comments/form", locals: {commentable: @artwork}
 
-
-- if user_signed_in?
-	- if @artwork.user.id == current_user.id
-		= link_to "Edit", edit_artwork_path(@artwork)
-		= link_to "Delete", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}
-	
-	
-	
-
-	/ = link_to "Add new image", new_artwork_picture_path(@artwork)
-= link_to "Gallery", artworks_path
+= nested_comments @comments
 
 %script{type: "text/javascript"}
 	:plain

@@ -28,14 +28,35 @@
 .thumbnail {
 	width: 100%;
 	height: auto;
-
+	position: relative;
 }
 
-.thumbnail img {
+.thumbImg {
 	width: 100%;
 	height: auto;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
+}
+
+.thumbImg img {
+	width: 100%;
+	height: auto;
+}
+
+.thumbToggles {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+/*	background-color: #135790;*/
+	display: flex;
+	flex-direction: row;
+}
+
+.tToggle {
+	height: 100%;
+/*	background-color: #123566;*/
+	border: 1px solid #000;
+	flex-grow: 1;
 }
 
 .info {
@@ -101,7 +122,6 @@
 
 .artImage {
 	width: 100%;
-	background-color: #123456;
 }
 
 .artImage img {
