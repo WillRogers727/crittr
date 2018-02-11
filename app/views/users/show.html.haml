@@ -1,11 +1,27 @@
-%h1 User profile page
+.titleSection
+	%h1.threadTitle User Profile
 
-= image_tag @user.avatar.url(:medium)
 
-%h2= @user.username
-%h2= @user.email
-
-= if current_user == @user #if current user's page then add sign put button
-	= link_to "Sign Out", destroy_user_session_path, method: :delete
-	= link_to "Edit Profile", edit_user_registration_path
+.profileSection
+	
+	.profileInner
+		.profilePicSection
+			= image_tag @user.avatar.url(:medium)
+		.profileInfoSection
+			.profileInfo
+				%h2= @user.username
+				%p
+					Member Since: 
+					= @user.created_at.to_date
+				%p
+					Posts: 
+					= (@user.artworks.size) + (@user.posts.size)
+				%p
+					Comments: 
+					= @user.comments.size
+			.profileControls
+				- if current_user == @user #if current user's page then add sign put button
+					= link_to "Edit Profile", edit_user_registration_path
+					= link_to "Sign Out", destroy_user_session_path, method: :delete
+					
 

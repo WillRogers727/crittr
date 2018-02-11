@@ -346,5 +346,69 @@ p {
 	margin-top: 10px;
 }
 
+/* ============== PROFILE PAGE ============== */
 
-/* ========================================= */
+.profileSection {
+	width: 100%;
+	height: auto;
+	padding: 50px 0% 50px 0%;
+	background-color: #d5d5d5;
+	font-family: 'Heebo', sans-serif;
+}
+
+.profileInner {
+	width: 60%;
+	height: auto;
+	padding: 0 0 0 20%;
+	display: flex;
+}
+
+.profilePicSection {
+	
+}
+
+.profilePicSection img {
+	border: solid 4px #222222;
+	border-radius: 5px;
+}
+
+.profileInfoSection {
+	flex-grow: 1;
+	padding: 30px;
+	display: flex;
+	flex-direction: column;
+}
+
+.profileInfo {
+	flex-grow: 1;
+	width: 100%;
+	height: auto;
+}
+
+.profileInfo h2 {
+	font-size: 1.8em;
+}
+
+.profileControls {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+.profileControls a {
+	color: #151515;
+	font-weight: 400;
+	font-size: 1.2em;
+	text-decoration: none;
+	padding: 0 5px 0 5px;
+}
+
+
+.profileControls a:hover {
+	color: #d5d5d5;
+	-webkit-transition: 0.5s;
+	transition: 0.5s;
+}
+
+/* ========================================== */

@@ -8,6 +8,9 @@ end
 
 def show
   @user = User.find(params[:id])
+  @artworks = @user.artworks
+  @posts = @user.posts
+  @comments = @user.comments
 end
 
 
