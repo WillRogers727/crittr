@@ -1,4 +1,11 @@
-= form_for [@commentable, @comment] do |f|
-	= f.hidden_field :parent_id
-	= f.text_area :comment
-	= f.submit
+.form
+	.inner
+		= form_for [@commentable, @comment] do |f|
+			.formItem
+				%h2 Reply to Comment
+			.formItem
+				= f.hidden_field :parent_id
+			.formItem
+				= f.text_area :comment
+			.formItem
+				= f.submit
