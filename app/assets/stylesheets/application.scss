@@ -199,6 +199,24 @@ p {
 	flex-wrap: nowrap;
 }
 
+.gallery {
+	margin-left: 200px;
+	flex-grow: 1;
+}
+
+.galleryTopbar {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.searchBar {
+	margin-right: 5%;
+}
+
 .sidebar {
 	width: 200px;
 	min-width: 200px;
@@ -209,6 +227,7 @@ p {
 	float: left;
 	display: flex;
 	flex-direction: column;
+	position: fixed;
 }
 
 .sidebarHeader {
@@ -256,7 +275,8 @@ p {
 }
 
 .forumTitle {
-	font-size: 40px;
+	font-size: 3em;
+	margin: 30px 0 30px 5%;
 }
 
 #divider {

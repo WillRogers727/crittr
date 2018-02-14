@@ -3,14 +3,15 @@
 	= render "layouts/sidebar"
 
 	.gallery
-		%h1.forumTitle Artwork Forum
-		#buttons
-			- if user_signed_in?
-				= link_to "New Artwork", new_artwork_path
+		.galleryTopbar
+			%h1.forumTitle Artwork Forum
+			#buttons
+				- if user_signed_in?
+					= link_to "New Artwork", new_artwork_path
 
-		= search_form_for @search do |f|
-			= f.search_field :title_cont 
-			= f.submit		
+			= search_form_for @search, :class => "searchBar" do |f|
+				= f.search_field :title_cont 
+				= f.submit		
 
 		.artworkThumbSection
 			- @artworks.each do |artwork|
@@ -71,7 +72,9 @@
 
 
 
-
+%div.classname
+	.another
+		
 
 
 
