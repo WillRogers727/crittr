@@ -113,6 +113,7 @@ p {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .topBar a {
@@ -146,6 +147,13 @@ p {
 }
 
 .dropBtn {
+	font-size: 2em;
+	height: 50px;
+	background-color: none;
+	border: none;
+	background: none;
+	margin-top: 5px;
+	color: #151515;
 }
 
 .dropDown {
@@ -180,6 +188,8 @@ p {
 
 .profileThumb {
 	height: 50px;
+	border: 2px solid #151515;
+	border-radius: 5px;
 }
 
 .profileThumb img {
@@ -228,16 +238,18 @@ p {
 	display: flex;
 	flex-direction: column;
 	position: fixed;
+	font-family: 'Heebo', sans-serif;
 }
 
 .sidebarHeader {
 	color: #f7f7f7;
+	font-size: 1.2em;
 }
 
 .sideSection {
 	width: 200px;
 	height: auto;
-	padding: 10px 5px 10px 5px;
+	padding: 10px 5px 10px 10px;
 }
 
 .sorting {
@@ -245,19 +257,38 @@ p {
 	flex-direction: column;
 }
 
-.sorting a {
+.sideSection a {
 	padding: 5px 0 5px 0;
-}
+	text-decoration: none;
+	color: #d5d5d5;
+	margin-left: 5px;
+}	
 
 .forumLinks {
 	width: 100%;
-	margin-top: 10px;
 }
 
 .fLink {
 	text-decoration: none;
-	margin-left: 5px;
 	font-size: 1.2em;
+}
+
+.fLinkButton {
+	width: 80%;
+	height: 40px;
+	background-color: #d5d5d5;
+	color: #151515;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 5px;
+}
+
+.sidebarForm {
+	margin: 5px 0 10px 0;
+}
+
+.sidebarForm input {
+	margin-top: 10px;
 }
 
 /* ========================================= */

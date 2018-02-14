@@ -1,11 +1,12 @@
 .sidebar
-	.forumLinks
-		= link_to "Artwork Forum", artworks_path, class: "fLink"
-		= link_to "Questions Forum", posts_path, class: "fLink"
-
+	.sideSection.forumLinks
+		= link_to artworks_path, class: "fLink" do
+			.fLinkButton Artwork Forum
+		= link_to posts_path, class: "fLink" do
+			.fLinkButton Question Forum
 	.category.sideSection
 		%h2.sidebarHeader Art/Design Category
-		= search_form_for @search do |f|
+		= search_form_for @search, class: "sidebarForm" do |f|
 			= f.select  :cat_matches, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design]
 			= f.submit
 
