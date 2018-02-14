@@ -17,13 +17,18 @@
 		- i = 1 # counter to assign class names to toggles
 		- unless @pictures.size <= 1
 			- while (i <= @pictures.size) do
-				%input{:type => "radio", :name => "artToggle", :checked => "", :class => "artToggle", :value => i.to_s}
+				%label.tContainer 
+					Image
+					= i.to_s
+					%input{:type => "radio", :name => "artToggle", :checked => "", :class => "artToggle", :value => i.to_s}
 				- i+=1 #add one to counter per loop
 
 
 .descriptionSection
 	%p= @artwork.description
-	%p= @artwork.cat
+	%p
+		Category: 
+		= @artwork.cat
 	%p
 		Tags: 
 		= @artwork.tag_list

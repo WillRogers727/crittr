@@ -7,7 +7,7 @@
 	.category.sideSection
 		%h2.sidebarHeader Art/Design Category
 		= search_form_for @search, class: "sidebarForm" do |f|
-			= f.select  :cat_matches, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design]
+			= f.select  :cat_matches, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design Photography]
 			= f.submit
 
 	.sorting.sideSection
