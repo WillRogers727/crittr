@@ -1,3 +1,31 @@
-// Place all the styles related to the conversations controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.convoTitle {
+	width: 90%;
+	padding: 0 5% 0 5%;
+	height: 75px;
+	background-color: #d5d5d5;
+	line-height: 75px;
+	font-size: 1.6em;
+	font-weight: 700;
+	font-family: 'Heebo', sans-serif;
+	position: fixed;
+	-webkit-box-shadow: -1px 2px 25px -7px rgba(0,0,0,0.75);
+	-moz-box-shadow: -1px 2px 25px -7px rgba(0,0,0,0.75);
+	box-shadow: -1px 2px 25px -7px rgba(0,0,0,0.75);
+	color: #151515;
+}
+
+.convoSection {
+	width: 100%;
+	height: auto;
+	padding-top: 75px;
+}
+.convoLink {
+	width: 90%;
+	height: 60px;
+	padding: 20px 5% 20px 5%;
+	background-color: #ebebeb;
+	border: solid 1px #000;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+

@@ -1,24 +1,30 @@
+%h3.msgTitle Other user username here
+
+
 / - if @over_ten
 / 	= link_to ‘Show Previous’, ‘?m=all’
-
-- @messages.each do |message|
-	- if message.body 
-		- user = User.find(message.user_id)
-		- if message.user_id == current_user.id
-			.messageSelf.message
-				%p You:
-				%p= message.message_time
-				%p= message.body
-		- else
-			.messageThem.message	
-				%p= user.email
-				%p= message.message_time
-				%p= message.body
+.messagesContainer
+	- @messages.each do |message|
+		- if message.body 
+			- user = User.find(message.user_id)
+			- if message.user_id == current_user.id
+				.selfSection.msgSection
+					.messageSelf.message
+						/ %p You:
+						%p= message.body
+						%p.msgTime= message.message_time
+			- else
+				.themSection.msgSection
+					.messageThem.message	
+						/ %p= user.email
+						%p= message.body
+						%p.msgTime= message.message_time
 			
 
+.messageReplyForm
+	= link_to "<- Conversations", conversations_path
+	= form_for [@conversation, @message] do |f| 
+		= f.text_area :body
+		= f.text_field :user_id, value: current_user.id, type: "hidden"
 
-= form_for [@conversation, @message] do |f| 
-	= f.text_area :body
-	= f.text_field :user_id, value: current_user.id, type: "hidden"
-
-	= f.submit "Send"
+		= f.submit "Send"
