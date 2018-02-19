@@ -18,6 +18,7 @@
             %button.dropBtn &#x25BC
             .dropDownContent
               = link_to "User Profile", current_user
+              = link_to "Messages", conversations_path
               = link_to "Sign Out", destroy_user_session_path, method: :delete  
           .profileThumb
             = image_tag current_user.avatar.url(:thumb) 
