@@ -46,6 +46,11 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index]
 
+
+  resources :conversations do
+    resources :messages
+  end
+  
   # resources :posts do
   # 	resources :comments
   # end
