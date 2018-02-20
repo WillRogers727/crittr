@@ -1,9 +1,7 @@
 class PicturesController < ApplicationController
  def index
-
     @artwork = Artwork.find(params[:artwork_id])
     @pictures = @artwork.pictures
-
   end
 
   def show
