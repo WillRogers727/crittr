@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :categories
   devise_for :views
   devise_for :users
   root 'pages#home' #set site to default to the new home page
@@ -43,6 +42,8 @@ Rails.application.routes.draw do
     end
   end
 
+
+  resources :categories
   
 
   resources :users, only: [:show, :index]

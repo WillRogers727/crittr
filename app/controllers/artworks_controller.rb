@@ -6,6 +6,7 @@ include Commentable
 def index
 	@search = Artwork.ransack(params[:q])
 	@artworks = @search.result
+	@categories = Category.all
 end
 
 def show

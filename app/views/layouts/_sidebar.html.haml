@@ -6,6 +6,10 @@
 			.fLinkButton Question Forum
 	.category.sideSection
 		%h2.sidebarHeader Art/Design Category
+		- @categories.each do |cat|
+			%p= link_to cat.name, cat
+
+
 		/ = search_form_for @search, class: "sidebarForm" do |f|
 		/ 	= f.select  :cat_matches, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design Photography]
 		/ 	= f.submit
@@ -13,11 +17,11 @@
 
 	.sorting.sideSection
 		%h2.sidebarHeader Sort by
-		= sort_link @search, :created_at, "Date Created"
-		= sort_link @search, :title, "By Title"
-		= sort_link @search, :cached_votes_up, "By Upvotes"
-		= sort_link @search, :cached_votes_down, "By Downvotes"
-		= sort_link @search, :answered, "Answered"
+		/ = sort_link @search, :created_at, "Date Created"
+		/ = sort_link @search, :title, "By Title"
+		/ = sort_link @search, :cached_votes_up, "By Upvotes"
+		/ = sort_link @search, :cached_votes_down, "By Downvotes"
+		/ = sort_link @search, :answered, "Answered"
 
 
 	

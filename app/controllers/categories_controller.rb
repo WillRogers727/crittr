@@ -5,7 +5,11 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+
   def show
+    @categories = Category.all
+    @artworks = Artwork.all
+    @posts = Post.all
   end
 
   def new

@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 	def index #index through all of the various posts
 		@search = Post.ransack(params[:q])
 		@posts = @search.result
+		@categories = Category.all
 	end
 
 	def show
