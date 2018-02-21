@@ -37,8 +37,11 @@
 			.info	
 				%h2.title= link_to artwork.title, artwork
 				%p
-					Category: 
-					= artwork.cat	
+					Category:
+					- if artwork.category_id == nil
+						Uncategorized
+					- else 
+						= Category.find(artwork.category_id).name
 				%p 
 					Upvotes:
 					= artwork.get_upvotes.size
@@ -78,8 +81,11 @@
 						- else
 							%p.unanswered Unanswered
 					%p
-						Category: 
-						= post.cat	
+						Category:
+						- if post.category_id == nil
+							Uncategorized
+						- else 
+							= Category.find(post.category_id).name
 			.postThumbRight
 				.profileIcon
 					=image_tag post.user.avatar.url(:thumb)

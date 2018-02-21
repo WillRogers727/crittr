@@ -13,9 +13,7 @@
 				= f.label :tag_list, "Tags (separated by commas)"
 				= f.input :tag_list, label: false
 			.formItem
-				/ = f.label :cat, "Art or Design Category"
-				/ = f.input  :cat, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design Photography], label: false
-
+				= f.label :category_id, "Art or Design Category"
 				= f.select(:category_id, options_for_select(@categories))
 			.formItem
 				= f.submit

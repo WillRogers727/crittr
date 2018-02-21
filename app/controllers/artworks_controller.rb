@@ -14,11 +14,13 @@ def show
 end
 
 def new
+	@categories = Category.all.map{|c| [c.name, c.id] }
 	@artwork = current_user.artworks.build
 end
 
 def create
 	# @artwork = Artwork.new(artwork_params)
+	@categories = Category.all.map{|c| [c.name, c.id] }
 	@artwork = current_user.artworks.build(artwork_params)
 	# respond_to do |format|
 		if @artwork.save
@@ -45,6 +47,7 @@ end
 
 def edit
 	@artwork = Artwork.find(params[:id])
+	@categories = Category.all.map{|c| [c.name, c.id] }
 end
 
 def update
@@ -106,7 +109,7 @@ private
 	end
 
 	def artwork_params
-		params.require(:artwork).permit(:title, :description, :cat, :pictures, :tag_list)
+		params.require(:artwork).permit(:title, :description, :pictures, :tag_list, :category_id)
 	end
 
 

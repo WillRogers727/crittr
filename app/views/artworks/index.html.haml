@@ -34,8 +34,11 @@
 					.info	
 						%h2.title= link_to artwork.title, artwork
 						%p
-							Category: 
-							= artwork.cat	
+							Category:
+							- if artwork.category_id == nil
+								Uncategorized
+							- else 
+								= Category.find(artwork.category_id).name
 						%p 
 							Upvotes:
 							= artwork.get_upvotes.size

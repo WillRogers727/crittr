@@ -4,7 +4,13 @@
 	%p= @post.content
 
 .descriptionSection
-	/ %p= @post.cat
+	%p
+		Category:
+		- if @post.category_id == nil
+			Uncategorized
+		- else 
+			= Category.find(@post.category_id).name
+			
 	- if @post.answered == true
 		%p.answered Answered
 	- else

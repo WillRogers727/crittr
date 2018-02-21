@@ -27,8 +27,11 @@
 .descriptionSection
 	%p= @artwork.description
 	%p
-		Category: 
-		= @artwork.cat
+		Category:
+		- if @artwork.category_id == nil
+			Uncategorized
+		- else 
+			= Category.find(@artwork.category_id).name
 	%p
 		Tags: 
 		= @artwork.tag_list

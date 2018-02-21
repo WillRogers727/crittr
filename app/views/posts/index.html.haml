@@ -35,8 +35,11 @@
 							- else
 								%p.unanswered Unanswered
 						%p
-							Category: 
-							/ = post.cat	
+							Category:
+							- if post.category_id == nil
+								Uncategorized
+							- else 
+								= Category.find(post.category_id).name
 				.postThumbRight
 					.profileIcon
 						=image_tag post.user.avatar.url(:thumb)
