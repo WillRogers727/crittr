@@ -12,10 +12,12 @@ class PostsController < ApplicationController
 	end
 
 	def new
+		@categories = Category.all.map{|c| [c.name, c.id] }
 		@post = current_user.posts.build
 	end
 
 	def create
+		@categories = Category.all.map{|c| [c.name, c.id] }
 		@post = current_user.posts.build(post_params)
 
 		if @post.save
@@ -26,6 +28,7 @@ class PostsController < ApplicationController
 	end
 
 	def edit
+		@categories = Category.all.map{|c| [c.name, c.id] }
 	end
 
 	def update
@@ -67,7 +70,7 @@ class PostsController < ApplicationController
 
 
 	def post_params
-		params.require(:post).permit(:title, :content, :cat, :tag_list)
+		params.require(:post).permit(:title, :content, :tag_list, :category_id)
 	end
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219115407) do
+ActiveRecord::Schema.define(version: 20180221153549) do
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -35,6 +35,20 @@ ActiveRecord::Schema.define(version: 20180219115407) do
     t.index ["cached_weighted_total"], name: "index_artworks_on_cached_weighted_total"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "comment_hierarchies", force: :cascade do |t|
+    t.integer "ancestor_id", null: false
+    t.integer "descendant_id", null: false
+    t.integer "generations", null: false
+    t.index ["ancestor_id", "descendant_id", "generations"], name: "comment_anc_desc_udx", unique: true
+    t.index ["descendant_id"], name: "comment_desc_idx"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text "comment"
     t.integer "user_id"
@@ -42,6 +56,7 @@ ActiveRecord::Schema.define(version: 20180219115407) do
     t.datetime "updated_at", null: false
     t.integer "commentable_id"
     t.string "commentable_type"
+    t.integer "parent_id"
     t.integer "cached_votes_total", default: 0
     t.integer "cached_votes_score", default: 0
     t.integer "cached_votes_up", default: 0
@@ -94,7 +109,6 @@ ActiveRecord::Schema.define(version: 20180219115407) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.string "cat"
     t.integer "cached_votes_total", default: 0
     t.integer "cached_votes_score", default: 0
     t.integer "cached_votes_up", default: 0
@@ -103,6 +117,7 @@ ActiveRecord::Schema.define(version: 20180219115407) do
     t.integer "cached_weighted_total", default: 0
     t.float "cached_weighted_average", default: 0.0
     t.boolean "answered"
+    t.string "category_id"
     t.index ["cached_votes_down"], name: "index_posts_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_posts_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_posts_on_cached_votes_total"

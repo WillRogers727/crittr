@@ -4,7 +4,7 @@
 	%p= @post.content
 
 .descriptionSection
-	%p= @post.cat
+	/ %p= @post.cat
 	- if @post.answered == true
 		%p.answered Answered
 	- else

@@ -6,9 +6,10 @@
 			.fLinkButton Question Forum
 	.category.sideSection
 		%h2.sidebarHeader Art/Design Category
-		= search_form_for @search, class: "sidebarForm" do |f|
-			= f.select  :cat_matches, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design Photography]
-			= f.submit
+		/ = search_form_for @search, class: "sidebarForm" do |f|
+		/ 	= f.select  :cat_matches, :collection => %w[Fine_Art Digital_Painting 3D_Model Concept_Art Drawing Graphic_Design UI_Design Photography]
+		/ 	= f.submit
+
 
 	.sorting.sideSection
 		%h2.sidebarHeader Sort by
@@ -17,9 +18,15 @@
 		= sort_link @search, :cached_votes_up, "By Upvotes"
 		= sort_link @search, :cached_votes_down, "By Downvotes"
 		= sort_link @search, :answered, "Answered"
-	
-
 
 
 	
 	
+/ = search_form_for @search, :class => "searchBar" do |f|
+/ 				= f.condition_fields do |c|
+/ 					= c.attribute_fields do |a|
+/ 						= a.attribute_select
+/ 					= c.value_fields do |v|
+/ 						v.text_field :value
+
+/ 				= f.submit
