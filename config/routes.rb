@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'pages#home' #set site to default to the new home page
 
 
-  resources :categories do
+  resources :categories, shallow: true do 
     resources :posts do
       resources :comments, module: :posts do
       end

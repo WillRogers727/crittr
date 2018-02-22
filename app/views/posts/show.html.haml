@@ -31,7 +31,7 @@
 %h3.commentHeader Comments
 = nested_comments @comments
 
-/ = render partial: "comments/form", locals: {commentable: @post}
+= render partial: "comments/form", locals: {commentable: @post}
 
 - if user_signed_in?
 	- if current_user.id == @post.user_id
