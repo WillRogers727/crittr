@@ -1,6 +1,6 @@
 .form
 	.inner
-		= simple_form_for @post do |f|
+		= simple_form_for @post, url: category_posts_path do |f|
 			.formItem
 				%h2 New Question
 			.formItem

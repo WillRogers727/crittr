@@ -16,7 +16,7 @@
 			.postContainer
 				.postThumbLeft
 					.leftUpper.leftSection
-						/ %h2.title= link_to post.title, post
+						%h2.title= link_to post.title, category_post_path(post.category_id, post.id)
 						%p.date
 							Published
 							= time_ago_in_words(post.created_at)

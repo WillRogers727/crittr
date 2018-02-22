@@ -24,7 +24,7 @@ class PostsController < ApplicationController
 		@post = current_user.posts.build(post_params)
 
 		if @post.save
-			redirect_to @post #if post is saved redirect to it's page
+			redirect_to category_post_path(@post.category_id, @post.id), notice: "Post submitted successfully"
 		else
 			render 'new' #else render the form again
 		end
@@ -50,19 +50,19 @@ class PostsController < ApplicationController
 	def upvote
 		@post = Post.find(params[:id])
 		@post.upvote_by current_user
-		redirect_to @post 
+		redirect_to category_post_path(@post.category_id, @post.id)
 	end
 
 	def downvote
 		@post = Post.find(params[:id])
 		@post.downvote_by current_user
-		redirect_to @post #maybe change to - :back returns you to the same page - upvotes/downvotes can be on index and show pages
+		redirect_to category_post_path(@post.category_id, @post.id)
 	end
 
 	def set_answered
 		@post = Post.find(params[:id])
 		@post.update_attribute(:answered, true)
-		redirect_to @post
+		redirect_to category_post_path(@post.category_id, @post.id)
 	end
 
 	private
