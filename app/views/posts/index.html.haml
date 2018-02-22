@@ -1,52 +1,5 @@
 .mainBody
-	= render "layouts/sidebar"
-	.gallery
-		.galleryTopbar
-			%h1.forumTitle Questions Forum
-
-			
-			- if user_signed_in?
-				= link_to "Submit Question", new_post_path
-
-			= search_form_for @search, :class => "searchBar" do |f|
-				= f.search_field :title_cont 
-				= f.submit		
-
-		- @posts.each do |post|
-			.postContainer
-				.postThumbLeft
-					.leftUpper.leftSection
-						%h2.title= link_to post.title, post
-						%p.date
-							Published
-							= time_ago_in_words(post.created_at)
-							ago
-					.leftLower.leftSection
-						%p 
-							Upvotes:
-							= post.get_upvotes.size
-						%p
-							Comment (
-							= post.comments.size
-							)
-						%p
-							- if post.answered == true
-								%p.answered Answered
-							- else
-								%p.unanswered Unanswered
-						%p
-							Category:
-							- if post.category_id == nil
-								Uncategorized
-							- else 
-								= Category.find(post.category_id).name
-				.postThumbRight
-					.profileIcon
-						=image_tag post.user.avatar.url(:thumb)
-				
-				
-				
-				
+	= render :partial => 'posts/index'
 
 
 

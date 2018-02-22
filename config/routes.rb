@@ -2,16 +2,11 @@ Rails.application.routes.draw do
   devise_for :views
   devise_for :users
   root 'pages#home' #set site to default to the new home page
-  # resources :posts, :artworks do
-  # 	resources :comments, only: [:create, :destroy]
-  # end
+
+
 
   resources :posts do
     resources :comments, module: :posts do
-      # member do
-      #   put "like", to: "comments#upvote"
-      #   put "dislike", to: "comments#downvote"
-      # end
     end
     member do
       put "like", to: "posts#upvote"
@@ -22,10 +17,6 @@ Rails.application.routes.draw do
 
   resources :artworks do
     resources :comments, module: :artworks do
-      # member do
-      #   put "like", to: "comments#upvote"
-      #   put "dislike", to: "comments#downvote"
-      # end
     end
     resources :pictures
     member do
@@ -53,12 +44,5 @@ Rails.application.routes.draw do
     resources :messages
   end
   
-  # resources :posts do
-  # 	resources :comments
-  # end
-  # resources :artworks do
-  # 	resources :comments
-  # end
-
 
 end

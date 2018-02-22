@@ -1,4 +1,8 @@
 .sidebar
+	- if section == 1
+		%h2.sidebarHeader Artwork
+	- else
+		%h2.sidebarHeader Post
 	.sideSection.forumLinks
 		= link_to artworks_path, class: "fLink" do
 			.fLinkButton Artwork Forum
