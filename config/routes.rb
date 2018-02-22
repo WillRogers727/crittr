@@ -4,25 +4,26 @@ Rails.application.routes.draw do
   root 'pages#home' #set site to default to the new home page
 
 
+  resources :categories do
+    resources :posts do
+      resources :comments, module: :posts do
+      end
+      member do
+        put "like", to: "posts#upvote"
+        put "dislike", to: "posts#downvote"
+        put 'set_answered' #put is used to update values
+      end
+    end   
 
-  resources :posts do
-    resources :comments, module: :posts do
-    end
-    member do
-      put "like", to: "posts#upvote"
-      put "dislike", to: "posts#downvote"
-      put 'set_answered' #put is used to update values
-    end
-  end   
-
-  resources :artworks do
-    resources :comments, module: :artworks do
-    end
-    resources :pictures
-    member do
-      put "like", to: "artworks#upvote"
-      put "dislike", to: "artworks#downvote"
-      patch 'create_picture'
+    resources :artworks do
+      resources :comments, module: :artworks do
+      end
+      resources :pictures
+      member do
+        put "like", to: "artworks#upvote"
+        put "dislike", to: "artworks#downvote"
+        patch 'create_picture'
+      end
     end
   end
 
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   end
 
 
-  resources :categories
+  
   
 
   resources :users, only: [:show, :index]
@@ -44,5 +45,6 @@ Rails.application.routes.draw do
     resources :messages
   end
   
+
 
 end

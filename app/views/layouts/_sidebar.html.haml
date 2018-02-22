@@ -4,14 +4,18 @@
 	- else
 		%h2.sidebarHeader Post
 	.sideSection.forumLinks
-		= link_to artworks_path, class: "fLink" do
+		= link_to category_artworks_path(1), class: "fLink" do
 			.fLinkButton Artwork Forum
-		= link_to posts_path, class: "fLink" do
+		= link_to category_posts_path(1), class: "fLink" do
 			.fLinkButton Question Forum
 	.category.sideSection
 		%h2.sidebarHeader Art/Design Category
-		- @categories.each do |cat|
-			%p= link_to cat.name, cat
+		- if section == 1 #if artwork forum links go to artwork forum path
+			- @categories.each do |cat|
+				%p= link_to cat.name, category_artworks_path(cat.id)
+		- else # else it links to the posts forum
+			- @categories.each do |cat|
+				%p= link_to cat.name, category_posts_path(cat.id)
 
 
 		/ = search_form_for @search, class: "sidebarForm" do |f|

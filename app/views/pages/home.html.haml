@@ -1,13 +1,13 @@
 %h1.subHeader Welcome to Crittr.
 
 .mainLinks
-	=	link_to artworks_path, class: "linkLeft" do
+	=	link_to category_artworks_path(1), class: "linkLeft" do
 		.linkBox
 			%h2 
 				Artwork 
 				%br/
 				Forum
-	= link_to posts_path, class: "linkRight" do
+	= link_to category_posts_path(1), class: "linkRight" do
 		.linkBox
 			%h2 
 				Question
@@ -35,7 +35,7 @@
 						- c+=1 #add one to counter per loop
 							
 			.info	
-				%h2.title= link_to artwork.title, artwork
+				/ %h2.title= link_to artwork.title, artwork
 				%p
 					Category:
 					- if artwork.category_id == nil
@@ -62,7 +62,7 @@
 		.postContainer
 			.postThumbLeft
 				.leftUpper.leftSection
-					%h2.title= link_to post.title, post
+					/ %h2.title= link_to post.title, post
 					%p.date
 						Published
 						= time_ago_in_words(post.created_at)

@@ -4,9 +4,11 @@ class PostsController < ApplicationController
 	include Commentable
 
 	def index #index through all of the various posts
-		@search = Post.ransack(params[:q])
-		@posts = @search.result
+		# @search = Post.ransack(params[:q])
+		# @posts = @search.result
 		@categories = Category.all
+		@category = Category.find(params[:category_id])
+  	@posts = @category.posts
 	end
 
 	def show

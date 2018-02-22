@@ -4,9 +4,11 @@ before_action :authenticate_user!, except: [:index, :show] #makes sure the user 
 include Commentable
 
 def index
-	@search = Artwork.ransack(params[:q])
-	@artworks = @search.result
+	# @search = Artwork.ransack(params[:q])
+	# @artworks = @search.result
 	@categories = Category.all
+	@category = Category.find(params[:category_id])
+  @artworks = @category.artworks
 end
 
 def show
@@ -31,7 +33,7 @@ def create
 				}
 			end
 
-			redirect_to @artwork, notice: "Artwork submitted successfully"
+			redirect_to category_artwork_path(@artwork.category_id, @artwork.id), notice: "Artwork submitted successfully"
 		else
 			render 'new'
 		# end
@@ -72,19 +74,19 @@ end
 def destroy
 	@artwork = Artwork.find(params[:id])
 	@artwork.destroy
-	redirect_to root_path
+	redirect_to category_artworks_path
 end
 
 def upvote
 	@artwork = Artwork.find(params[:id])
 	@artwork.upvote_by current_user
-	redirect_to @artwork 
+	redirect_to category_artwork_path(@artwork.category_id, @artwork.id)
 end
 
 def downvote
 	@artwork = Artwork.find(params[:id])
 	@artwork.downvote_by current_user
-	redirect_to @artwork #maybe change to - :back returns you to the same page - upvotes/downvotes can be on index and show pages
+	redirect_to category_artwork_path(@artwork.category_id, @artwork.id)
 end
 
 def create_picture
@@ -98,7 +100,7 @@ def create_picture
 	@artwork.save
 	@pictures = @artwork.pictures
 	# render :action => :show
-	redirect_to @artwork
+	redirect_to category_artwork_path(@artwork.category_id, @artwork.id)
 end
 
 

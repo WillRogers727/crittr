@@ -7,9 +7,6 @@ class CategoriesController < ApplicationController
 
 
   def show
-    @categories = Category.all
-    @artworks = Artwork.all
-    @posts = Post.all
   end
 
   def new
