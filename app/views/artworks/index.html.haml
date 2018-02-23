@@ -27,7 +27,7 @@
 								- c+=1 #add one to counter per loop
 											
 					.info	
-						%h2.title= link_to artwork.title, category_artwork_path(artwork.category_id, artwork.id)
+						%h2.title= link_to artwork.title, artwork
 						%p
 							Category:
 							- if artwork.category_id == nil

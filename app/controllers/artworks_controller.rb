@@ -33,7 +33,7 @@ def create
 				}
 			end
 
-			redirect_to category_artwork_path(@artwork.category_id, @artwork.id), notice: "Artwork submitted successfully"
+			redirect_to @artwork, notice: "Artwork submitted successfully"
 		else
 			render 'new'
 		# end
@@ -74,19 +74,19 @@ end
 def destroy
 	@artwork = Artwork.find(params[:id])
 	@artwork.destroy
-	redirect_to category_artworks_path
+	redirect_to root_path
 end
 
 def upvote
 	@artwork = Artwork.find(params[:id])
 	@artwork.upvote_by current_user
-	redirect_to category_artwork_path(@artwork.category_id, @artwork.id)
+	redirect_to @artwork
 end
 
 def downvote
 	@artwork = Artwork.find(params[:id])
 	@artwork.downvote_by current_user
-	redirect_to category_artwork_path(@artwork.category_id, @artwork.id)
+	redirect_to @artwork
 end
 
 def create_picture
@@ -100,7 +100,7 @@ def create_picture
 	@artwork.save
 	@pictures = @artwork.pictures
 	# render :action => :show
-	redirect_to category_artwork_path(@artwork.category_id, @artwork.id)
+	redirect_to @artwork
 end
 
 

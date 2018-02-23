@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
 
   resources :categories, shallow: true do 
+    
     resources :posts do
       resources :comments, module: :posts do
       end
@@ -24,20 +25,16 @@ Rails.application.routes.draw do
         put "dislike", to: "artworks#downvote"
         patch 'create_picture'
       end
-    end
+    end 
   end
 
-  resources :comments do
-    member do
-      put "like", to: "comments#upvote"
-      put "dislike", to: "comments#downvote"
+  
+   resources :comments do
+      member do
+        put "like", to: "comments#upvote"
+        put "dislike", to: "comments#downvote"
+      end
     end
-  end
-
-
-  
-  
-
   resources :users, only: [:show, :index]
 
 

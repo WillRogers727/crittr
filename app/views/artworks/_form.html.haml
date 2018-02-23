@@ -1,6 +1,6 @@
 .form
 	.inner
-		= simple_form_for @artwork, url: category_artworks_path, :html => {multipart: true} do |f|
+		= simple_form_for @artwork, :html => {multipart: true} do |f|
 			.formItem
 				%h2 New Artwork
 			.formItem
