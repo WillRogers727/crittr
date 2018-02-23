@@ -8,9 +8,9 @@
 			- if user_signed_in?
 				= link_to "Submit Question", new_category_post_path
 
-			/ = search_form_for @search, :class => "searchBar" do |f|
-			/ 	= f.search_field :title_cont 
-			/ 	= f.submit		
+			= search_form_for [@category, @search], :class => "searchBar" do |f|
+				= f.search_field :title_cont 
+				= f.submit		
 
 		- @posts.each do |post|
 			.postContainer

@@ -1,5 +1,6 @@
 class ArtworksController < ApplicationController
 before_action :find_artwork, only: [:show, :edit, :update, :destroy] #so that code doesnt have to be repeated
+before_action :find_category, only: [:index]
 before_action :authenticate_user!, except: [:index, :show] #makes sure the user cannot just path to a new post page without signing in
 include Commentable
 
@@ -7,8 +8,11 @@ def index
 	# @search = Artwork.ransack(params[:q])
 	# @artworks = @search.result
 	@categories = Category.all
-	@category = Category.find(params[:category_id])
-  @artworks = @category.artworks
+	
+  # @artworks = @category.artworks
+
+  @search = @category.artworks.ransack(params[:q])
+  @artworks = @search.result
 end
 
 def show
@@ -109,6 +113,10 @@ private
 
 	def find_artwork
 		@artwork = Artwork.includes(:pictures).find(params[:id])
+	end
+
+	def find_category
+		@category = Category.find(params[:category_id])
 	end
 
 	def artwork_params

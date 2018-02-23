@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
 	before_action :find_post, only: [:show, :edit, :update, :destroy] #so that code doesnt have to be repeated
+	before_action :find_category, only: [:index]
 	before_action :authenticate_user!, except: [:index, :show] #makes sure the user cannot just path to a new post page without signing in
 	include Commentable
 
@@ -7,8 +8,9 @@ class PostsController < ApplicationController
 		# @search = Post.ransack(params[:q])
 		# @posts = @search.result
 		@categories = Category.all
-		@category = Category.find(params[:category_id])
-  	@posts = @category.posts
+  	# @posts = @category.posts
+  	@search = @category.posts.ransack(params[:q])
+  	@posts = @search.result
 	end
 
 	def show
@@ -69,6 +71,10 @@ class PostsController < ApplicationController
 
 	def find_post
 		@post = Post.find(params[:id])
+	end
+
+	def find_category
+		@category = Category.find(params[:category_id])
 	end
 
 
