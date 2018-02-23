@@ -53,7 +53,7 @@
 
 %h3.commentHeader Comments
 
-/ = render partial: "comments/form", locals: {commentable: @artwork}
+= render partial: "comments/form", locals: {commentable: @artwork}
 
 = nested_comments @comments
 
