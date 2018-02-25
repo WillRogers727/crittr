@@ -4,16 +4,23 @@ Rails.application.routes.draw do
   root 'pages#home' #set site to default to the new home page
 
   resources :categories, shallow: true do 
+    
     resources :posts
+    get 'posts/tags/:tag', to: 'posts#index', as: 'post_tag'
+    
     resources :artworks do
       resources :pictures
       member do
         patch 'create_picture'
       end
     end
+
+    get 'artworks/tags/:tag', to: 'artworks#index', as: 'artwork_tag'
   end #end of categories
   
+  
   resources :posts do
+
     resources :comments, module: :posts do
     end
     member do

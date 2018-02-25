@@ -48,13 +48,16 @@
 						- c+=1 #add one to counter per loop
 							
 			.info	
-				%h2.title= link_to artwork.title, category_artwork_path(artwork.category_id, artwork.id)
+				%h2.title= link_to artwork.title, artwork
 				%p
 					Category:
 					- if artwork.category_id == nil
 						Uncategorized
 					- else 
 						= Category.find(artwork.category_id).name
+				%p
+					Tags: 
+					= raw artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(artwork.category_id, t)}.join(', ')
 				%p 
 					Upvotes:
 					= artwork.get_upvotes.size
@@ -76,7 +79,7 @@
 	.postContainer
 		.postThumbLeft
 			.leftUpper.leftSection
-				%h2.title= link_to post.title, category_post_path(post.category_id, post.id)
+				%h2.title= link_to post.title, post
 				%p.date
 					Published
 					= time_ago_in_words(post.created_at)
@@ -85,10 +88,13 @@
 				%p 
 					Upvotes:
 					= post.get_upvotes.size
+				/ %p
+				/ 	Comment (
+				/ 	= post.comments.size
+				/ 	)
 				%p
-					Comment (
-					= post.comments.size
-					)
+					Tags: 
+					= raw post.tag_list.map { |t| link_to t, category_post_tag_path(post.category_id, t)}.join(', ')
 				%p
 					- if post.answered == true
 						%p.answered Answered

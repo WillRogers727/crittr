@@ -5,14 +5,16 @@ before_action :authenticate_user!, except: [:index, :show] #makes sure the user 
 include Commentable
 
 def index
-	# @search = Artwork.ransack(params[:q])
-	# @artworks = @search.result
 	@categories = Category.all
 	
-  # @artworks = @category.artworks
+	if params[:tag]
+		@search = @category.artworks.tagged_with(params[:tag]).ransack(params[:q])
+  	@artworks = @search.result
+	else
+		@search = @category.artworks.ransack(params[:q])
+  	@artworks = @search.result
+	end
 
-  @search = @category.artworks.ransack(params[:q])
-  @artworks = @search.result
 end
 
 def show

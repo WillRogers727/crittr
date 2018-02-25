@@ -38,6 +38,9 @@
 								Uncategorized
 							- else 
 								= Category.find(artwork.category_id).name
+						%p
+							Tags: 
+							= raw artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(artwork.category_id, t)}.join(', ')
 						%p 
 							Upvotes:
 							= artwork.get_upvotes.size
