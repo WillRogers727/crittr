@@ -38,6 +38,7 @@ Rails.application.routes.draw do
       put "like", to: "artworks#upvote"
       put "dislike", to: "artworks#downvote"
       patch 'create_picture'
+      put 'set_completed' #put is used to update values
     end
   end 
   

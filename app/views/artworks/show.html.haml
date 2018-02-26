@@ -42,20 +42,27 @@
 		%div.downArrow
 			= link_to "Downvote", dislike_artwork_path(@artwork), method: :put
 			= @artwork.get_downvotes.size	
+		- if @artwork.completed == true
+			%p.answered Completed
+		- else
+			%p.unanswered In Progress
 	- if user_signed_in?
 		- if @artwork.user.id == current_user.id
 			= link_to "Delete", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}
+			- if @artwork.completed != true
+				= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put
 			.addImageSection
 				%h3 Add another Image:
 				= render partial: "picture_form"
 
-%h3.commentHeader Reviews
+- if @artwork.completed == true
+	%h3.commentHeader Reviews
 
-= render @artwork.reviews
+	= render @artwork.reviews
 
-- if user_signed_in?
-	%p Add a review now that this artwork is complete!
-	= render 'reviews/form'
+	- if user_signed_in?
+		%p Add a review now that this artwork is complete!
+		= render 'reviews/form'
 
 
 %h3.commentHeader Comments

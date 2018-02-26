@@ -109,7 +109,11 @@ def create_picture
 	redirect_to @artwork
 end
 
-
+def set_completed
+	@artwork = Artwork.find(params[:id])
+	@artwork.update_attribute(:completed, true)
+	redirect_to @artwork
+end
 
 private
 
