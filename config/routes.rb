@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   resources :artworks do
+    resources :reviews
     resources :comments, module: :artworks do
     end
     member do

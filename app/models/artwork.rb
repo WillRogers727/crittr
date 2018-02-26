@@ -4,7 +4,7 @@ class Artwork < ApplicationRecord
 	belongs_to :user
 	belongs_to :category
 	has_many :comments, as: :commentable #polymorphic association so that comments can be made on multiple models
-
+	has_many :reviews
 
 	has_many :pictures, :dependent => :destroy
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180221165905) do
+ActiveRecord::Schema.define(version: 20180226162727) do
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -125,6 +125,16 @@ ActiveRecord::Schema.define(version: 20180221165905) do
     t.index ["cached_weighted_average"], name: "index_posts_on_cached_weighted_average"
     t.index ["cached_weighted_score"], name: "index_posts_on_cached_weighted_score"
     t.index ["cached_weighted_total"], name: "index_posts_on_cached_weighted_total"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "artwork_id"
+    t.index ["artwork_id"], name: "index_reviews_on_artwork_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "taggings", force: :cascade do |t|

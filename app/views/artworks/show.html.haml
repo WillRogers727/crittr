@@ -49,6 +49,12 @@
 				%h3 Add another Image:
 				= render partial: "picture_form"
 
+%h3.commentHeader Reviews
+= render @artwork.reviews
+
+%p Add a review now that this artwork is complete!
+
+= render 'reviews/form'
 
 
 %h3.commentHeader Comments
