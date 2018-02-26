@@ -1,5 +1,11 @@
-.review
-	%p= review.content
-	%p
-		By: 
-		= review.user.username
+.reviewContainer
+	.review
+		%h2.reviewTitle
+			Review Posted by:  
+			= review.user.username
+		%p.content= review.content
+		
+
+		- if current_user.id == review.user_id
+			.reviewLinks
+				=link_to "Delete Review", [@artwork, review] , method: :delete, data: {confirm: "Are you sure you want to do this?"}

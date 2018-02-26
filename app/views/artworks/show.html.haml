@@ -50,16 +50,18 @@
 				= render partial: "picture_form"
 
 %h3.commentHeader Reviews
+
 = render @artwork.reviews
 
-%p Add a review now that this artwork is complete!
-
-= render 'reviews/form'
+- if user_signed_in?
+	%p Add a review now that this artwork is complete!
+	= render 'reviews/form'
 
 
 %h3.commentHeader Comments
 
-= render partial: "comments/form", locals: {commentable: @artwork}
+- if user_signed_in?
+	= render partial: "comments/form", locals: {commentable: @artwork}
 
 = nested_comments @comments
 

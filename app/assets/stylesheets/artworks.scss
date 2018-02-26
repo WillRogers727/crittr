@@ -151,10 +151,60 @@
 	margin: 30px 0 0 0;
 }
 
+/** ==============COLOUR SCHEME===================
+* Primary Main = #ec8c25
+* Primary Dark = #b4620a
+* Primary Light = #fbb76d
+* Secondary Main = #151515
+* Secondary Dark = #090909
+* Secondary Light = #222222
+* Tirtiary Main = #ebebeb
+* Tirtiary Dark = #d5d5d5
+* Tirtiary Light = #f7f7f7
+
+
+*font-family: 'Heebo', sans-serif;
+*===============================================
+*/
+
 .addImageSection h3 {
 	font-family: 'Heebo', sans-serif;
 	font-size: 1.8em;
 	font-weight: 700;
 	color: #151515;
 	margin: 0 0 20px 0;
+}
+
+.reviewContainer {
+	width: 100%;
+	height: auto;
+}
+
+.review {
+	width: 96%;
+	margin: 20px 2% 20px 2%;
+	background-color: #d5d5d5;
+	-webkit-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+}
+
+.reviewTitle {
+	height: auto;
+	font-size: 1.4em;
+	width: 96%;
+	padding: 20px 2% 20px 2%;
+}
+
+.content {
+	height: auto;
+	line-height: 22px;
+	font-size: 1.2em;
+	width: 96%;
+	padding: 0 2% 20px 2%;
+}
+
+.reviewLinks {
+	width: 96%;
+	padding: 0 2% 20px 2%;
 }
