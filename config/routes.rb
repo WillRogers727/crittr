@@ -48,13 +48,17 @@ Rails.application.routes.draw do
         put "dislike", to: "comments#downvote"
       end
     end
-  resources :users, only: [:show, :index]
+  resources :users, only: [:show, :index] do
+    member do
+      get :following, :followers
+    end
+  end
 
 
   resources :conversations do
     resources :messages
   end
   
-
+  resources :relationships, only: [:create, :destroy]
 
 end

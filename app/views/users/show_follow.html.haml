@@ -1,0 +1,6 @@
+%h2= @title
+
+- @users.each do |user|
+	.user
+		%p= user.username
+		= link_to "View Profile", user

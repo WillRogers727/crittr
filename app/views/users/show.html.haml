@@ -19,6 +19,15 @@
 				%p
 					Comments: 
 					= @user.comments.size
+
+				%p
+					Following:
+					= @user.following.count
+				%p
+					Followers
+					= @user.followers.count
+
+				= render 'follow_form' if user_signed_in?
 			.profileControls
 				- if current_user == @user #if current user's page then add sign put button
 					= link_to "Edit Profile", edit_user_registration_path
