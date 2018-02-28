@@ -18,7 +18,5 @@
 
 
 
-// $(document).on('artworks#show:loaded', function(){
-//     alert("Artwork show page loaded");
-// });
+
 

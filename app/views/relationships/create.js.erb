@@ -1,0 +1,3 @@
+alert("Ajax Fired!");
+$("#follow_form").html("= escape_javascript(render('users/unfollow'))");
+$(".followers").html("Followers: ").append('= @user.followers.count');
