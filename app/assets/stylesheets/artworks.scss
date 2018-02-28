@@ -16,11 +16,20 @@
 *===============================================*/
 
 .artworkThumbSection {
-	width: 100%;
+	width: 96%;
+	padding: 0 2% 0 2%;
 	height: auto;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+}
+
+.artSpacer {
+	flex-grow: 1;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	max-width: 500px;
 }
 
 .thumbnail {
@@ -32,8 +41,6 @@
 .thumbImg {
 	width: 100%;
 	height: auto;
-	border-top-left-radius: 8px;
-	border-top-right-radius: 8px;
 }
 
 .thumbImg img {
@@ -57,38 +64,115 @@
 	flex-grow: 1;
 }
 
-.info {
-	width: 100%;
+.infoSection {
+	width: 92%;
+	padding: 15px 4% 10px 4%;
 	height: auto;
-	background-color: #d5d5d5;
+	background-color: #ebebeb;
+	display: flex;
+	justify-content: space-between;
+	flex-grow: 1;
 }
 
-.info h2 {
-	font-size: 20px;
+.title {
+	padding-bottom: 5px;
+}
+
+.info .title a{
+	width: 80%;
+	text-decoration: none;
+	color: #151515;
+	font-size: 1.4em;
+	font-weight: 700;
+}
+
+.info .title a:hover {
+	color: #b4620a;
+}
+
+.userThumb {
+	display: flex;
+	align-items: center;
+	padding-top: 10px;
+}
+
+.artUserThumb {
+	border: 2px solid #151515;
+}
+
+.artUserName {
+	text-decoration: none;
+	font-weight: 700;
+	font-family: 'Heebo', sans-serif;
+	color: #151515;
+	padding-left: 10px;
+}
+
+.artUserName:hover {
+	color: #b4620a;
+}
+
+.info p {
+	padding: 6px 0 6px 0;
+}
+
+/*.info p.category {
+	font-weight: 700;
+}*/
+
+.tagLink {
+	text-decoration: none;
+	color: #151515;
+	font-weight: 700;
+}
+
+.tagLink:hover {
+	color: #b4620a;
+}
+
+.voteSection {
+	width: auto;
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.vote {
+	display: flex;
+	height: 36px;
+	align-items: center;
+}
+
+.arrow {
+	width: 35px;
+	height: 25px;
 }
 
 .extraInfo {
-	width: 100%;
-	height: auto;
-	font-size: 14px;
-	color: #d5d5d5;
-	height: 30px;
+	width: 92%;
+	color: #222222;
+	background-color: #d5d5d5;
+	padding: 0 4% 0 4%;
+	font-size: 0.9em;
 }
 
 .extraInfo p {
-	line-height: 30px;
-	padding-left: 5px;
+	padding: 10px 0 10px 0;
 }
 
 .artworkContainer {
 	width: 300px;
 	height: auto;
 	margin: 10px;
-	border-radius: 8px;
-	background-color: #222222;
-	-webkit-box-shadow: 10px 10px 10px -7px rgba(0,0,0,0.75);
-	-moz-box-shadow: 10px 10px 10px -7px rgba(0,0,0,0.75);
-	box-shadow: 10px 10px 10px -7px rgba(0,0,0,0.75);
+	background-color: #232323;
+	-webkit-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+	-moz-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+	box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+
+	display: flex;
+	flex-direction: column;
 }
 
 /*--------------------------------------------*/
@@ -123,12 +207,6 @@
 	font-family: 'Heebo', sans-serif;
 	color: #ebebeb;
 }
-
-.artToggle {
-
-}
-
-
 
 .artImage {
 	width: 100%;

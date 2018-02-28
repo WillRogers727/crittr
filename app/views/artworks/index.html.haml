@@ -14,44 +14,52 @@
 
 		.artworkThumbSection
 			- @artworks.each do |artwork|
-				%div.artworkContainer
-					.thumbnail
-						- if artwork.pictures.any?
-							.thumbToggles
-								- i = 1 # counter to assign class names to toggles
-								- unless artwork.pictures.size <= 1
-									- while (i <= artwork.pictures.size) do
-										.tToggle{:id => i.to_s} 
-										- i+=1 #add one to counter per loop
+				.artSpacer
+					%div.artworkContainer
+						.thumbnail
+							- if artwork.pictures.any?
+								.thumbToggles
+									- i = 1 # counter to assign class names to toggles
+									- unless artwork.pictures.size <= 1
+										- while (i <= artwork.pictures.size) do
+											.tToggle{:id => i.to_s} 
+											- i+=1 #add one to counter per loop
 
-							- c = 1 #counter to assign class names to thumbs
-							- artwork.pictures.each do |p|
-								.thumbImg{class: "hidden thumb-" + c.to_s}
-									= image_tag p.image.url
-								- c+=1 #add one to counter per loop
-											
-					.info	
-						%h2.title= link_to artwork.title, artwork
-						%p
-							Category:
-							- if artwork.category_id == nil
-								Uncategorized
-							- else 
-								= Category.find(artwork.category_id).name
-						%p
-							Tags: 
-							= raw artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(artwork.category_id, t)}.join(', ')
-						%p 
-							Upvotes:
-							= artwork.get_upvotes.size
-						%p
-							Downvotes:
-							= artwork.get_downvotes.size
-					.extraInfo	
-						%p.date
-							Posted
-							= time_ago_in_words(artwork.created_at)
-							ago
+								- c = 1 #counter to assign class names to thumbs
+								- artwork.pictures.each do |p|
+									.thumbImg{class: "hidden thumb-" + c.to_s}
+										= image_tag p.image.url
+									- c+=1 #add one to counter per loop
+						.infoSection	
+							.info
+								%h2.title= link_to artwork.title, artwork
+								%p.category
+									- if artwork.category_id == nil
+										Uncategorized
+									- else 
+										= Category.find(artwork.category_id).name
+								%p
+									Tags: 
+									= raw artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(artwork.category_id, t), :class => "tagLink"}.join(', ')
+
+							.voteSection	
+								.vote
+									= link_to like_artwork_path(artwork), method: :put do
+										= image_tag "up.svg", :class => "arrow"
+								.voteCount
+									%p= artwork.get_upvotes.size
+								.vote	
+									= link_to dislike_artwork_path(artwork), method: :put do
+										= image_tag "down.svg", :class => "arrow"
+									/ %p= artwork.get_downvotes.size
+						.extraInfo	
+							.userThumb
+								=image_tag artwork.user.avatar.url(:thumb), :class => "artUserThumb"
+								=link_to artwork.user.username, artwork.user, :class => "artUserName"
+							%p.date
+								Posted 
+								= time_ago_in_words(artwork.created_at)
+								ago
 				
 
 

@@ -86,13 +86,13 @@ end
 def upvote
 	@artwork = Artwork.find(params[:id])
 	@artwork.upvote_by current_user
-	redirect_to @artwork
+	redirect_back(fallback_location: root_path)
 end
 
 def downvote
 	@artwork = Artwork.find(params[:id])
 	@artwork.downvote_by current_user
-	redirect_to @artwork
+	redirect_back(fallback_location: root_path)
 end
 
 def create_picture
