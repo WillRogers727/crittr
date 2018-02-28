@@ -14,7 +14,7 @@
 				%br/
 				Forum
 
-%h1 Current Top Artworks:
+%h1= @artTitle
 
 .artworkThumbSection
 	- @artworks.each do |artwork|
@@ -57,7 +57,7 @@
 					= time_ago_in_words(artwork.created_at)
 					ago
 
-%h1 Current top Question Posts
+%h1= @postTitle
 
 
 .gallery

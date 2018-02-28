@@ -26,6 +26,17 @@ class User < ApplicationRecord
   has_many :followers, through: :passive_relationships, source: :follower
 
 
+  def postFeed
+    following_ids = "SELECT followed_id FROM relationships WHERE  follower_id = :user_id"
+    Post.where("user_id IN (#{following_ids})", user_id: id) 
+    #returns a feed of posts with following user's ids, with a second sql snippet injected
+  end
+
+  def artworkFeed
+    following_ids = "SELECT followed_id FROM relationships WHERE  follower_id = :user_id"
+    Artwork.all.where("user_id IN (#{following_ids})", user_id: id) 
+    #returns a feed of artworks with following user's ids, with a second sql snippet injected
+  end
 
   #follows a user
   def follow(other_user)
