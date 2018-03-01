@@ -25,6 +25,9 @@
 		%div.downArrow
 			= link_to "Downvote", dislike_post_path(@post), method: :put
 			= @post.get_downvotes.size
+		- if current_user.id == @post.user_id
+			= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
+			= link_to "Set as Answered", set_answered_post_path(@post), remote: true, method: :put, :class => "btn btn-m btn-orange"
 
 
 
@@ -33,7 +36,3 @@
 
 = render partial: "comments/form", locals: {commentable: @post}
 
-- if user_signed_in?
-	- if current_user.id == @post.user_id
-		= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}
-		= link_to "Set as Answered", set_answered_post_path(@post), remote: true, method: :put 

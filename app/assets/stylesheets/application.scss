@@ -236,6 +236,9 @@ p {
 	flex-direction: column;
 	position: fixed;
 	font-family: 'Heebo', sans-serif;
+	-webkit-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
+	-moz-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
+	box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
 }
 
 .sidebarHeader {
@@ -450,19 +453,71 @@ p {
 	justify-content: space-between;
 }
 
-.profileControls a {
-	color: #151515;
-	font-weight: 400;
-	font-size: 1.2em;
-	text-decoration: none;
-	padding: 0 5px 0 5px;
+
+/* ===================BUTTONS================ */
+
+
+.btn {
+    font-family: 'Heebo', sans-serif;
+    font-weight: 700;
+    text-decoration: none;
+
+    border-radius: 3px;
+    -webkit-box-shadow: 1px 2px 7px -1px rgba(148,148,148,0.44);
+    -moz-box-shadow: 1px 2px 7px -1px rgba(148,148,148,0.44);
+    box-shadow: 1px 2px 7px -1px rgba(148,148,148,0.44);
+    
+    transition: 0.3s;
 }
 
 
-.profileControls a:hover {
-	color: #d5d5d5;
-	-webkit-transition: 0.5s;
-	transition: 0.5s;
+.btn:hover {
+    -webkit-box-shadow: 1px 2px 7px 0px rgba(148,148,148,0.8);
+    -moz-box-shadow: 1px 2px 7px 0px rgba(148,148,148,0.8);
+    box-shadow: 1px 2px 7px 0px rgba(148,148,148,0.8);
+    transition: 0.3s;
+}
+
+.btn:active {
+    -webkit-box-shadow: 1px 2px 20px 0px rgba(148,148,148,0.8);
+    -moz-box-shadow: 1px 2px 20px 0px rgba(148,148,148,0.8);
+    box-shadow: 1px 2px 20px 0px rgba(148,148,148,0.8);
+    transition: 0.3s;
+}
+
+.btn-l {
+    padding: 12px 22px 12px 22px;
+    font-size: 1.2em;
+}
+
+.btn-m {
+    padding: 8px 15px 8px 15px;
+    font-size: 1em;
+}
+
+.btn-s {
+    padding: 4px 8px 4px 8px;
+    font-size: 0.8em;
+}
+
+.btn-dark {
+    color: #d5d5d5;
+    background-color: #151515;
+}
+
+.btn-light {
+    color: #151515;
+    background-color: #d5d5d5;
+}
+
+.btn-orange {
+    color: #151515;
+    background-color: #ec8c25;
+}
+
+.btn-blue {
+    color: #151515;
+    background-color: rgba(20, 46, 244, 0.8);
 }
 
 /* ========================================== */

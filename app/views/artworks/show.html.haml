@@ -11,7 +11,7 @@
 					- if user_signed_in?
 						- if @artwork.user.id == current_user.id
 							- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
-								= link_to "Delete Image", picture_path(pic.id), :data => { :confirm => "Are you sure?"}, :method => :delete
+								= link_to "Delete Image", picture_path(pic.id), :data => { :confirm => "Are you sure?"}, :method => :delete, :class => "btn btn-s btn-light"
 	
 	.artToggles
 		- i = 1 # counter to assign class names to toggles
@@ -48,9 +48,9 @@
 			%p.unanswered In Progress
 	- if user_signed_in?
 		- if @artwork.user.id == current_user.id
-			= link_to "Delete", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}
+			= link_to "Delete", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
 			- if @artwork.completed != true
-				= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put
+				= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put, :class => "btn btn-m btn-orange"
 			.addImageSection
 				%h3 Add another Image:
 				= render partial: "picture_form"

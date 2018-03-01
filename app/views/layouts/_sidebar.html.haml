@@ -1,12 +1,8 @@
 .sidebar
-	- if section == 1
-		%h2.sidebarHeader Artwork
-	- else
-		%h2.sidebarHeader Post
 	.sideSection.forumLinks
-		= link_to category_artworks_path(1), class: "fLink" do
+		= link_to category_artworks_path(1), class: "btn btn-l btn-light" do
 			.fLinkButton Artwork Forum
-		= link_to category_posts_path(1), class: "fLink" do
+		= link_to category_posts_path(1), class: "btn btn-l btn-light" do
 			.fLinkButton Question Forum
 	.category.sideSection
 		%h2.sidebarHeader Art/Design Category

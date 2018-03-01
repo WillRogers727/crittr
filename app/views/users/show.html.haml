@@ -30,54 +30,62 @@
 				= render 'follow_form' if user_signed_in?
 			.profileControls
 				- if current_user == @user #if current user's page then add sign put button
-					= link_to "Edit Profile", edit_user_registration_path
-					= link_to "Sign Out", destroy_user_session_path, method: :delete
+					= link_to "Edit Profile", edit_user_registration_path, :class => "btn btn-m btn-dark"
+					= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => "btn btn-m btn-orange"
 				- else
-					= link_to 'Send Message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post'
+					= link_to 'Send Message', conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', :class => "btn btn-m btn-dark"
 
 
 %h3 Artwork Posts by this user: 
 
 .artworkThumbSection
 	- @artworks.each do |artwork|
-		%div.artworkContainer
-			.thumbnail
-				- if artwork.pictures.any?
-					.thumbToggles
-						- i = 1 # counter to assign class names to toggles
-						- unless artwork.pictures.size <= 1
-							- while (i <= artwork.pictures.size) do
-								.tToggle{:id => i.to_s} 
-								- i+=1 #add one to counter per loop
+		.artSpacer
+			%div.artworkContainer
+				.thumbnail
+					- if artwork.pictures.any?
+						.thumbToggles
+							- i = 1 # counter to assign class names to toggles
+							- unless artwork.pictures.size <= 1
+								- while (i <= artwork.pictures.size) do
+									.tToggle{:id => i.to_s} 
+									- i+=1 #add one to counter per loop
 
-					- c = 1 #counter to assign class names to thumbs
-					- artwork.pictures.each do |p|
-						.thumbImg{class: "hidden thumb-" + c.to_s}
-							= image_tag p.image.url
-						- c+=1 #add one to counter per loop
-							
-			.info	
-				%h2.title= link_to artwork.title, artwork
-				%p
-					Category:
-					- if artwork.category_id == nil
-						Uncategorized
-					- else 
-						= Category.find(artwork.category_id).name
-				%p
-					Tags: 
-					= raw artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(artwork.category_id, t)}.join(', ')
-				%p 
-					Upvotes:
-					= artwork.get_upvotes.size
-				%p
-					Downvotes:
-					= artwork.get_downvotes.size
-			.extraInfo	
-				%p.date
-					Posted
-					= time_ago_in_words(artwork.created_at)
-					ago
+						- c = 1 #counter to assign class names to thumbs
+						- artwork.pictures.each do |p|
+							.thumbImg{class: "hidden thumb-" + c.to_s}
+								= image_tag p.image.url
+							- c+=1 #add one to counter per loop
+				.infoSection	
+					.info
+						%h2.title= link_to artwork.title, artwork
+						%p.category
+							- if artwork.category_id == nil
+								Uncategorized
+							- else 
+								= Category.find(artwork.category_id).name
+						%p
+							Tags: 
+							= raw artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(artwork.category_id, t), :class => "tagLink"}.join(', ')
+
+					.voteSection	
+						.vote
+							= link_to like_artwork_path(artwork), method: :put do
+								= image_tag "up.svg", :class => "arrow"
+						.voteCount
+							%p= artwork.get_upvotes.size
+						.vote	
+							= link_to dislike_artwork_path(artwork), method: :put do
+								= image_tag "down.svg", :class => "arrow"
+							/ %p= artwork.get_downvotes.size
+				.extraInfo	
+					.userThumb
+						=image_tag artwork.user.avatar.url(:thumb), :class => "artUserThumb"
+						=link_to artwork.user.username, artwork.user, :class => "artUserName"
+					%p.date
+						Posted 
+						= time_ago_in_words(artwork.created_at)
+						ago
 
 
 %h3 Question Posts by this user: 
