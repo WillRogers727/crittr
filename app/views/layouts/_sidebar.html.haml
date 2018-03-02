@@ -25,8 +25,12 @@
 	.filtering.sideSection
 		%h2.sidebarHeader Filter by
 		= search_form_for [@category, @search], :class => "searchBar" do |f|
-			= f.label "Completed"
-			= f.check_box :completed_true
+			.filterItem
+				= f.label "Completed"
+				= f.check_box :completed_true
+			.filterItem
+				= f.label "Hide NSFW"
+				= f.check_box :nsfw_false
 
 			= f.submit 'Filter', :class => "btn btn-m btn-light"
 

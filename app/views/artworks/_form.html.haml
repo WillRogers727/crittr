@@ -19,4 +19,7 @@
 				= f.label "Post Image/s"
 				= file_field_tag "images[]", type: :file, multiple: true
 			.formItem
+				= f.label :nsfw, "Does your post contain adult content?"
+				= f.check_box :nsfw
+			.formItem
 				= f.submit

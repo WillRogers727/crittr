@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180302162053) do
+ActiveRecord::Schema.define(version: 20180302170040) do
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20180302162053) do
     t.float "cached_weighted_average", default: 0.0
     t.integer "category_id"
     t.boolean "completed"
+    t.boolean "nsfw"
     t.index ["cached_votes_down"], name: "index_artworks_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_artworks_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_artworks_on_cached_votes_total"
@@ -119,6 +120,7 @@ ActiveRecord::Schema.define(version: 20180302162053) do
     t.float "cached_weighted_average", default: 0.0
     t.string "category_id"
     t.boolean "completed"
+    t.boolean "nsfw"
     t.index ["cached_votes_down"], name: "index_posts_on_cached_votes_down"
     t.index ["cached_votes_score"], name: "index_posts_on_cached_votes_score"
     t.index ["cached_votes_total"], name: "index_posts_on_cached_votes_total"
