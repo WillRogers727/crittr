@@ -113,7 +113,7 @@
 					Tags: 
 					= raw post.tag_list.map { |t| link_to t, category_post_tag_path(post.category_id, t)}.join(', ')
 				%p
-					- if post.answered == true
+					- if post.completed == true
 						%p.answered Answered
 					- else
 						%p.unanswered Unanswered

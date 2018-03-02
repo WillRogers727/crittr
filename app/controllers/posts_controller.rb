@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 	def create
 		@categories = Category.all.map{|c| [c.name, c.id] }
 		@post = current_user.posts.build(post_params)
-		@post.answered = false;
+		@post.completed = false;
 		if @post.save
 			redirect_to @post, notice: "Post submitted successfully"
 		else
@@ -81,9 +81,9 @@ class PostsController < ApplicationController
 		redirect_to @post
 	end
 
-	def set_answered
+	def set_completed
 		@post = Post.find(params[:id])
-		@post.update_attribute(:answered, true)
+		@post.update_attribute(:completed, true)
 		redirect_to @post
 	end
 
