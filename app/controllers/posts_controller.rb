@@ -44,7 +44,7 @@ class PostsController < ApplicationController
 	def create
 		@categories = Category.all.map{|c| [c.name, c.id] }
 		@post = current_user.posts.build(post_params)
-
+		@post.answered = false;
 		if @post.save
 			redirect_to @post, notice: "Post submitted successfully"
 		else

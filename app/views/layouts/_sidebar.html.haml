@@ -5,7 +5,7 @@
 		= link_to category_posts_path(1), class: "btn btn-l btn-light" do
 			.fLinkButton Question Forum
 	.category.sideSection
-		%h2.sidebarHeader Art/Design Category
+		%h2.sidebarHeader Category
 		- if section == 1 #if artwork forum links go to artwork forum path
 			- @categories.each do |cat|
 				%p= link_to cat.name, category_artworks_path(cat.id)
@@ -21,8 +21,14 @@
 		= sort_link @search, :title, "By Title"
 		= sort_link @search, :cached_votes_up, "By Upvotes"
 		= sort_link @search, :cached_votes_down, "By Downvotes"
-		= sort_link @search, :answered, "Answered"
 
+	.filtering.sideSection
+		%h2.sidebarHeader Filter by
+		= search_form_for [@category, @search], :class => "searchBar" do |f|
+			= f.label "Completed"
+			= f.check_box :completed_true
+
+			= f.submit 'Filter', :class => "btn btn-m btn-light"
 
 	
 	

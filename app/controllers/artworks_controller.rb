@@ -8,6 +8,7 @@ def index
 	@categories = Category.all
 	
 	if @category.id == 1 
+		
 		if params[:tag]
 			@allArtworks = Artwork.all
 			@search = @allArtworks.tagged_with(params[:tag]).ransack(params[:q])
@@ -25,6 +26,7 @@ def index
 			@search = @category.artworks.ransack(params[:q])
 	  	@artworks = @search.result
 		end
+
 	end
 
 end
@@ -43,6 +45,7 @@ def create
 	# @artwork = Artwork.new(artwork_params)
 	@categories = Category.all.reject { |c| c.name == "All" }.map{|c| [c.name, c.id] }
 	@artwork = current_user.artworks.build(artwork_params)
+	@artwork.completed = false;
 	# respond_to do |format|
 		if @artwork.save
 			if params[:images]
