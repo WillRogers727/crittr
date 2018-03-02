@@ -7,13 +7,28 @@ class PostsController < ApplicationController
 	def index #index through all of the various posts
 		@categories = Category.all
 
-		if params[:tag]
-			@search = @category.posts.tagged_with(params[:tag]).ransack(params[:q])
-  		@posts = @search.result
+		if @category.id == 1 
+			if params[:tag]
+				@allPosts = Post.all
+				@search = @allPosts.tagged_with(params[:tag]).ransack(params[:q])
+		  	@posts = @search.result
+			else
+				@allPosts = Post.all
+				@search = @allPosts.ransack(params[:q])
+		  	@posts = @search.result
+			end
 		else
-			@search = @category.posts.ransack(params[:q])
-  		@posts = @search.result
+			if params[:tag]
+				@search = @category.posts.tagged_with(params[:tag]).ransack(params[:q])
+	  		@posts = @search.result
+			else
+				@search = @category.posts.ransack(params[:q])
+	  		@posts = @search.result
+			end
 		end
+
+
+			
 
   	
 	end

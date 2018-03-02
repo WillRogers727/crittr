@@ -7,12 +7,24 @@ include Commentable
 def index
 	@categories = Category.all
 	
-	if params[:tag]
-		@search = @category.artworks.tagged_with(params[:tag]).ransack(params[:q])
-  	@artworks = @search.result
+	if @category.id == 1 
+		if params[:tag]
+			@allArtworks = Artwork.all
+			@search = @allArtworks.tagged_with(params[:tag]).ransack(params[:q])
+	  	@artworks = @search.result
+		else
+			@allArtworks = Artwork.all
+			@search = @allArtworks.ransack(params[:q])
+	  	@artworks = @search.result
+		end
 	else
-		@search = @category.artworks.ransack(params[:q])
-  	@artworks = @search.result
+		if params[:tag]
+			@search = @category.artworks.tagged_with(params[:tag]).ransack(params[:q])
+	  	@artworks = @search.result
+		else
+			@search = @category.artworks.ransack(params[:q])
+	  	@artworks = @search.result
+		end
 	end
 
 end
@@ -23,13 +35,13 @@ def show
 end
 
 def new
-	@categories = Category.all.map{|c| [c.name, c.id] }
+	@categories = Category.all.reject { |c| c.name == "All" }.map{|c| [c.name, c.id] }
 	@artwork = current_user.artworks.build
 end
 
 def create
 	# @artwork = Artwork.new(artwork_params)
-	@categories = Category.all.map{|c| [c.name, c.id] }
+	@categories = Category.all.reject { |c| c.name == "All" }.map{|c| [c.name, c.id] }
 	@artwork = current_user.artworks.build(artwork_params)
 	# respond_to do |format|
 		if @artwork.save
