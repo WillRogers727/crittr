@@ -247,7 +247,7 @@ DEPENDENCIES
   acts_as_votable (~> 0.11.1)
   ancestry (~> 2.1)
   byebug
-  capistrano (~> 3.4.0)
+  capistrano (~> 3.4)
   capistrano-passenger
   capistrano-rails (~> 1.1)
   capybara (~> 2.13)
