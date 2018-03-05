@@ -18,9 +18,9 @@
 		%p.commentUser 
 			Posted by: 
 			= comment.user.username
-	
-		- if current_user.id == comment.user_id
-			=link_to "Delete Comment", [@commentable, comment] , method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
-		= link_to "Reply", new_polymorphic_path([@commentable, Comment.new], :parent_id => comment, :id => @commentable), :class => "btn btn-m btn-orange"
+		- if user_signed_in?
+			- if current_user.id == comment.user_id
+				=link_to "Delete Comment", [@commentable, comment] , method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
+			= link_to "Reply", new_polymorphic_path([@commentable, Comment.new], :parent_id => comment, :id => @commentable), :class => "btn btn-m btn-orange"
 		
 	= nested_comments comment.children

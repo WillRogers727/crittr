@@ -4,7 +4,7 @@
 			Review Posted by:  
 			= review.user.username
 		%p.content= review.content
-		
-		- if current_user.id == review.user_id
-			.reviewLinks
-				=link_to "Delete Review", [@artwork, review] , method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"
+		- if user_signed_in?
+			- if current_user.id == review.user_id
+				.reviewLinks
+					=link_to "Delete Review", [@artwork, review] , method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"
