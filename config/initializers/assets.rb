@@ -11,4 +11,5 @@ Rails.application.config.assets.precompile += %w( toggles.js )
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-# Rails.application.config.assets.precompile += %w( admin.js admin.css )
+# Rails.application.config.assets.precompile += ['blankAvatar.png', 'crittrLogo.png', 'up.svg', 'down.svg']
+Rails.application.config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif *.svg]
