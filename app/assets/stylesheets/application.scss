@@ -241,47 +241,31 @@ p {
 	box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
 }
 
-.sidebarHeader {
-	color: #f7f7f7;
-	font-size: 1.2em;
-}
+
 
 .sideSection {
-	width: 200px;
+	width: 85%;
 	height: auto;
-	padding: 10px 5px 10px 10px;
-}
-
-.sorting {
+	padding: 20px 5% 20px 10%;
 	display: flex;
 	flex-direction: column;
 }
 
+.sidebarHeader {
+	color: #f7f7f7;
+	font-size: 1.2em;
+	margin-bottom: 10px;
+}
+
+
 .sideSection a {
-	padding: 5px 0 5px 0;
+	width: 90%;
+	padding: 5px 0 5px 10%;
 	text-decoration: none;
 	color: #d5d5d5;
-	margin-left: 5px;
 }	
 
-.forumLinks {
-	width: 100%;
-}
 
-.fLink {
-	text-decoration: none;
-	font-size: 1.2em;
-}
-
-.fLinkButton {
-	width: 80%;
-	height: 40px;
-	background-color: #d5d5d5;
-	color: #151515;
-	text-align: center;
-	line-height: 40px;
-	border-radius: 5px;
-}
 
 .sidebarForm {
 	margin: 5px 0 10px 0;

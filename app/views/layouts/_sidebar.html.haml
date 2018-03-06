@@ -1,21 +1,19 @@
 .sidebar
-	.sideSection.forumLinks
-		= link_to category_artworks_path(1), class: "btn btn-l btn-light" do
-			.fLinkButton Artwork Forum
-		= link_to category_posts_path(1), class: "btn btn-l btn-light" do
-			.fLinkButton Question Forum
-	.category.sideSection
+	.forumLinks.sideSection
+		= link_to "Artwork Forum", category_artworks_path(1), :class => "btn btn-l btn-light"
+		= link_to "Question Forum", category_posts_path(1), :class => "btn btn-l btn-light"
+	.sideSection
 		%h2.sidebarHeader Category
 		- if section == 1 #if artwork forum links go to artwork forum path
 			- @categories.each do |cat|
-				%p= link_to cat.name, category_artworks_path(cat.id)
+				= link_to cat.name, category_artworks_path(cat.id)
 		- else # else it links to the posts forum
 			- @categories.each do |cat|
-				%p= link_to cat.name, category_posts_path(cat.id)
+				= link_to cat.name, category_posts_path(cat.id)
 
 
 
-	.sorting.sideSection
+	.sideSection
 		%h2.sidebarHeader Sort by
 		= sort_link @search, :created_at, "Date Created"
 		= sort_link @search, :title, "By Title"
