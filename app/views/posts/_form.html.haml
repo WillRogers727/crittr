@@ -1,15 +1,16 @@
 .form
 	.inner
 		= simple_form_for @post, :url => category_posts_path do |f|
-			.formItem
+			.formHeader
 				%h2 New Question
-			.formItem
+				=link_to "Cancel", root_path, :class => "btn btn-m btn-dark"
+			.formItem.formInput
 				= f.label :title, "Post Title"
 				= f.input :title, label: false
-			.formItem
+			.formItem.formInput
 				= f.label :content, "Post Content"
 				= f.input :content, label: false
-			.formItem
+			.formItem.formInput
 				= f.label :tag_list, "Tags (separated by commas)"
 				= f.input :tag_list, label: false
 			.formItem
@@ -19,5 +20,7 @@
 				= f.label :nsfw, "Does your post contain adult content?"
 				= f.check_box :nsfw
 			.formItem
-				= f.submit 'Submit Post', :class => "btn btn-m btn-light"
+				= f.submit 'Submit Post', :class => "btn btn-m btn-light btn-submit"
+			
+	
 

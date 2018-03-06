@@ -1,21 +1,20 @@
-<h2>Log in</h2>
-
 <div class="form">
 	<div class="inner">
 		<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-			<div class="formItem">
+			<div class="formHeader">
 		  	<h2>Sign In</h2>
 		  </div>
-		  <div class="formItem">
+		  <div class="formItem formInput">
 		  	<%= f.input :email, required: false, autofocus: true %>
 		  </div>
-		  <div class="formItem">
+		  <div class="formItem formInput">
 		  	<%= f.input :password, required: false %>
 		  </div>
 		  
 		  <div class="formItem">
-		  	<%= f.button :submit, "Log in" %>
+		  	<%= f.button :submit, "Log in", :class => "btn btn-m btn-light btn-submit" %>
 		  </div>
+
 		  <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 		<% end %>
 

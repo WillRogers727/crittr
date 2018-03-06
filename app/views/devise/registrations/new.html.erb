@@ -1,21 +1,20 @@
-<h2>Sign up</h2>
 <div class="form">
   <div class="inner">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
-      <div class="formItem">
+      <div class="formHeader">
         <h2>Sign Up</h2>
       </div>
-      <div class="formItem">
+      <div class="formItem formInput">
       	<%= f.input :username, required: true, autofocus: true %>
       </div>
-      <div class="formItem">
+      <div class="formItem formInput">
         <%= f.input :email, required: true %>
       </div>
-      <div class="formItem">
+      <div class="formItem formInput">
         <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
       </div>
-      <div class="formItem">
+      <div class="formItem formInput">
         <%= f.input :password_confirmation, required: true %>
       </div>
       <div class="formItem">
@@ -24,7 +23,7 @@
       
 
       <div class="formItem">
-        <%= f.button :submit, "Sign up" %>
+        <%= f.button :submit, "Sign up", :class => "btn btn-m btn-light btn-submit" %>
       </div>
       
     <% end %>

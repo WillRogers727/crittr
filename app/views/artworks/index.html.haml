@@ -9,7 +9,7 @@
 					= link_to "New Artwork", new_category_artwork_path, :class => "btn btn-m btn-light"
 
 			= search_form_for [@category, @search], :class => "searchBar" do |f|
-				= f.search_field :title_cont 
+				= f.search_field :title_cont
 				= f.submit 'Search', :class => "btn btn-m btn-light"
 
 		.artworkThumbSection
