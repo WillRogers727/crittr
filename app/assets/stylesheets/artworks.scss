@@ -217,6 +217,36 @@
 	height: auto;
 }
 
+.artImageControls {
+	width: 96%;
+	padding: 10px 2% 10px 2%;
+	height: auto;
+	background-color: #283749;
+	display: flex;
+	justify-content: space-between;
+}
+
+.noteSection {
+	width: 100%;
+	height: auto;
+	background-color: #009263;
+}
+
+.noteSection h2 {
+	width: 96%;
+	padding: 10px 2% 10px 2%;
+	background-color: #222222;
+}
+
+.note {
+	width: 96%;
+	height: auto;
+	background-color: #987623;
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 2% 20px 2%;
+}
+
 .visible {
 	display: block;
 }

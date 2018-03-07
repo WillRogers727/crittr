@@ -1,6 +1,6 @@
 class Picture < ApplicationRecord
 	belongs_to :artwork
-	has_many :notes
+	has_many :notes, :dependent => :destroy
 
   has_attached_file :image,
     :path => ":rails_root/public/images/:id/:filename",
