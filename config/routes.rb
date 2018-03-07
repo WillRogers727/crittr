@@ -9,7 +9,10 @@ Rails.application.routes.draw do
     get 'posts/tags/:tag', to: 'posts#index', as: 'post_tag'
     
     resources :artworks do
-      resources :pictures
+      resources :pictures do
+        #should this be inside picture? - probably
+        resources :notes, only: [:new, :create, :destroy]
+      end
       member do
         patch 'create_picture'
 
@@ -63,7 +66,6 @@ Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
 
 
-  #should this be inside picture? - probably
-  resources :notes, only: [:new, :create, :destroy]
+  
 
 end
