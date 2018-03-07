@@ -21,6 +21,9 @@
 							- pic.notes.each do |note|
 								.note
 									%p= note.content
+									%p
+										Posted by:
+										= note.user.username
 									- if user_signed_in? && current_user.id == note.user_id
 										=link_to "Delete Note", note , method: :delete, :remote => true, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"
 	

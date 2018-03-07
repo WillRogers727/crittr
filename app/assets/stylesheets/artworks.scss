@@ -221,7 +221,6 @@
 	width: 96%;
 	padding: 10px 2% 10px 2%;
 	height: auto;
-	background-color: #283749;
 	display: flex;
 	justify-content: space-between;
 }
@@ -229,22 +228,28 @@
 .noteSection {
 	width: 100%;
 	height: auto;
-	background-color: #009263;
+	background-color: #151515;
+	padding: 10px 0 10px 0;
 }
 
 .noteSection h2 {
 	width: 96%;
 	padding: 10px 2% 10px 2%;
-	background-color: #222222;
+	background-color: #151515;
+	color: #ebebeb;
 }
 
 .note {
-	width: 96%;
+	width: 92%;
 	height: auto;
-	background-color: #987623;
 	display: flex;
 	justify-content: space-between;
 	padding: 20px 2% 20px 2%;
+	margin: 10px 2% 10px 2%;
+	background-color: #d5d5d5;
+	-webkit-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+	box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
 }
 
 .visible {
