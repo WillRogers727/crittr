@@ -49,7 +49,6 @@ class PicturesController < ApplicationController
 
     @artwork.cover = @picture.id
     @artwork.save
-
   end
 
   private

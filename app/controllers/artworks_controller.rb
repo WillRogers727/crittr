@@ -42,7 +42,6 @@ def new
 end
 
 def create
-	# @artwork = Artwork.new(artwork_params)
 	@categories = Category.all.reject { |c| c.name == "All" }.map{|c| [c.name, c.id] }
 	@artwork = current_user.artworks.build(artwork_params)
 	@artwork.completed = false;
@@ -59,14 +58,6 @@ def create
 			render 'new'
 		# end
 	end
-
-	# @artwork = current_user.artworks.build(artwork_params)
-
-	# if @artwork.save
-	# 		redirect_to @artwork #if artwork is saved redirect to it's page
-	# 	else
-	# 		render 'new' #else render the form again
-	# 	end
 end
 
 def edit

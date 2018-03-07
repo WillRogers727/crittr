@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       resources :pictures
       member do
         patch 'create_picture'
+
       end
     end
 
@@ -60,5 +61,9 @@ Rails.application.routes.draw do
   end
   
   resources :relationships, only: [:create, :destroy]
+
+
+  #should this be inside picture? - probably
+  resources :notes, only: [:new, :create, :destroy]
 
 end
