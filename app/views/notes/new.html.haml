@@ -1,7 +1,7 @@
-
-.artImageSection
-	.artImageGallery
-		.artImage#newCanvas
-			= image_tag @picture.image.url
+.noteArtImageSection
+	.noteArtImageGallery
+		.noteArtImage
+			= image_tag @picture.image.url, :id => "canvasImg"
+		%canvas.noteCanvas	
 
 = render 'form'

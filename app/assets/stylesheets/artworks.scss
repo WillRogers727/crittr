@@ -189,8 +189,10 @@
 
 .artImageGallery {
 	width: 60%;
+	height: auto;
 	margin: 0 0% 0 20%;
 	padding: 40px 0 40px 0;
+	position: relative;
 }
 
 .artToggles {
@@ -210,11 +212,49 @@
 
 .artImage {
 	width: 100%;
+	z-index: 1;
+}
+
+.noteArtImageSection {
+	width: 100%;
+	height: auto;
+	background-color: #222222;
+	display: flex;
+	align-items: center;
+}
+
+.noteArtImageGallery {
+	width: 60%;
+	height: auto;
+	margin: 0 0% 0 20%;
+	padding: 40px 0 40px 0;
+	position: relative;
+}
+
+.noteArtImage {
+	width: 100%;
+	position: absolute;
+	z-index: 1;
+}
+
+.noteArtImage img {
+	width: 100%;
+	height: auto;
+	position: relative;
+}
+
+
+.noteCanvas {
+	background-color: #182736;
+	position: absolute;
+	z-index: 2;
+	opacity: 0.5;
 }
 
 .artImage img {
 	width: 100%;
 	height: auto;
+	position: relative;
 }
 
 .artImageControls {
