@@ -3,6 +3,7 @@ class NotesController < ApplicationController
 	def new
 		@picture = Picture.find(params[:picture_id])
     @note = @picture.notes.build
+    @page = 'newNote'
 	end
 
 	def create

@@ -7,6 +7,10 @@
   %link{ "rel" => "stylesheet", href: "https://fonts.googleapis.com/css?family=Heebo:400,700", type: "text/css"}
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' 
 
+
+  - if @page == 'newNote'
+    = javascript_include_tag '/javascripts/libtest.js', type: "text/javascript"
+
 %body
   %header.topBar
     = link_to root_path, class: "logo" do 
