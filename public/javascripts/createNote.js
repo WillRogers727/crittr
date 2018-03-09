@@ -25,13 +25,13 @@ function InitThis() {
 	$('.noteCanvas').mouseup(function (e) {
 		// alert("mouse up");	
 		mousePressed = false;
-		cPush();
+		pushImg();
 	});
 
 	$('.noteCanvas').mouseleave(function (e) {
 		// alert("mouse leave");		
 		mousePressed = false;
-		cPush();
+		pushImg();
 	});
 
 } //end init function
@@ -56,6 +56,11 @@ function clearArea() {
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 }
 
+function pushImg() {
+	var url = ctx.canvas.toDataURL('image/png');
+	// alert(url);
+	$("#canvasContent").val(url);
+}
 
 $(document).ready(function() {
 

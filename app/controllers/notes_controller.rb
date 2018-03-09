@@ -10,6 +10,7 @@ class NotesController < ApplicationController
 		@picture = Picture.find(params[:picture_id])
 		@note = @picture.notes.create(note_params)
 		@note.user_id = current_user.id if current_user
+
 		if @note.save
 			#redirect to artwork, root for now tho
       redirect_to root_path
