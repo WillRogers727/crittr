@@ -245,11 +245,15 @@
 
 
 .noteCanvas {
-	background-color: #182736;
+	/*background-color: #fff;*/
 	position: absolute;
 	z-index: 2;
-	opacity: 0.5;
 }
+
+/*.rectangle {
+    border: 2px solid #FF0000;
+    position: absolute;    z-index: 3;
+}*/
 
 .artImage img {
 	width: 100%;
