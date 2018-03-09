@@ -3,5 +3,12 @@
 		.noteArtImage
 			= image_tag @picture.image.url, :id => "canvasImg"
 		%canvas.noteCanvas	
+	= submit_tag 'Clear', :class => "btn btn-m btn-orange", :onclick => "javascript:clearArea(); return false;" 
+	%select#selColour
+		%option{value: "black", selected: "selected"}= "black"
+		%option{value: "blue"}= "blue"
+		%option{value: "red"}= "red"
+		%option{value: "green"}= "green"
+
 
 = render 'form'
