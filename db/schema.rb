@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180309154402) do
+ActiveRecord::Schema.define(version: 20180312124655) do
 
   create_table "artworks", force: :cascade do |t|
     t.string "title"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20180309154402) do
     t.string "noteImg_content_type"
     t.integer "noteImg_file_size"
     t.datetime "noteImg_updated_at"
+    t.string "noteImgData"
     t.index ["picture_id"], name: "index_notes_on_picture_id"
     t.index ["user_id"], name: "index_notes_on_user_id"
   end
