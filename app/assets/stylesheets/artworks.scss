@@ -238,8 +238,6 @@
 	background-color: #222222;
 	display: flex;
 	align-items: center;
-	flex-direction: column;
-	justify-content: center;
 }
 
 .artImageGallery {
@@ -247,22 +245,28 @@
 	height: auto;
 	padding: 40px 0 10px 0;
 	position: relative;
+	margin: 0 0 0 20%;
 }
 
 .artImage {
 	width: 100%;
 	z-index: 1;
-	position: absolute;
-}
+	position: relative;
 
-.artImage img {
+}
+.artImgHolder {
 	width: 100%;
-	height: auto;
+	z-index: 1;
 	position: relative;
 }
 
-.noteImage {
+.artImageHolder img {
+	width: 100%;
+	height: auto;
 	position: absolute;
+}
+
+.noteImage {
 	z-index: 2;
 	width: 100%;
 	height: auto;
@@ -271,7 +275,7 @@
 .artImageControls {
 	width: 96%;
 	padding: 10px 2% 10px 2%;
-	height: auto;
+	height: 50px;
 	display: flex;
 	justify-content: space-between;
 }
@@ -279,7 +283,7 @@
 .noteSection {
 	background-color: #151515;
 	padding: 10px 0 10px 0;
-	width: 60%;
+	width: 100%;
 	height: auto;
 	margin: 0 0 40px 0;
 }
