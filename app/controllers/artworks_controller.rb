@@ -34,6 +34,7 @@ end
 def show
 	@artwork = Artwork.find(params[:id])
 	@pictures = @artwork.pictures
+	@page = 'artShow'
 end
 
 def new

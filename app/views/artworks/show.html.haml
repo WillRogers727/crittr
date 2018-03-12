@@ -15,19 +15,22 @@
 								- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
 									= link_to "Delete Image", picture_path(pic.id), :data => { :confirm => "Are you sure?"}, :method => :delete, :class => "btn btn-s btn-light"
 							= link_to "New Note", new_picture_note_path(pic.id), :class => "btn btn-s btn-orange"
-					.noteSection
-						- unless pic.notes.size == 0
-							%h2 Notes
-							- pic.notes.each do |note|
-								.note
-									%p= note.content
-									%p
-										Posted by:
-										= note.user.username
-									= image_tag note.noteImg.url
-									- if user_signed_in? && current_user.id == note.user_id
-										=link_to "Delete Note", note , method: :delete, :remote => true, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"
-	
+				- unless pic.notes.size == 0
+					- pic.notes.each do |note|
+						= image_tag note.noteImg.url, :class => "noteImage"
+	- @pictures.each do |pic|
+		.noteSection
+			- unless pic.notes.size == 0
+				%h2 Notes
+				- pic.notes.each do |note|
+					.note
+						%p= note.content
+						%p
+							Posted by:
+							= note.user.username
+						- if user_signed_in? && current_user.id == note.user_id
+							=link_to "Delete Note", note , method: :delete, :remote => true, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"
+		
 	.artToggles
 		- i = 1 # counter to assign class names to toggles
 		- unless @pictures.size <= 1
