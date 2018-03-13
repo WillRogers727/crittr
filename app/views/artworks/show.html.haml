@@ -17,7 +17,7 @@
 					- if user_signed_in?
 						.artImageControls
 							- if @artwork.user.id == current_user.id
-								- unless @pictures.size == 1 #if there is only one picturesre, dont show the delete list
+								- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
 									= link_to "Delete Image", picture_path(pic.id), :data => { :confirm => "Are you sure?"}, :method => :delete, :class => "btn btn-s btn-light"
 							= link_to "New Note", new_picture_note_path(pic.id), :class => "btn btn-s btn-orange"
 					

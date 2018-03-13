@@ -232,6 +232,9 @@
 	z-index: 2;
 }
 
+/*-----------------------------------------------*/
+
+
 .artImageSection {
 	width: 100%;
 	height: auto;
@@ -252,7 +255,6 @@
 	width: 100%;
 	z-index: 1;
 	position: relative;
-
 }
 .artImgHolder {
 	width: 100%;
@@ -270,15 +272,20 @@
 	z-index: 2;
 	width: 100%;
 	height: auto;
+	position: relative;
 }
 
 .artImageControls {
 	width: 96%;
 	padding: 10px 2% 10px 2%;
-	height: 50px;
 	display: flex;
 	justify-content: space-between;
+	position: relative;
 }
+
+
+/*-----------------------------------------------*/
+
 
 .noteSection {
 	background-color: #151515;
