@@ -8,12 +8,7 @@
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' 
 
 
-  - if @page == 'newNote'
-    = javascript_include_tag '/javascripts/createNote.js', type: "text/javascript"
-
-  - if @page == 'artShow'
-    = javascript_include_tag '/javascripts/artShow.js', type: "text/javascript"
-
+  
 %body
   %header.topBar
     = link_to root_path, class: "logo" do 
@@ -39,3 +34,9 @@
 
   .postsContainer
     =yield
+
+- if @page == 'newNote'
+  = javascript_include_tag '/javascripts/createNote.js', type: "text/javascript"
+
+- if @page == 'artShow'
+  = javascript_include_tag '/javascripts/artShow.js', type: "text/javascript"
