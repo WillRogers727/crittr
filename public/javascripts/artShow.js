@@ -5,6 +5,8 @@ $(document).ready(function() {
 
 	$('.image-1').addClass('visible');
 	$('.image-1').removeClass('hidden');
+
+	$("input:radio[name=artToggle][disabled=false]:first").attr('checked', true);
 	
 	//images are toggled
 	$('.artToggle').change(function() {
