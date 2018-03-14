@@ -65,7 +65,9 @@ Rails.application.routes.draw do
   
   resources :relationships, only: [:create, :destroy]
 
-
+  resources :reviews do
+      put "approve", to: "reviews#approve"
+    end
   
 
 end

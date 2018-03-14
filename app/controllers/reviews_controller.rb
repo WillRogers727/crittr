@@ -21,6 +21,13 @@ class ReviewsController < ApplicationController
 		redirect_to artwork_path(@artwork), notice: "Your Review was successfully deleted"
 	end
 
+	def approve
+		@review = Review.find(params[:review_id])
+		@review.upvote_by current_user
+		redirect_back(fallback_location: root_path)
+	end
+
+	
 
 	private
 

@@ -5,6 +5,14 @@
 			= review.user.username
 		%p.content= review.content
 		- if user_signed_in?
+			.approval
+				= link_to "Approve of this Review", review_approve_path(review), method: :put, :class => "btn btn-s btn-orange"
+				- if review.approval != nil
+					%p
+						Users that approve of this review: 
+						= review.approval.to_s
+				- else
+					%p Users that approve of this review: 0
 			- if current_user.id == review.user_id
 				.reviewLinks
 					=link_to "Delete Review", [@artwork, review] , method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"

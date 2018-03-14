@@ -1,4 +1,5 @@
 class Review < ApplicationRecord
+	acts_as_votable
 	belongs_to :artwork
 	belongs_to :user
 
