@@ -32,8 +32,12 @@
 
 
 
-%h3.commentHeader Comments
-= nested_comments @comments
+.commentToggle
+	%h3.commentHeader Comments
+	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
+.commentContent
+	- if user_signed_in?
+		= render partial: "comments/form", locals: {commentable: @artwork}
 
-= render partial: "comments/form", locals: {commentable: @post}
+	= nested_comments @comments
 

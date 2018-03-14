@@ -579,3 +579,21 @@ p {
 }
 
 /* ========================================== */
+
+.commentToggle {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+
+
+.darkToggleArrow {
+	width: 30px;
+	height: auto;
+	margin-right: 5%;
+	transition: 0.2s;
+}
+

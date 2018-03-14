@@ -34,11 +34,13 @@ class PostsController < ApplicationController
 	end
 
 	def show
+		@page = 'postShow'
 	end
 
 	def new
 		@categories = Category.all.map{|c| [c.name, c.id] }
 		@post = current_user.posts.build
+
 	end
 
 	def create

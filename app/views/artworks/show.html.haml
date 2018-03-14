@@ -83,22 +83,22 @@
 				= render partial: "picture_form"
 
 - if @artwork.completed == true
-	%h3.commentHeader Reviews
+	.reviewToggle
+		%h3.commentHeader Reviews
+		=image_tag "toggleUpDark.png", :class => "darkToggleArrow"
+	.reviewContent
+		= render @artwork.reviews
 
-	= render @artwork.reviews
+		- if user_signed_in?
+			%p Add a review now that this artwork is complete!
+			= render 'reviews/form'
 
+.commentToggle
+	%h3.commentHeader Comments
+	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
+.commentContent
 	- if user_signed_in?
-		%p Add a review now that this artwork is complete!
-		= render 'reviews/form'
+		= render partial: "comments/form", locals: {commentable: @artwork}
 
+	= nested_comments @comments
 
-%h3.commentHeader Comments
-
-- if user_signed_in?
-	= render partial: "comments/form", locals: {commentable: @artwork}
-
-= nested_comments @comments
-
-%script{type: "text/javascript"}
-	:plain
-		
