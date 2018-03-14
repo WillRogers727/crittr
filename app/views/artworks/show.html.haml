@@ -22,18 +22,23 @@
 							= link_to "New Note", new_picture_note_path(pic.id), :class => "btn btn-s btn-orange"
 					
 					.noteSection
-						- unless pic.notes.size == 0
+						%a.contentToggle.NoteToggle
 							%h2 Notes
-							- pic.notes.each do |note|
-								.note
-									%p= note.content
-									%p
-										Posted by:
-										= note.user.username
-									%a.noteShow.btn.btn-s.btn-orange{id: "nShow-" + note.id.to_s, name: note.id.to_s } View note
-									%a.noteHide.btn.btn-s.btn-orange.hiddenBtn{id: "nHide-" + note.id.to_s, name: note.id.to_s } Hide Note
-									- if user_signed_in? && current_user.id == note.user_id
-										=link_to "Delete Note", note , method: :delete, :remote => true, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"	
+							=image_tag "toggleDown.png", :class => "toggleArrow"  
+						.noteContent
+							- if pic.notes.size != 0
+								- pic.notes.each do |note|
+									.note
+										%p= note.content
+										%p
+											Posted by:
+											= note.user.username
+										%a.noteShow.btn.btn-s.btn-orange{id: "nShow-" + note.id.to_s, name: note.id.to_s } View note
+										%a.noteHide.btn.btn-s.btn-orange.hiddenBtn{id: "nHide-" + note.id.to_s, name: note.id.to_s } Hide Note
+										- if user_signed_in? && current_user.id == note.user_id
+											=link_to "Delete Note", note , method: :delete, :remote => true, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"	
+							- else
+								%p No notes yet - Be the first to add one
 
 	.artToggles
 		- i = 1 # counter to assign class names to toggles

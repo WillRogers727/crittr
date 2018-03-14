@@ -48,7 +48,6 @@ $(document).ready(function() {
 		activeHolder.height = activeHolder.offsetHeight;
 	}
 
-
 	$('.noteShow').click(function() {
 		var val = this.name;
 		showNote(val);
@@ -71,6 +70,12 @@ $(document).ready(function() {
 		$('#nShow-' + val).removeClass('hiddenBtn');
 
 	}
+
+	$("a.contentToggle.NoteToggle").on('click', function () {
+		// alert("toggle clicked");
+	  $('div.noteContent').slideToggle(200).toggleClass('contentActive');
+	  $("a.contentToggle.NoteToggle > .toggleArrow").toggleClass('toggleArrowActive');
+	});
 
 
 });
