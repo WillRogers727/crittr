@@ -311,7 +311,7 @@ p {
 .threadTitle {
 	width: 100%;
 	line-height: 75px;
-	font-size: 1.6em;
+	font-size: 2em;
 }
 
 .descriptionSection {
@@ -330,6 +330,7 @@ p {
 	margin-bottom: 20px;
 }
 
+
 .descTop {
 	display: flex;
 	flex-direction: row;
@@ -339,7 +340,6 @@ p {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	flex-grow: 1;
 	padding-right: 40px;
 }
 
@@ -350,9 +350,37 @@ p {
 
 }
 
+.descUser {
+	flex-grow: 1;
+}
+
 .descControls {
 	display: flex;
 	justify-content: space-between;
+}
+
+.userThumb {
+	display: flex;
+	align-items: center;
+	padding-top: 10px;
+}
+
+.artUserThumb {
+	border: 2px solid #151515;
+	width: 60px;
+	height: auto;
+}
+
+.artUserName {
+	text-decoration: none;
+	font-weight: 700;
+	font-family: 'Heebo', sans-serif;
+	color: #151515;
+	padding-left: 10px;
+}
+
+.artUserName:hover {
+	color: #b4620a;
 }
 
 /* ============== INPUT FORMS ============== */

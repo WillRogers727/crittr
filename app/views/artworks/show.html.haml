@@ -52,22 +52,26 @@
 
 
 .descriptionSection.sixtySection
-	.descTop
-		.descInfo.descSection
-			%p
-				Category:
-				- if @artwork.category_id == nil
-					Uncategorized
-				- else 
-					= Category.find(@artwork.category_id).name
-			%p
-				Tags: 
-				= @artwork.tag_list
+	.descInfo.descSection
+		%p
+			Category:
+			- if @artwork.category_id == nil
+				Uncategorized
+			- else 
+				= Category.find(@artwork.category_id).name
+		%p
+			Tags: 
+			= @artwork.tag_list
 
-			- if @artwork.completed == true
-				%p.answered Completed
-			- else
-				%p.unanswered In Progress
+		- if @artwork.completed == true
+			%p.answered Completed
+		- else
+			%p.unanswered In Progress
+	.descTop
+		.descUser.descSection
+			.userThumb
+			s	=image_tag @artwork.user.avatar.url(:thumb), :class => "artUserThumb"
+				=link_to @artwork.user.username, @artwork.user, :class => "artUserName"
 		.descVoting.descSection
 			.voteSection	
 				.vote
