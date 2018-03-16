@@ -1,4 +1,4 @@
-.titleSection
+.titleSection.sixtySection
 	%h1.threadTitle= @artwork.title
 .artImageSection
 	.artImageGallery
@@ -51,54 +51,74 @@
 				- i+=1 #add one to counter per loop
 
 
-.descriptionSection
-	%p= @artwork.description
-	%p
-		Category:
-		- if @artwork.category_id == nil
-			Uncategorized
-		- else 
-			= Category.find(@artwork.category_id).name
-	%p
-		Tags: 
-		= @artwork.tag_list
-	- if user_signed_in?
-		%div.upArrow
-			= link_to "Upvote", like_artwork_path(@artwork), method: :put
-			= @artwork.get_upvotes.size
-		%div.downArrow
-			= link_to "Downvote", dislike_artwork_path(@artwork), method: :put
-			= @artwork.get_downvotes.size	
-		- if @artwork.completed == true
-			%p.answered Completed
-		- else
-			%p.unanswered In Progress
-	- if user_signed_in?
-		- if @artwork.user.id == current_user.id
-			= link_to "Delete", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
-			- if @artwork.completed != true
-				= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put, :class => "btn btn-m btn-orange"
-			.addImageSection
-				%h3 Add another Image:
-				= render partial: "picture_form"
+.descriptionSection.sixtySection
+	.descTop
+		.descInfo.descSection
+			%p
+				Category:
+				- if @artwork.category_id == nil
+					Uncategorized
+				- else 
+					= Category.find(@artwork.category_id).name
+			%p
+				Tags: 
+				= @artwork.tag_list
+
+			- if @artwork.completed == true
+				%p.answered Completed
+			- else
+				%p.unanswered In Progress
+		.descVoting.descSection
+			.voteSection	
+				.vote
+					= link_to like_artwork_path(@artwork), method: :put do
+						= image_tag "up.svg", :class => "arrow"
+				.voteCount
+					- @voteCount = (@artwork.get_upvotes.size) - (@artwork.get_downvotes.size)
+					%p= @voteCount
+				.vote	
+					= link_to dislike_artwork_path(@artwork), method: :put do
+						= image_tag "down.svg", :class => "arrow"
+	.descContent.descSection
+		%p= @artwork.description
+	.descControls.descSection
+		- if user_signed_in?
+			- if @artwork.user.id == current_user.id
+				= link_to "Delete Artwork", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
+				- if @artwork.completed != true
+					= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put, :class => "btn btn-m btn-orange"
+	
+		
+
+	
+
+
+.addToggle.sixtySection
+	%h3.commentHeader Add Images:
+	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
+.addContent.sixtySection
+	= render partial: "picture_form"
 
 - if @artwork.completed == true
-	.reviewToggle
+	.reviewToggle.sixtySection
 		%h3.commentHeader Reviews
 		=image_tag "toggleUpDark.png", :class => "darkToggleArrow"
-	.reviewContent
+	.reviewContent.sixtySection
 		= render @artwork.reviews
 
 		- if user_signed_in?
 			%p Add a review now that this artwork is complete!
-			= render 'reviews/form'
+			.showForm
+				= render 'reviews/form'
 
-.commentToggle
+.commentToggle.sixtySection
 	%h3.commentHeader Comments
 	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
-.commentContent
-	- if user_signed_in?
-		= render partial: "comments/form", locals: {commentable: @artwork}
-
+.commentContent.sixtySection
 	= nested_comments @comments
+	- if user_signed_in?
+		.showForm
+			= render partial: "comments/form", locals: {commentable: @artwork}
+
+	
 

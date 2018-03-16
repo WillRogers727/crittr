@@ -47,7 +47,8 @@
 									= link_to like_artwork_path(artwork), method: :put do
 										= image_tag "up.svg", :class => "arrow"
 								.voteCount
-									%p= artwork.get_upvotes.size
+									- @voteCount = (artwork.get_upvotes.size) - (artwork.get_downvotes.size)
+									%p= @voteCount
 								.vote	
 									= link_to dislike_artwork_path(artwork), method: :put do
 										= image_tag "down.svg", :class => "arrow"

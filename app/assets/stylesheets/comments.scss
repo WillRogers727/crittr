@@ -9,13 +9,13 @@
 	font-size: 1.8em;
 	font-weight: 700;
 	color: #151515;
-	margin: 40px 5% 20px 5%;
+	margin: 40px 0 20px 0;
 
 }
  
 .comment {
-	width: 96%;
-	margin: 20px 2% 20px 2%;
+	width: 100%;
+	margin: 20px 0 20px 0;
 	background-color: #d5d5d5;
 	-webkit-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
@@ -23,12 +23,9 @@
 }
 
 .commentContent {
-	height: auto;
 	line-height: 22px;
 	margin-bottom: 10px;
 	font-size: 1.2em;
-	width: 96%;
-	padding: 0 2% 0 2%;
 }
 
 .commentTopInfo {

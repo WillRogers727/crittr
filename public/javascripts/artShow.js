@@ -89,5 +89,11 @@ $(document).ready(function() {
 	  $(".reviewToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
 	});
 
+	$(".addToggle").on('click', function () {
+		// alert("toggle clicked");
+	  $('div.addContent').slideToggle(200).toggleClass('contentActive');
+	  $(".addToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
+	});
+
 
 });

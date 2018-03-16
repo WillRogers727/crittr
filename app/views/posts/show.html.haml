@@ -1,43 +1,52 @@
-.titleSection
+.titleSection.sixtySection
 	%h1.threadTitle= @post.title
-.questionSection
+.questionSection.sixtySection
 	%p= @post.content
 
-.descriptionSection
-	%p
-		Category:
-		- if @post.category_id == nil
-			Uncategorized
-		- else 
-			= Category.find(@post.category_id).name
-			
-	- if @post.completed == true
-		%p.answered Answered
-	- else
-		%p.unanswered Unanswered
-	%p
-		Tags: 
-		= @post.tag_list
-	- if user_signed_in?
-		%div.upArrow
-			= link_to "Upvote", like_post_path(@post), method: :put
-			= @post.get_upvotes.size
-		%div.downArrow
-			= link_to "Downvote", dislike_post_path(@post), method: :put
-			= @post.get_downvotes.size
+.descriptionSection.sixtySection
+	.descTop
+		.descInfo.descSection
+			%p
+				Category:
+				- if @post.category_id == nil
+					Uncategorized
+				- else 
+					= Category.find(@post.category_id).name
+			%p
+				Tags: 
+				= @post.tag_list
+
+			- if @post.completed == true
+				%p.answered Answered
+			- else
+				%p.unanswered Unanswered
+
+		.descVoting.descSection
+			.voteSection	
+				.vote
+					= link_to like_post_path(@post), method: :put do
+						= image_tag "up.svg", :class => "arrow"
+				.voteCount
+					- @voteCount = (@post.get_upvotes.size) - (@post.get_downvotes.size)
+					%p= @voteCount
+				.vote	
+					= link_to dislike_post_path(@post), method: :put do
+						= image_tag "down.svg", :class => "arrow"
+	.descControls.descSection
 		- if current_user.id == @post.user_id
-			= link_to "Delete", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
+			= link_to "Delete Question", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
 			- if @post.completed != true
 				= link_to "Set as Answered", set_completed_post_path(@post), remote: true, method: :put, :class => "btn btn-m btn-orange"
 
 
 
-.commentToggle
+.commentToggle.sixtySection
 	%h3.commentHeader Comments
 	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
-.commentContent
+.commentContent.sixtySection
 	- if user_signed_in?
-		= render partial: "comments/form", locals: {commentable: @artwork}
+		.showForm
+			= render partial: "comments/form", locals: {commentable: @artwork}
 
 	= nested_comments @comments
 

@@ -38,13 +38,13 @@ class PostsController < ApplicationController
 	end
 
 	def new
-		@categories = Category.all.map{|c| [c.name, c.id] }
+		@categories = Category.all.reject { |c| c.name == "All" }.map{|c| [c.name, c.id] }
 		@post = current_user.posts.build
 
 	end
 
 	def create
-		@categories = Category.all.map{|c| [c.name, c.id] }
+		@categories = Category.all.reject { |c| c.name == "All" }.map{|c| [c.name, c.id] }
 		@post = current_user.posts.build(post_params)
 		@post.completed = false;
 		if @post.save

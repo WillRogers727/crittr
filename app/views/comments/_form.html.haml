@@ -1,11 +1,8 @@
 .form
 	.inner
 		= form_for [@commentable, @comment] do |f|
-			.formItem
-				%h2 Reply to Comment
-			.formItem
-				= f.hidden_field :parent_id
-			.formItem
+			= f.hidden_field :parent_id
+			.formItem.formInput
 				= f.text_area :comment
 			.formItem
-				= f.submit
+				= f.submit 'Submit Comment', :class => "btn btn-m btn-light btn-submit"

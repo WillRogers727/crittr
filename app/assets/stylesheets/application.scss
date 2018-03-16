@@ -304,29 +304,55 @@ p {
 
 .titleSection {
 	width: 100%;
-	height: 75px;
+	height: auto;
 	background-color: #ebebeb;
-	margin: 0;
-	padding: 0;
 }
 
 .threadTitle {
-	width: 60%;
+	width: 100%;
 	line-height: 75px;
-	padding: 0 20% 0 20%;
 	font-size: 1.6em;
 }
 
 .descriptionSection {
-	width: 60%;
-	height: auto;
-	padding: 50px 20% 50px 20%;
 	background-color: #ebebeb;
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
 
 .descriptionSection p {
 	font-size: 1em;
 	margin: 10px 0 10px 0;
+}
+
+.descSection {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.descTop {
+	display: flex;
+	flex-direction: row;
+}
+
+.descInfo {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-grow: 1;
+	padding-right: 40px;
+}
+
+.descVoting { 
+}
+
+.descContent {
+
+}
+
+.descControls {
+	display: flex;
+	justify-content: space-between;
 }
 
 /* ============== INPUT FORMS ============== */
@@ -337,6 +363,11 @@ p {
 	margin: 50px 20% 0 20%;
 	font-family: 'Heebo', sans-serif;
 	color: #151515;
+}
+
+.showForm > .form {
+	margin: 0 0 0 0;
+	width: 100%;
 }
 
 .inner {
@@ -586,14 +617,62 @@ p {
 	justify-content: space-between;
 	align-items: center;
 	cursor: pointer;
+	height: 75px;
+	line-height: 75px;
 }
 
+.addToggle {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+	height: 75px;
+	line-height: 75px;
+}
 
 
 .darkToggleArrow {
 	width: 30px;
 	height: auto;
-	margin-right: 5%;
 	transition: 0.2s;
 }
 
+
+.sixtySection {
+	width: 60%;
+	padding-left: 20%;
+	padding-right: 20%;
+}
+
+
+/* ========================================== */
+/* ==================MEDIA QUERIES=========== */
+/* ========================================== */
+
+@media screen and (max-width: 1500px) {
+
+}
+
+@media screen and (max-width: 1000px) {
+	.sixtySection {
+		width: 70%;
+		padding-left: 15%;
+		padding-right: 15%;
+	}   
+}
+
+@media screen and (max-width: 600px) {
+	.sixtySection {
+		width: 90%;
+		padding-left: 5%;
+		padding-right: 5%;
+	}
+}
+
+
+
+
+/* ========================================== */
+/* ========================================== */
+/* ========================================== */
