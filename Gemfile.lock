@@ -138,7 +138,6 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (~> 0.3.0)
-    paperjs (0.11.5)
     polyamorous (1.3.3)
       activerecord (>= 3.0)
     public_suffix (3.0.2)
@@ -264,7 +263,6 @@ DEPENDENCIES
   jquery-rails (~> 4.1, >= 4.1.1)
   listen (>= 3.0.5, < 3.2)
   paperclip (~> 5.1)
-  paperjs
   puma (~> 3.7)
   rails (~> 5.1.4)
   ransack (~> 1.8, >= 1.8.6)
