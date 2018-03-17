@@ -70,7 +70,7 @@
 	.descTop
 		.descUser.descSection
 			.userThumb
-			s	=image_tag @artwork.user.avatar.url(:thumb), :class => "artUserThumb"
+				=image_tag @artwork.user.avatar.url(:thumb), :class => "artUserThumb"
 				=link_to @artwork.user.username, @artwork.user, :class => "artUserName"
 		.descVoting.descSection
 			.voteSection	
@@ -91,9 +91,8 @@
 				= link_to "Delete Artwork", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
 				- if @artwork.completed != true
 					= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put, :class => "btn btn-m btn-orange"
-	
-		
-
+	.descSocial.descSection
+		= link_to 'Facebook', 'https://www.facebook.com/dialog/feed?app_id=2095083210778655&display=page&amp;caption=' + request.original_url + '&link=' + artwork_path(@artwork) + '&redirect_uri=https://developers.facebook.com/tools/explorer', :target => :blank 
 	
 
 
