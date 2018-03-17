@@ -47,17 +47,17 @@ def create
 	@artwork = current_user.artworks.build(artwork_params)
 	@artwork.completed = false;
 	# respond_to do |format|
+	if params[:images]
 		if @artwork.save
-			if params[:images]
-				params[:images].each { |image| 
-					@artwork.pictures.create(image: image)
-				}
-			end
+			params[:images].each { |image| @artwork.pictures.create(image: image)}
 
 			redirect_to @artwork, notice: "Artwork submitted successfully"
 		else
 			render 'new'
 		# end
+		end
+	else
+		render 'new'
 	end
 end
 
