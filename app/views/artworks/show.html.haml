@@ -92,7 +92,7 @@
 				- if @artwork.completed != true
 					= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put, :class => "btn btn-m btn-orange"
 	.descSocial.descSection
-		= link_to 'Facebook', 'https://www.facebook.com/dialog/feed?app_id=2095083210778655&display=page&amp;caption=' + request.original_url + '&link=' + artwork_path(@artwork) + '&redirect_uri=https://developers.facebook.com/tools/explorer', :target => :blank 
+		= link_to 'Facebook', 'https://www.facebook.com/dialog/feed?app_id=2095083210778655&display=page&amp;caption=' + request.original_url + '&redirect_uri=https://developers.facebook.com/tools/explorer', :target => :blank 
 	
 
 
