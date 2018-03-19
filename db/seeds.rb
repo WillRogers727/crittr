@@ -6,6 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Category.create!(:name => "All")
-Category.create!(:name => "Fine Art")
-Category.create!(:name => "3d")
+Category.create(:name => "All")
+Category.create(:name => "Fine Art")
+Category.create(:name => "3d")
