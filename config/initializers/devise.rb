@@ -11,6 +11,8 @@ Devise.setup do |config|
   # config.secret_key = 'c82f7c04f7406f1f575d84490693d0939423f14a6b047899e95a8fb09c1116ce75d1ddb62e74148134449d78d17654cffbcf82f74df7723d0bf4783423abbcaf'
 
 
+  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], scope: 'email'
+
   config.secret_key = ENV['DEVISE_SECRET_KEY'] ? Rails.env.production? : Rails.env.staging?
   
   # ==> Mailer Configuration
