@@ -39,10 +39,6 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 
 namespace :deploy do
 
-	task :seed do
-		run "cd #{current_path}; rake db:seed RAILS_ENV=#{rails_env}"
-	end
-
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
