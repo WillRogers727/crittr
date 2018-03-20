@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     root 'devise/sessions#new'
   end
 
+  resources :authentications, only: [:destroy]
+
   root 'pages#home' #set site to default to the new home page
 
   resources :categories, shallow: true do 
