@@ -11,7 +11,7 @@ Devise.setup do |config|
   # config.secret_key = 'c82f7c04f7406f1f575d84490693d0939423f14a6b047899e95a8fb09c1116ce75d1ddb62e74148134449d78d17654cffbcf82f74df7723d0bf4783423abbcaf'
 
 
-  config.omniauth :facebook, '2095083210778655', '2095083210778655', scope: 'email,name', info_fields: 'email,name' ? Rails.env.production? : Rails.env.staging?
+  
 
   config.secret_key = ENV['DEVISE_SECRET_KEY'] ? Rails.env.production? : Rails.env.staging?
   
@@ -258,7 +258,7 @@ Devise.setup do |config|
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
-
+  config.omniauth :facebook, '2095083210778655', '2095083210778655', scope: 'email,name', info_fields: 'email,name' ? Rails.env.production? : Rails.env.staging?
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
   # change the failure app, you can configure them inside the config.warden block.
