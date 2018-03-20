@@ -1,5 +1,12 @@
 <div class="form">
   <div class="inner">
+    <h3>Facebook Settings</h3>
+      <% if resource.has_facebook_linked? %>
+        <%= link_to "Unlink Facebook", authentication_path(resource), method: :delete %>
+      <% else %>
+        <%= link_to "Link Facebook", omniauth_authorize_path(:user, :facebook) %>
+      <% end %>
+    
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <div class="formHeader">
         <h2>Edit Profile</h2>
@@ -16,7 +23,7 @@
           <% end %>
         </div>
 
-        <% if resource.provider != "facebook" %>
+        <% if !resource.has_facebook_linked? %>
           <div class="formItem formInput">
             <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
           </div>
@@ -29,6 +36,7 @@
         <% end %>
 
 
+
         <div class="formItem">
           <%= f.input :avatar, required: false %>
         </div>
@@ -37,6 +45,8 @@
         </div>
 
     <% end %>
+
+
 
     <h3>Cancel my account</h3>
 
