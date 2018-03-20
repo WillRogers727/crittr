@@ -15,15 +15,20 @@
             <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
         </div>
-        <div class="formItem formInput">
-          <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-        </div>
-        <div class="formItem formInput">
-          <%= f.input :password_confirmation, required: false %>
-        </div>
-        <div class="formItem formInput">
-          <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
-        </div>
+
+        <%= if resource.provider != "facebook" %>
+          <div class="formItem formInput">
+            <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+          </div>
+          <div class="formItem formInput">
+            <%= f.input :password_confirmation, required: false %>
+          </div>
+          <div class="formItem formInput">
+            <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+          </div>
+        <%= end %>
+
+
         <div class="formItem">
           <%= f.input :avatar, required: false %>
         </div>
