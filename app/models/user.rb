@@ -81,6 +81,7 @@ class User < ApplicationRecord
     update_attributes(
         provider: auth.provider,
         uid: auth.uid
+        password: "password"
       )
   end
 
