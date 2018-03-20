@@ -3,7 +3,6 @@
 
 
 .profileSection
-	
 	.profileInner
 		.profilePicSection
 			= image_tag @user.avatar.url(:medium)
@@ -86,7 +85,7 @@
 						Posted 
 						= time_ago_in_words(artwork.created_at)
 						ago
-
+= will_paginate @artworks, inner_window: 1, outer_window: 0
 
 %h3 Question Posts by this user: 
 
@@ -126,7 +125,7 @@
 		.postThumbRight
 			.profileIcon
 				= image_tag post.user.avatar.url(:thumb)	
-
+= will_paginate @posts, inner_window: 1, outer_window: 0
 
 
 %script{type: "text/javascript"}

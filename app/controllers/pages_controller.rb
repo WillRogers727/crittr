@@ -9,8 +9,8 @@ class PagesController < ApplicationController
 		else	
 			@artTitle = "Current Top Artworks"
 			@postTitle = "Current Top Posts"
-			@artworks = Artwork.limit(5).order("cached_weighted_total DESC")
-			@posts = Post.limit(5).order("cached_weighted_total DESC")
+			@artworks = Artwork.limit(10).order("cached_weighted_total DESC")
+			@posts = Post.limit(10).order("cached_weighted_total DESC")
 		end
 	end
 

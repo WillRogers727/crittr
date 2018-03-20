@@ -11,19 +11,19 @@ class PostsController < ApplicationController
 			if params[:tag]
 				@allPosts = Post.all
 				@search = @allPosts.tagged_with(params[:tag]).ransack(params[:q])
-		  	@posts = @search.result
+		  	@posts = @search.result.paginate(page: params[:page], per_page: 10)
 			else
 				@allPosts = Post.all
 				@search = @allPosts.ransack(params[:q])
-		  	@posts = @search.result
+		  	@posts = @search.result.paginate(page: params[:page], per_page: 10)
 			end
 		else
 			if params[:tag]
 				@search = @category.posts.tagged_with(params[:tag]).ransack(params[:q])
-	  		@posts = @search.result
+	  		@posts = @search.result.paginate(page: params[:page], per_page: 10)
 			else
 				@search = @category.posts.ransack(params[:q])
-	  		@posts = @search.result
+	  		@posts = @search.result.paginate(page: params[:page], per_page: 10)
 			end
 		end
 

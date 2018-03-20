@@ -61,7 +61,7 @@
 								Posted 
 								= time_ago_in_words(artwork.created_at)
 								ago
-				
+		= will_paginate @artworks, inner_window: 1, outer_window: 0
 
 
 %script{type: "text/javascript"}
