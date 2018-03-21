@@ -96,32 +96,45 @@
 		= twitter_button :turbolinks => true, :title=> 'Crittr - ' + @artwork.title,  :hashtags => "Crittr", :static_link => true
 		= reddit_button :turbolinks => true, :title=> 'Crittr - ' + @artwork.title , :static_link => true
 
-.addToggle.sixtySection
-	%h3.commentHeader Add Images:
-	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
-.addContent.sixtySection
-	= render partial: "picture_form"
+- if user_signed_in?
+	- if @artwork.user.id == current_user.id
+		.addToggle.sixtySection
+			%h3.commentHeader Add Images:
+			=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
+		.addContent.sixtySection
+			= render partial: "picture_form"
 
 - if @artwork.completed == true
 	.reviewToggle.sixtySection
 		%h3.commentHeader Reviews
 		=image_tag "toggleUpDark.png", :class => "darkToggleArrow"
 	.reviewContent.sixtySection
-		= render @artwork.reviews
+		- if @artwork.reviews.size == 0
+			%p No Reviews yet!
+		-else
+			= render @artwork.reviews
 
 		- if user_signed_in?
-			%p Add a review now that this artwork is complete!
-			.showForm
-				= render 'reviews/form'
+			- if @artwork.user.id != current_user.id
+				%p Add a review now that this artwork is complete!
+				.showForm
+					= render 'reviews/form'
+		- else
+			%p Sign in to add a review!
 
 .commentToggle.sixtySection
 	%h3.commentHeader Comments
 	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
 .commentContent.sixtySection
-	= nested_comments @comments
+	- if @comments.size == 0
+		%p No Comments yet!
+	-else	
+		= nested_comments @comments
 	- if user_signed_in?
 		.showForm
 			= render partial: "comments/form", locals: {commentable: @artwork}
+	- else
+		%p Sign in to comment		
 
 
 

@@ -37,10 +37,11 @@
 						= image_tag "down.svg", :class => "arrow"
 
 	.descControls.descSection
-		- if current_user.id == @post.user_id
-			= link_to "Delete Question", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
-			- if @post.completed != true
-				= link_to "Set as Answered", set_completed_post_path(@post), remote: true, method: :put, :class => "btn btn-m btn-orange"
+		- if user_signed_in?
+			- if current_user.id == @post.user_id
+				= link_to "Delete Question", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
+				- if @post.completed != true
+					= link_to "Set as Answered", set_completed_post_path(@post), remote: true, method: :put, :class => "btn btn-m btn-orange"
 
 
 
@@ -48,9 +49,12 @@
 	%h3.commentHeader Comments
 	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
 .commentContent.sixtySection
+	- if @comments.size == 0
+		%p No Comments yet!
+	-else	
+		= nested_comments @comments
 	- if user_signed_in?
 		.showForm
-			= render partial: "comments/form", locals: {commentable: @artwork}
-
-	= nested_comments @comments
-
+			= render partial: "comments/form", locals: {commentable: @post}
+	- else
+		%p Sign in to comment		
