@@ -5,6 +5,6 @@ class Post < ApplicationRecord
 	belongs_to :category
 	has_many :comments, as: :commentable #polymorphic association so that comments can be made on multiple models
 
-
+	validates :title, :content, presence: true
 
 end 

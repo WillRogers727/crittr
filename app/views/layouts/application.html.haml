@@ -28,13 +28,13 @@
         = link_to "Sign Up", new_user_registration_path
         = link_to "Sign In", new_user_session_path
 
-  .container    
-    %p.notice= notice
-    %p.alert= alert
+
 
   .postsContainer
     =yield
+    
 
+        
 - if @page == 'newNote'
   = javascript_include_tag '/javascripts/createNote.js', type: "text/javascript"
 

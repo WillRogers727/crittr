@@ -4,6 +4,13 @@
 			.formHeader
 				%h2 New Question
 				=link_to "Cancel", root_path, :class => "btn btn-m btn-dark"
+			.noticeBox
+				- if @post.errors.any?
+					%h2 Errors:
+					%ul
+						- @post.errors.full_messages.each do |message|
+							%li= message
+				= render 'layouts/notice'
 			.formItem.formInput
 				= f.label :title, "Post Title"
 				= f.input :title, label: false

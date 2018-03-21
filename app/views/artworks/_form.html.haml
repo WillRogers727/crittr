@@ -4,6 +4,15 @@
 			.formHeader
 				%h2 New Artwork
 				=link_to "Cancel", root_path, :class => "btn btn-m btn-dark"
+			.noticeBox
+				- if @artwork.errors.any?
+					%h2 Errors:
+					%ul
+						- @artwork.errors.full_messages.each do |message|
+							%li= message
+			.formItem
+				= f.label "Post Image/s"
+				= file_field_tag "images[]", type: :file, multiple: true
 			.formItem.formInput
 				= f.label :title, "Post Title"
 				= f.input :title, label: false
@@ -16,9 +25,6 @@
 			.formItem
 				= f.label :category_id, "Art or Design Category"
 				= f.select(:category_id, options_for_select(@categories))
-			.formItem
-				= f.label "Post Image/s"
-				= file_field_tag "images[]", type: :file, multiple: true
 			.formItem
 				= f.label :nsfw, "Does your post contain adult content?"
 				= f.check_box :nsfw

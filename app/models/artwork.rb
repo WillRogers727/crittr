@@ -11,4 +11,5 @@ class Artwork < ApplicationRecord
 	# validates_presence_of :pictures
  	# validates :pictures, length: { minimum: 1 }
   # validates_associated :pictures
+  validates :title, :description, presence: true
 end

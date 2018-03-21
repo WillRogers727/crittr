@@ -46,19 +46,19 @@ def create
 	@categories = Category.all.reject { |c| c.name == "All" }.map{|c| [c.name, c.id] }
 	@artwork = current_user.artworks.build(artwork_params)
 	@artwork.completed = false;
-	# respond_to do |format|
-	if params[:images]
-		if @artwork.save
-			params[:images].each { |image| @artwork.pictures.create(image: image)}
 
+	
+		if @artwork.save
+			if params[:images]
+				params[:images].each { |image| @artwork.pictures.create(image: image)}
+			end
 			redirect_to @artwork, notice: "Artwork submitted successfully"
 		else
-			render 'new'
-		# end
+			render 'new', notice: "Please submit at least 1 image"
 		end
-	else
-		render 'new'
-	end
+
+
+
 end
 
 def edit
