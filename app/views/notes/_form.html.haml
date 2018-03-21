@@ -4,9 +4,16 @@
 			.formHeader
 				%h2 New Note
 				=link_to "Cancel", root_path, :class => "btn btn-m btn-dark"
+			.noticeBox
+				- if @note.errors.any?
+					%h2 Errors:
+					%ul
+						- @note.errors.full_messages.each do |message|
+							%li= message
 			.formItem.formInput
 				= f.label :content, "Note Content"
 				= f.input :content, label: false
+				/ = f.label :noteImgData, "Note Annotation"
 				= f.hidden_field :noteImgData, :id => "canvasContent"
 			.formItem
 				= f.submit 'Submit Note', :class => "btn btn-m btn-light btn-submit"

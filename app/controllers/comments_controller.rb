@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 		@parent_id = params.delete(:parent_id)
 		@commentable = find_commentable
 		@comment = Comment.new(:parent_id => @parent_id, :commentable_id => @commentable.id, :commentable_type => @commentable.class.to_s)
+		
 	end
 
 	def create
@@ -13,10 +14,9 @@ class CommentsController < ApplicationController
 		# @comment = @commentable.comments.build(comment_params)--when changed to this, the submit button simply stops submitting anything
 		@comment.user = current_user
 		if @comment.save
-			flash[:notice] = "Successfully created comment"
-				redirect_to @commentable
+			redirect_to @commentable
 		else
-			flash[:error] = "Error adding comment"
+			
 		end
 	end
 

@@ -47,18 +47,16 @@ def create
 	@artwork = current_user.artworks.build(artwork_params)
 	@artwork.completed = false;
 
-	
+	if params[:images]
 		if @artwork.save
-			if params[:images]
-				params[:images].each { |image| @artwork.pictures.create(image: image)}
-			end
+			params[:images].each { |image| @artwork.pictures.create(image: image)}
 			redirect_to @artwork, notice: "Artwork submitted successfully"
 		else
-			render 'new', notice: "Please submit at least 1 image"
+			render 'new'
 		end
-
-
-
+	else
+		render 'new'
+	end
 end
 
 def edit

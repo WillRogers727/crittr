@@ -5,7 +5,7 @@ class Note < ApplicationRecord
 
 
 	has_attached_file :noteImg
-
+	validates :noteImgData, :content, presence: true
   # before_validation :set_image
 	validates_attachment_content_type :noteImg,
                                      content_type: %w(image/jpeg image/jpg image/png image/gif),

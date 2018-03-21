@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
 		if @review.save
 			redirect_to artwork_path(@artwork)
 		else
-			redirect_to artwork_path(@artwork), notice: "Please enter more than 100 chars"
+			redirect_to artwork_path(@artwork)
 		end
 
 

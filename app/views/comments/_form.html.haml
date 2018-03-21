@@ -2,6 +2,12 @@
 	.inner
 		= form_for [@commentable, @comment] do |f|
 			= f.hidden_field :parent_id
+			.noticeBox
+				- if @comment.errors.any?
+					%h2 Errors:
+					%ul
+						- @comment.errors.full_messages.each do |message|
+							%li= message
 			.formItem.formInput
 				= f.text_area :comment
 			.formItem

@@ -10,7 +10,6 @@
 					%ul
 						- @post.errors.full_messages.each do |message|
 							%li= message
-				= render 'layouts/notice'
 			.formItem.formInput
 				= f.label :title, "Post Title"
 				= f.input :title, label: false
