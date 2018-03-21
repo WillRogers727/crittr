@@ -54,9 +54,12 @@
 										= image_tag "down.svg", :class => "arrow"
 									/ %p= artwork.get_downvotes.size
 						.extraInfo	
-							.userThumb
-								=image_tag artwork.user.avatar.url(:thumb), :class => "artUserThumb"
-								=link_to artwork.user.username, artwork.user, :class => "artUserName"
+							- if artwork.user != nil
+								.userThumb
+									=image_tag artwork.user.avatar.url(:thumb), :class => "artUserThumb"
+									=link_to artwork.user.username, artwork.user, :class => "artUserName"
+							-else
+								%p [User Deleted]		
 							%p.date
 								Posted 
 								= time_ago_in_words(artwork.created_at)

@@ -44,6 +44,9 @@
 							- else 
 								= Category.find(post.category_id).name
 				.postThumbRight
-					.profileIcon
-						=image_tag post.user.avatar.url(:thumb)
+					- if post.user != nil
+						.profileIcon
+							=image_tag post.user.avatar.url(:thumb)
+					- else 
+						%p [User Deleted]		
 		= will_paginate @posts, inner_window: 1, outer_window: 0

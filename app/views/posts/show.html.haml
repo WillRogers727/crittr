@@ -21,9 +21,12 @@
 			%p.unanswered Unanswered
 	.descTop
 		.descUser.descSection
-			.userThumb
-				=image_tag @post.user.avatar.url(:thumb), :class => "artUserThumb"
-				=link_to @post.user.username, @post.user, :class => "artUserName"
+			- if @post.user != nil
+				.userThumb
+					=image_tag @post.user.avatar.url(:thumb), :class => "artUserThumb"
+					=link_to @post.user.username, @post.user, :class => "artUserName"
+			- else
+				%p [User Deleted]
 		.descVoting.descSection
 			.voteSection	
 				.vote
@@ -38,10 +41,11 @@
 
 	.descControls.descSection
 		- if user_signed_in?
-			- if current_user.id == @post.user_id
-				= link_to "Delete Question", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
-				- if @post.completed != true
-					= link_to "Set as Answered", set_completed_post_path(@post), remote: true, method: :put, :class => "btn btn-m btn-orange"
+			- if @post.user != nil
+				- if current_user.id == @post.user_id
+					= link_to "Delete Question", post_path(@post), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
+					- if @post.completed != true
+						= link_to "Set as Answered", set_completed_post_path(@post), remote: true, method: :put, :class => "btn btn-m btn-orange"
 
 
 

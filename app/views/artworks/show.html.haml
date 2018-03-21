@@ -16,10 +16,11 @@
 						
 					- if user_signed_in?
 						.artImageControls
-							- if @artwork.user.id == current_user.id
-								- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
-									= link_to "Delete Image", picture_path(pic.id), :data => { :confirm => "Are you sure?"}, :method => :delete, :class => "btn btn-s btn-light"
-							= link_to "New Note", new_picture_note_path(pic.id), :class => "btn btn-s btn-orange"
+							- if @artwork.user != nil
+								- if @artwork.user.id == current_user.id
+									- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
+										= link_to "Delete Image", picture_path(pic.id), :data => { :confirm => "Are you sure?"}, :method => :delete, :class => "btn btn-s btn-light"
+								= link_to "New Note", new_picture_note_path(pic.id), :class => "btn btn-s btn-orange"
 					
 					.noteSection
 						%a.contentToggle.NoteToggle
@@ -30,13 +31,17 @@
 								- pic.notes.each do |note|
 									.note
 										%p= note.content
-										%p
-											Posted by:
-											= note.user.username
+										- if note.user != nil
+											%p
+												Posted by:
+												= note.user.username
+										- else 
+											%p [User Deleted]
 										%a.noteShow.btn.btn-s.btn-orange{id: "nShow-" + note.id.to_s, name: note.id.to_s } View note
 										%a.noteHide.btn.btn-s.btn-orange.hiddenBtn{id: "nHide-" + note.id.to_s, name: note.id.to_s } Hide Note
-										- if user_signed_in? && current_user.id == note.user_id
-											=link_to "Delete Note", note , method: :delete, :remote => true, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"	
+										- if note.user != nil
+											- if user_signed_in? && current_user.id == note.user_id
+												=link_to "Delete Note", note , method: :delete, :remote => true, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"	
 							- else
 								%p No notes yet - Be the first to add one
 
@@ -69,9 +74,12 @@
 			%p.unanswered In Progress
 	.descTop
 		.descUser.descSection
-			.userThumb
-				=image_tag @artwork.user.avatar.url(:thumb), :class => "artUserThumb"
-				=link_to @artwork.user.username, @artwork.user, :class => "artUserName"
+			- if @artwork.user != nil
+				.userThumb
+					=image_tag @artwork.user.avatar.url(:thumb), :class => "artUserThumb"
+					=link_to @artwork.user.username, @artwork.user, :class => "artUserName"
+			- else
+				%p [User Deleted]
 		.descVoting.descSection
 			.voteSection	
 				.vote
@@ -87,22 +95,24 @@
 		%p= @artwork.description
 	.descControls.descSection
 		- if user_signed_in?
-			- if @artwork.user.id == current_user.id
-				= link_to "Delete Artwork", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
-				- if @artwork.completed != true
-					= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put, :class => "btn btn-m btn-orange"
+			- if @artwork.user != nil
+				- if @artwork.user.id == current_user.id
+					= link_to "Delete Artwork", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
+					- if @artwork.completed != true
+						= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put, :class => "btn btn-m btn-orange"
 	.descSocial.descSection
 		= facebook_button :turbolinks => true, :app_id => '2095083210778655', :static_link => true, :share => true
 		= twitter_button :turbolinks => true, :title=> 'Crittr - ' + @artwork.title,  :hashtags => "Crittr", :static_link => true
 		= reddit_button :turbolinks => true, :title=> 'Crittr - ' + @artwork.title , :static_link => true
 
 - if user_signed_in?
-	- if @artwork.user.id == current_user.id
-		.addToggle.sixtySection
-			%h3.commentHeader Add Images:
-			=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
-		.addContent.sixtySection
-			= render partial: "picture_form"
+	- if @artwork.user != nil
+		- if @artwork.user.id == current_user.id
+			.addToggle.sixtySection
+				%h3.commentHeader Add Images:
+				=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
+			.addContent.sixtySection
+				= render partial: "picture_form"
 
 - if @artwork.completed == true
 	.reviewToggle.sixtySection
