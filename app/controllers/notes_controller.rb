@@ -18,7 +18,8 @@ class NotesController < ApplicationController
 
 		if @note.save
 			#redirect to artwork, root for now tho
-      redirect_to root_path
+      @artwork = @picture.artwork
+      redirect_to @artwork
 		else
 			render 'new'
 		end
@@ -26,8 +27,10 @@ class NotesController < ApplicationController
 
 	def destroy
 		@note = Note.find(params[:id])
+		@picture = @note.picture
+		@artwork = @picture.artwork
 		@note.destroy
-		redirect_to root_path
+		redirect_to @artwork
 	end
 
 	private

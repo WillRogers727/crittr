@@ -1,6 +1,12 @@
 .form
 	.inner
 		=simple_form_for([@artwork, @artwork.reviews.build]) do |f|
+			/ .noticeBox
+			/ 	- if @review.errors.any?
+			/ 		%h2 Errors:
+			/ 		%ul
+			/ 			- @review.errors.full_messages.each do |message|
+			/ 				%li= message
 			.formItem.formInput
 				= f.text_area :content
 			.formItem
