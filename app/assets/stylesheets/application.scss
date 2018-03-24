@@ -131,6 +131,7 @@ p {
 	transition: 0.5s;
 }
 
+
 #divider {
 	width: 100%;
 	height: 75px;
@@ -139,6 +140,7 @@ p {
 .topLogo {
 	height: 65px;
 	padding: 5px 0 0 10px;
+	transition: 0.3s;
 }
 
 .profileButtons {
@@ -757,6 +759,12 @@ p {
 		overflow-y: scroll;
 		margin-bottom: 75px;
 	}
+
+	.topLogo {
+		height: 45px;
+		padding: 5px 0 0 10px;
+		transition: 0.3s;
+	}
 	
 }
 
@@ -765,6 +773,12 @@ p {
 		width: 90%;
 		padding-left: 5%;
 		padding-right: 5%;
+	}
+
+	.topLogo {
+		height: 35px;
+		padding: 5px 0 0 10px;
+		transition: 0.3s;
 	}
 }
 

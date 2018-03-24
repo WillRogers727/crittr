@@ -33,7 +33,6 @@
   .postsContainer
     =yield
     
-
         
 - if @page == 'newNote'
   = javascript_include_tag '/javascripts/createNote.js', type: "text/javascript"
@@ -46,3 +45,4 @@
 
 - if @page == 'index'
   = javascript_include_tag '/javascripts/indexPage.js', type: "text/javascript"
+
