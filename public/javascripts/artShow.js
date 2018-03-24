@@ -23,8 +23,6 @@ $(document).ready(function() {
 			setHolderHeight();
 	});
 
-
-
 	//need to make the art holder height the same as the image inside it
 	//when - 
 	//page is first loaded
@@ -57,6 +55,7 @@ $(document).ready(function() {
 		var val = this.name;
 		hideNote(val);
 	});
+
 
 	function showNote(val) {
 		$('.noteImg-' + val).removeClass('hiddenNote');
@@ -94,6 +93,8 @@ $(document).ready(function() {
 	  $('div.addContent').slideToggle(200).toggleClass('contentActive');
 	  $(".addToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
 	});
+
+	
 
 
 });

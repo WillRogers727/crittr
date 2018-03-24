@@ -5,6 +5,7 @@ before_action :authenticate_user!, except: [:index, :show] #makes sure the user 
 include Commentable
 
 def index
+	@page = "index"
 	@categories = Category.all
 	
 	if @category.id == 1 

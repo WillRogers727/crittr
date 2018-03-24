@@ -197,7 +197,7 @@ p {
 	height: 50px;
 }
 
-/* ========================================= */
+/* ====================================1===== */
 
 /* ========== SIDE NAVIGATION BAR ========== */
 
@@ -208,10 +208,17 @@ p {
 	flex-direction: row;
 	flex-wrap: nowrap;
 }
-
+ 
 .gallery {
 	margin-left: 200px;
 	flex-grow: 1;
+	transition: 0.3s;
+	width: 100%;
+}
+
+.full {
+	margin-left: 30px;
+	transition: 0.3s;
 }
 
 .galleryTopbar {
@@ -228,20 +235,48 @@ p {
 	width: 200px;
 	min-width: 200px;
 	height: 100vh;
-	background-color: #151515;
 	margin: 0;
 	padding: 0;
 	float: left;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	position: fixed;
 	font-family: 'Heebo', sans-serif;
+	transition: 0.3s;
+	z-index: 5;
+}
+
+.sidebarContent {
+	display: flex;
+	flex-direction: column;
+	background-color: #151515;
 	-webkit-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
 	-moz-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
 	box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
 }
 
 
+.closed {
+	transform: translateX(-170px);
+	transition: 0.3s;
+}
+
+.sidebarToggle {
+	width: 30px;
+	height: 120px;
+	background-color: #151515;
+	margin-top: 20px;
+	-webkit-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
+	-moz-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
+	box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  cursor: pointer;
+}
+
+.closed {
+
+}
 
 .sideSection {
 	width: 85%;
@@ -699,6 +734,30 @@ p {
 		padding-left: 15%;
 		padding-right: 15%;
 	}   
+
+	.mainBody {
+		width: 100%;
+		height: auto;
+		display: block;
+	}
+	 
+	.gallery {
+		margin-left: 0px;
+		flex-grow: none;
+		transition: 0.3s;
+		width: 100%;
+	}
+
+	.full {
+		margin-left: 30px;
+		transition: 0.3s;
+	}
+
+	.sidebarContent {
+		overflow-y: scroll;
+		margin-bottom: 75px;
+	}
+	
 }
 
 @media screen and (max-width: 600px) {

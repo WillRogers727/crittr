@@ -5,6 +5,7 @@ class PostsController < ApplicationController
 	include Commentable
 
 	def index #index through all of the various posts
+		@page = "index"
 		@categories = Category.all
 
 		if @category.id == 1 
