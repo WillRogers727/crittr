@@ -85,7 +85,7 @@ end
 def destroy
 	@artwork = Artwork.find(params[:id])
 	@artwork.destroy
-	redirect_to root_path
+	redirect_to category_artworks_path(1)
 end
 
 def upvote

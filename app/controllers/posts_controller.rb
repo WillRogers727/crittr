@@ -68,7 +68,7 @@ class PostsController < ApplicationController
 
 	def destroy
 		@post.destroy
-		redirect_to root_path
+		redirect_to category_posts_path(1) #posts forum index page cat 1
 	end
 
 	def upvote
