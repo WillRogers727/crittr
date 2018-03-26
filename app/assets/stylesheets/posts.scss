@@ -7,14 +7,12 @@
 
 
 .postContainer {
-	width: 90%;
-	margin: 20px 0 20px 5%;
-	background-color: #d5d5d5;
-	border-radius: 5px;
+	width: 96%;
+	margin: 20px 2% 20px 2%;
+	background-color: #ebebeb;
 	-webkit-box-shadow: 10px 10px 10px -7px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 10px -7px rgba(0,0,0,0.75);
 	box-shadow: 10px 10px 10px -7px rgba(0,0,0,0.75);
-
 	display: flex;
 	flex-direction: row;
 }
@@ -24,6 +22,21 @@
 	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
+}
+
+.postThumbRight {
+	background-color: #d5d5d5;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-around;
+	padding: 0 20px 0 20px;
+}
+
+.postThumbMiddle {
+	display: flex;
+	align-items: center;
+	padding: 0 5px 0 5px;
 }
 
 .leftSection {
@@ -38,14 +51,20 @@
 	padding-right: 2%;
 }
 
+.title  a {
+	width: 80%;
+	text-decoration: none;
+	color: #151515;
+	font-size: 1.4em;
+	font-weight: 700;
+}
 
-.postThumbRight {
-	width: 13%;
-	height: 100%;
-	background-color: #098765;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+.title a:hover {
+	color: #b4620a;
+}
+
+.postThumbRight .date {
+	font-size: 0.9em;
 }
 
 .profileIcon {
