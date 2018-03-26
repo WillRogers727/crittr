@@ -11,6 +11,7 @@ $(document).ready(function() {
 	function toggleSidebar() {
 		$('.sidebar').toggleClass('closed');
 		$('.gallery').toggleClass('full');
+		$('.toggleSide').toggleClass('toggleSideOut');
 	}
 
 	function setToggleDefault() {
@@ -18,6 +19,7 @@ $(document).ready(function() {
       if (win.width() < 1000) { 
       	$('.sidebar').addClass('closed');
 				$('.gallery').addClass('full');
+				$('.toggleSide').addClass('toggleSideOut');
       }
 	}
 

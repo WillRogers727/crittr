@@ -1,36 +1,37 @@
 .sidebar
 	.sidebarContent
-		.forumLinks.sideSection
-			= link_to "Artwork Forum", category_artworks_path(1), :class => "btn btn-l btn-light"
-			= link_to "Question Forum", category_posts_path(1), :class => "btn btn-l btn-light"
+		.forumLinks
+			= link_to "Artwork Forum", category_artworks_path(1), :class => "btn btn-m btn-light"
+			= link_to "Question Forum", category_posts_path(1), :class => "btn btn-m btn-light"
 		.sideSection
 			%h2.sidebarHeader Category
 			- if section == 1 #if artwork forum links go to artwork forum path
 				- @categories.each do |cat|
-					= link_to cat.name, category_artworks_path(cat.id)
+					= link_to cat.name, category_artworks_path(cat.id), :class => "sideLink"
 			- else # else it links to the posts forum
 				- @categories.each do |cat|
-					= link_to cat.name, category_posts_path(cat.id)
+					= link_to cat.name, category_posts_path(cat.id), :class => "sideLink"
 
 		.sideSection
 			%h2.sidebarHeader Sort by
-			= sort_link @search, :created_at, "Date Created"
-			= sort_link @search, :title, "By Title"
-			= sort_link @search, :cached_votes_up, "By Upvotes"
-			= sort_link @search, :cached_votes_down, "By Downvotes"
+			=sort_link(@search, :created_at, "Date Created")
+			=sort_link(@search, :title, "By Title")
+			=sort_link(@search, :cached_votes_up, "By Upvotes")
+			=sort_link(@search, :cached_votes_down, "By Downvotes")
 
-		.filtering.sideSection
-			%h2.sidebarHeader Filter by
-			= search_form_for [@category, @search], :class => "searchBar" do |f|
-				.filterItem
+		= search_form_for [@category, @search], :class => "searchBar" do |f|
+			.filtering.sideSection
+				%h2.sidebarHeader Filter by
+				.filterItem.sideLink
 					= f.label "Completed"
 					= f.check_box :completed_true
-				.filterItem
+				.filterItem.sideLink
 					= f.label "Hide NSFW"
 					= f.check_box :nsfw_false
-
+			.filterLink
 				= f.submit 'Filter', :class => "btn btn-m btn-light"
 	.sidebarToggle
+		=image_tag "toggleDown.png", :class => "toggleArrow toggleSide"  
 
 	
 	

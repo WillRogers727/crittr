@@ -252,38 +252,71 @@ p {
 	display: flex;
 	flex-direction: column;
 	background-color: #151515;
-	-webkit-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
-	-moz-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
-	box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
 }
 
 
 .closed {
-	transform: translateX(-170px);
+	transform: translateX(-160px);
 	transition: 0.3s;
 }
 
 .sidebarToggle {
 	width: 30px;
-	height: 120px;
+	height: 50px;
 	background-color: #151515;
-	margin-top: 20px;
-	-webkit-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
-	-moz-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
-	box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.4);
+	margin-top: 30px;
   border-bottom-right-radius: 10px;
   border-top-right-radius: 10px;
   cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.closed {
-
+.toggleSide {
+	transform: rotate(90deg) ;
+  -webkit-transform: rotate(90deg) ;
+  -moz-transform: rotate(90deg) ;
+  -o-transform: rotate(90deg) ;
+  -ms-transform: rotate(90deg) ;
+  transition: 0.2s;
 }
+
+.toggleSideOut {
+	transform: rotate(-90deg) ;
+  -webkit-transform: rotate(-90deg) ;
+  -moz-transform: rotate(-90deg) ;
+  -o-transform: rotate(-90deg) ;
+  -ms-transform: rotate(-90deg) ;
+  transition: 0.2s;
+}
+
 
 .sideSection {
 	width: 85%;
 	height: auto;
 	padding: 20px 5% 20px 10%;
+	display: flex;
+	flex-direction: column;
+}
+
+.forumLinks {
+	width: 90%;
+	height: auto;
+	padding: 20px 5% 20px 5%;
+	display: flex;
+	flex-direction: column;
+}
+
+.forumLinks a {
+	margin-top: 10px;
+}
+
+.filterLink {
+	width: 80%;
+	height: auto;
+	padding: 0 10% 20px 10%;
 	display: flex;
 	flex-direction: column;
 }
@@ -295,14 +328,24 @@ p {
 }
 
 
-.sideSection a {
+.sideLink {
 	width: 90%;
 	padding: 5px 0 5px 10%;
 	text-decoration: none;
 	color: #d5d5d5;
-}	
+}
 
+.sort_link {
+	width: 90%;
+	padding: 5px 0 5px 10%;
+	text-decoration: none;
+	color: #d5d5d5;
+}
 
+.filterItem {
+	color: #f7f7f7;
+	padding: 5px 0 5px 10%;
+}
 
 .sidebarForm {
 	margin: 5px 0 10px 0;
@@ -617,6 +660,7 @@ p {
     -moz-appearance: none;
     -appearance: none;
     transition: 0.3s;
+    text-align: center;
 
 }
 
@@ -759,6 +803,13 @@ p {
 		overflow-y: scroll;
 		margin-bottom: 75px;
 	}
+
+	.closed {
+		transform: translateX(-170px);
+		transition: 0.3s;
+	}
+
+
 
 	.topLogo {
 		height: 45px;
