@@ -21,6 +21,7 @@ $(document).ready(function() {
 				$('.gallery').addClass('full');
 				$('.toggleSide').addClass('toggleSideOut');
       }
+
 	}
 
 });

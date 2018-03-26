@@ -201,6 +201,64 @@ p {
 
 /* ====================================1===== */
 
+.galleryTopbar {
+	width: 96%;
+	padding: 0 2% 0 2%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.titleSubmit {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.submitButton {
+	margin-left: 15px;
+}
+
+.searchForm {
+	height: 100%;
+}
+
+.searchBar {
+	display: flex;
+	align-items: center;
+}
+
+.searchInput input {
+	width: calc(100% - 10px);
+	font-size: 22px;
+	line-height: 30px;
+	box-shadow: none;
+	border: 2px solid #d5d5d5;
+	border-radius: 5px;
+	transition: 0.3s;
+	margin-right: 10px;	
+}
+
+.searchInput input:hover {
+	border-color: #fbb76d;
+	transition: 0.3s;
+	-webkit-box-shadow: inset 0px 0px 7px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: inset 0px 0px 7px 0px rgba(0,0,0,0.1);
+	box-shadow: inset 0px 0px 7px 0px rgba(0,0,0,0.1);
+}
+
+.searchInput input:focus {
+	border-color: #ec8c25;
+	transition: 0.3s;
+	-webkit-box-shadow: inset 0px 0px 7px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: inset 0px 0px 7px 0px rgba(0,0,0,0.2);
+	box-shadow: inset 0px 0px 7px 0px rgba(0,0,0,0.2);
+}
+
+
+
 /* ========== SIDE NAVIGATION BAR ========== */
 
 .mainBody {
@@ -213,25 +271,17 @@ p {
  
 .gallery {
 	margin-left: 200px;
-	flex-grow: 1;
+	width: 100%;
 	transition: 0.3s;
 	width: 100%;
 }
 
 .full {
+	width: calc(100% - 30px);
 	margin-left: 30px;
 	transition: 0.3s;
 }
 
-.galleryTopbar {
-	width: 96%;
-	padding: 0 2% 0 2%;
-	height: auto;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-}
 
 .sidebar {
 	width: 200px;
@@ -354,6 +404,8 @@ p {
 .sidebarForm input {
 	margin-top: 10px;
 }
+
+
 
 /* ========================================= */
 
@@ -788,13 +840,14 @@ p {
 	}
 	 
 	.gallery {
+		width: 100%;
 		margin-left: 0px;
-		flex-grow: none;
 		transition: 0.3s;
 		width: 100%;
 	}
 
 	.full {
+		width: calc(100% - 30px);
 		margin-left: 30px;
 		transition: 0.3s;
 	}
@@ -816,6 +869,16 @@ p {
 		padding: 5px 0 0 10px;
 		transition: 0.3s;
 	}
+
+	.galleryTopbar {
+		flex-wrap: wrap;
+	}
+
+	.searchForm {
+		flex-grow: 1;
+		display: flex;
+		justify-content: center;
+	}
 	
 }
 
@@ -831,6 +894,13 @@ p {
 		padding: 5px 0 0 10px;
 		transition: 0.3s;
 	}
+
+
+	.forumTitle {
+		font-size: 2em;
+	}
+
+
 }
 
 

@@ -2,15 +2,18 @@
 	= render partial: 'layouts/sidebar', locals: { section: 2 } # 2 for posts
 	.gallery
 		.galleryTopbar
-			%h1.forumTitle Questions Forum
-			%p= @category.name
-				
-			- if user_signed_in?
-				= link_to "Submit Question", new_category_post_path, :class => "btn btn-m btn-light"
-
-			= search_form_for [@category, @search], :class => "searchBar" do |f|
-				= f.search_field :title_cont 
-				= f.submit 'Search', :class => "btn btn-m btn-light"
+			.titleSubmit
+				%h1.forumTitle
+					=@category.name
+					Posts
+				.submitButton
+					- if user_signed_in?
+						= link_to "Submit", new_category_post_path, :class => "btn btn-m btn-orange"
+			.searchForm
+				= search_form_for [@category, @search], :class => "searchBar" do |f|
+					.searchInput
+						= f.search_field :title_cont
+					= f.submit 'Search', :class => "btn btn-m btn-light"
 
 		- @posts.each do |post|
 			.postContainer

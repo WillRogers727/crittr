@@ -19,7 +19,7 @@
 			=sort_link(@search, :cached_votes_up, "By Upvotes")
 			=sort_link(@search, :cached_votes_down, "By Downvotes")
 
-		= search_form_for [@category, @search], :class => "searchBar" do |f|
+		= search_form_for [@category, @search], :class => "filterBar" do |f|
 			.filtering.sideSection
 				%h2.sidebarHeader Filter by
 				.filterItem.sideLink
