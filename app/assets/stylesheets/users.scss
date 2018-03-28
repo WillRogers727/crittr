@@ -1,3 +1,93 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ============== PROFILE PAGE ============== */
+
+.profileSection {
+	background-color: #d5d5d5;
+	font-family: 'Heebo', sans-serif;
+
+}
+
+.profileInner {
+	width: 100%;
+	height: auto;
+	padding: 30px 0 30px 0;
+	display: flex;
+}
+
+.profilePicSection {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.profilePicSection img {
+	border: solid 4px #222222;
+	border-radius: 5px;
+}
+
+.profileInfoSection {
+	flex-grow: 1;
+	padding: 20px 30px 20px 30px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+
+
+.profileInfo {
+	flex-grow: 1;
+	width: 100%;
+	height: auto;
+}
+
+.profileInfo p {
+	padding: 3px 0 3px 0;
+}
+
+.profileControls {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: space-between;
+}
+
+
+/* ========================================== */
+/* ==================MEDIA QUERIES=========== */
+/* ========================================== */
+
+@media screen and (max-width: 1500px) {
+
+}
+
+@media screen and (max-width: 1000px) {
+
+	.profilePicSection img {
+		width: 150px;
+		height: auto;
+		transition: 0.2s;
+	}
+
+}
+
+@media screen and (max-width: 600px) {
+
+	.profileInner {
+		flex-wrap: wrap;
+	}
+	
+	.profilePicSection {
+		width: 100%;
+	}
+
+	.profileInfoSection {
+		width: 100%;
+	}
+	.profileControls {
+		padding-top: 15px;
+	}
+}

@@ -1,14 +1,12 @@
 .titleSection.sixtySection
-	%h1.threadTitle User Profile
+	%h1.threadTitle= @user.username
 
-
-.profileSection
+.profileSection.sixtySection
 	.profileInner
 		.profilePicSection
 			= image_tag @user.avatar.url(:medium)
 		.profileInfoSection
 			.profileInfo
-				%h2= @user.username
 				%p
 					Member Since:
 					= @user.created_at.to_date
@@ -36,7 +34,7 @@
 						= render 'follow_form'
 
 
-%h3 Artwork Posts by this user: 
+%h1.homeHeader Artwork Posts by this user: 
 
 .artworkThumbSection
 	- @artworks.each do |artwork|
@@ -88,7 +86,7 @@
 						ago
 = will_paginate @artworks, inner_window: 1, outer_window: 0
 
-%h3 Question Posts by this user: 
+%h1.homeHeader Question Posts by this user: 
 
 
 .gallery
