@@ -13,19 +13,19 @@ def index
 		if params[:tag]
 			@allArtworks = Artwork.all
 			@search = @allArtworks.tagged_with(params[:tag]).ransack(params[:q])
-	  	@artworks = @search.result.paginate(page: params[:page], per_page: 10)
+	  	@artworks = @search.result.paginate(page: params[:page], per_page: 25)
 		else
 			@allArtworks = Artwork.all
 			@search = @allArtworks.ransack(params[:q])
-	  	@artworks = @search.result.paginate(page: params[:page], per_page: 10)
+	  	@artworks = @search.result.paginate(page: params[:page], per_page: 25)
 		end
 	else
 		if params[:tag]
 			@search = @category.artworks.tagged_with(params[:tag]).ransack(params[:q])
-	  	@artworks = @search.result.paginate(page: params[:page], per_page: 10)
+	  	@artworks = @search.result.paginate(page: params[:page], per_page: 25)
 		else
 			@search = @category.artworks.ransack(params[:q])
-	  	@artworks = @search.result.paginate(page: params[:page], per_page: 10)
+	  	@artworks = @search.result.paginate(page: params[:page], per_page: 25)
 		end
 
 	end
