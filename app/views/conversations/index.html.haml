@@ -1,13 +1,20 @@
 
-%h3.convoTitle Conversations:
+%h3.convoTitle Messages:
 
 .convoSection
-	- @conversations.each do |conversation|
-		- if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id
-			-	if conversation.sender_id == current_user.id
-				- recipient = User.find(conversation.recipient_id)
-			- else
-				- recipient = User.find(conversation.sender_id)
-			= link_to conversation_messages_path(conversation) do
+	- if @conversations.size == 0
+		%p No Conversations.. Start one by messaging someone!
+	-else 
+		- @conversations.each do |conversation|
+			- if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id
+				-	if conversation.sender_id == current_user.id
+					- recipient = User.find(conversation.recipient_id)
+				- else
+					- recipient = User.find(conversation.sender_id)
 				.convoLink
-					= recipient.username
+					.convoUserThumb
+						=image_tag recipient.avatar.url(:thumb), :class => "artUserThumb"
+						=link_to recipient.username, recipient, :class => "artUserName"
+					.convoBtn
+						= link_to "Open", conversation_messages_path(conversation), :class => "btn btn-m btn-orange"
+					

@@ -1,8 +1,5 @@
 %h3.msgTitle Other user username here
 
-
-/ - if @over_ten
-/ 	= link_to ‘Show Previous’, ‘?m=all’
 .messagesContainer
 	- @messages.each do |message|
 		- if message.body 
