@@ -16,20 +16,9 @@
 *===============================================*/
 
 .artworkThumbSection {
-	width: 96%;
-	padding: 0 2% 0 2%;
+	width: 100%;
+	padding: 25px 0 0 0;
 	height: auto;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-}
-
-.artSpacer {
-	flex-grow: 1;
-	height: auto;
-	display: flex;
-	justify-content: center;
-	max-width: 500px;
 }
 
 .thumbnail {
@@ -145,16 +134,19 @@
 .artworkContainer {
 	width: 300px;
 	height: auto;
-	margin: 10px;
 	background-color: #232323;
 	-webkit-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 	-moz-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
 	box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
-
+	margin: 7px;
 	display: flex;
 	flex-direction: column;
+
 }
 
+#arts {
+	margin: 0 auto;
+}
 /*--------------------------------------------*/
 
 
@@ -424,3 +416,35 @@
 }
 
 /*---------------------------------------*/
+
+
+/* ========================================== */
+/* ==================MEDIA QUERIES=========== */
+/* ========================================== */
+
+@media screen and (max-width: 1500px) {
+
+}
+
+@media screen and (max-width: 1000px) {
+	
+	
+}
+
+@media screen and (max-width: 600px) {
+
+}
+
+@media screen and (max-width: 500px) {
+	.artworkContainer {
+		width: 250px;
+		height: auto;
+	}
+}
+
+
+
+
+/* ========================================== */
+/* ========================================== */
+/* ========================================== */

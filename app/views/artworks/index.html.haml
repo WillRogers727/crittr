@@ -16,8 +16,8 @@
 					= f.submit 'Search', :class => "btn btn-m btn-light"
 
 		.artworkThumbSection
-			- @artworks.each do |artwork|
-				.artSpacer
+			#arts
+				- @artworks.each do |artwork|
 					%div.artworkContainer
 						.thumbnail
 							- if artwork.pictures.any?
@@ -67,6 +67,7 @@
 								Posted 
 								= time_ago_in_words(artwork.created_at)
 								ago
+
 		= will_paginate @artworks, inner_window: 1, outer_window: 0
 
 
