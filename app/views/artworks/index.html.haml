@@ -16,7 +16,7 @@
 					= f.submit 'Search', :class => "btn btn-m btn-light"
 
 		.artworkThumbSection
-			#arts
+			#arts.transitions-enabled
 				- @artworks.each do |artwork|
 					%div.artworkContainer
 						.thumbnail

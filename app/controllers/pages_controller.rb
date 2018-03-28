@@ -4,8 +4,8 @@ class PagesController < ApplicationController
 		if user_signed_in?
 			@artTitle = "Your Artwork Feed"
 			@postTitle = "Your Post Feed"
-			@artworks = current_user.artworkFeed.order("created_at DESC")
-			@posts = current_user.postFeed.order("created_at DESC")
+			@artworks = current_user.artworkFeed.limit(10).order("created_at DESC")
+			@posts = current_user.postFeed.limit(10).order("created_at DESC")
 		else	
 			@artTitle = "Current Top Artworks"
 			@postTitle = "Current Top Posts"

@@ -18,3 +18,7 @@ $ ->
 			itemselector: '.artworkContainer'
 			isFitWidth: true
 
+	$('.userArtToggle').mouseleave ->
+		$('#arts').masonry
+			itemselector: '.artworkContainer'
+			isFitWidth: true
