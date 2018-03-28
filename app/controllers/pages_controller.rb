@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 	def home
+		@page = "userHome"
 		if user_signed_in?
 			@artTitle = "Your Artwork Feed"
 			@postTitle = "Your Post Feed"

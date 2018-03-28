@@ -30,13 +30,11 @@
 
 .profileInfoSection {
 	flex-grow: 1;
-	padding: 20px 30px 20px 30px;
+	padding: 3px 30px 3px 30px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 }
-
-
 
 .profileInfo {
 	flex-grow: 1;
@@ -55,6 +53,23 @@
 	justify-content: space-between;
 }
 
+.userArtToggle {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
+
+.userPostToggle {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	cursor: pointer;
+}
+
 
 /* ========================================== */
 /* ==================MEDIA QUERIES=========== */
@@ -65,12 +80,6 @@
 }
 
 @media screen and (max-width: 1000px) {
-
-	.profilePicSection img {
-		width: 150px;
-		height: auto;
-		transition: 0.2s;
-	}
 
 }
 
@@ -86,8 +95,14 @@
 
 	.profileInfoSection {
 		width: 100%;
+		padding: 10px 30px 10px 30px;
 	}
 	.profileControls {
 		padding-top: 15px;
+	}
+	.profilePicSection img {
+		width: 150px;
+		height: auto;
+		transition: 0.2s;
 	}
 }

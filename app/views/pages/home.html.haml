@@ -8,108 +8,114 @@
 		=link_to "Artwork Forum", category_artworks_path(1), :class => "btn btn-l btn-light"
 		=link_to "Question Forum", category_posts_path(1), :class => "btn btn-l btn-light"
 
+.userArtToggle.galSection
+	%h3.commentHeader= @artTitle
+	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
+.userArtContent
+	- if user_signed_in?
+		- if current_user.following.count == 0
+			.noContent
+				%p Start following users to see their lastest artwork submissions appear here!
+		- else
+			.artworkThumbSection
+				- @artworks.each do |artwork|
+					.artSpacer
+						%div.artworkContainer
+							.thumbnail
+								- if artwork.pictures.any?
+									- i = 1 # counter to assign class names to toggles
+									- unless artwork.pictures.size <= 1
+										- while (i <= artwork.pictures.size) do
+											.tToggle{:id => i.to_s} 
+											- i+=1 #add one to counter per loop
 
-%h1.homeHeader= @artTitle
-- if user_signed_in?
-	- if current_user.following.count == 0
-		.noContent
-			%p Start following users to see their lastest artwork submissions appear here!
-	- else
-		.artworkThumbSection
-			- @artworks.each do |artwork|
-				.artSpacer
-					%div.artworkContainer
-						.thumbnail
-							- if artwork.pictures.any?
-								- i = 1 # counter to assign class names to toggles
-								- unless artwork.pictures.size <= 1
-									- while (i <= artwork.pictures.size) do
-										.tToggle{:id => i.to_s} 
-										- i+=1 #add one to counter per loop
+									- c = 1 #counter to assign class names to thumbs
+									- artwork.pictures.each do |p|
+										.thumbImg{class: "hidden thumb-" + c.to_s}
+											= image_tag p.image.url
+										- c+=1 #add one to counter per loop
+							.infoSection	
+								.info
+									%h2.title= link_to artwork.title, artwork
+									%p.category
+										- if artwork.category_id == nil
+											Uncategorized
+										- else 
+											= Category.find(artwork.category_id).name
+									%p
+										Tags: 
+										= raw artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(artwork.category_id, t), :class => "tagLink"}.join(', ')
 
-								- c = 1 #counter to assign class names to thumbs
-								- artwork.pictures.each do |p|
-									.thumbImg{class: "hidden thumb-" + c.to_s}
-										= image_tag p.image.url
-									- c+=1 #add one to counter per loop
-						.infoSection	
-							.info
-								%h2.title= link_to artwork.title, artwork
-								%p.category
-									- if artwork.category_id == nil
-										Uncategorized
-									- else 
-										= Category.find(artwork.category_id).name
+								.voteSection	
+									.vote
+										= link_to like_artwork_path(artwork), method: :put do
+											= image_tag "up.svg", :class => "arrow"
+									.voteCount
+										%p= artwork.get_upvotes.size
+									.vote	
+										= link_to dislike_artwork_path(artwork), method: :put do
+											= image_tag "down.svg", :class => "arrow"
+										/ %p= artwork.get_downvotes.size
+							.extraInfo	
+								- if artwork.user != nil
+									.userThumb
+										=image_tag artwork.user.avatar.url(:thumb), :class => "artUserThumb"
+										=link_to artwork.user.username, artwork.user, :class => "artUserName"
+								- else
+									%p [User Deleted]
+								%p.date
+									Posted 
+									= time_ago_in_words(artwork.created_at)
+									ago
+
+
+.userPostToggle.galSection
+	%h3.commentHeader= @postTitle 
+	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
+.userPostContent
+	- if user_signed_in?
+		- if current_user.following.count == 0
+			.noContent
+				%p Start following users to see their lastest question submissions appear here!
+		- else
+			.gallery
+				- @posts.each do |post|
+					.postContainer
+						.postThumbLeft
+							.leftUpper.leftSection
+								%h2.title= link_to post.title, post
+								%p.date
+									Published
+									= time_ago_in_words(post.created_at)
+									ago
+							.leftLower.leftSection
+								%p 
+									Upvotes:
+									= post.get_upvotes.size
+								/ %p
+								/ 	Comment (
+								/ 	= post.comments.size
+								/ 	)
 								%p
 									Tags: 
-									= raw artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(artwork.category_id, t), :class => "tagLink"}.join(', ')
-
-							.voteSection	
-								.vote
-									= link_to like_artwork_path(artwork), method: :put do
-										= image_tag "up.svg", :class => "arrow"
-								.voteCount
-									%p= artwork.get_upvotes.size
-								.vote	
-									= link_to dislike_artwork_path(artwork), method: :put do
-										= image_tag "down.svg", :class => "arrow"
-									/ %p= artwork.get_downvotes.size
-						.extraInfo	
-							- if artwork.user != nil
-								.userThumb
-									=image_tag artwork.user.avatar.url(:thumb), :class => "artUserThumb"
-									=link_to artwork.user.username, artwork.user, :class => "artUserName"
-							- else
+									= raw post.tag_list.map { |t| link_to t, category_post_tag_path(post.category_id, t)}.join(', ')
+								%p
+									- if post.completed == true
+										%p.answered Answered
+									- else
+										%p.unanswered Unanswered
+								%p
+									Category:
+									- if post.category_id == nil
+										Uncategorized
+									- else 
+										= Category.find(post.category_id).name
+						.postThumbRight
+							- if post.user != nil
+								.profileIcon
+									=image_tag post.user.avatar.url(:thumb)
+							- else 
 								%p [User Deleted]
-							%p.date
-								Posted 
-								= time_ago_in_words(artwork.created_at)
-								ago
-
-%h1.homeHeader= @postTitle
-- if user_signed_in?
-	- if current_user.following.count == 0
-		.noContent
-			%p Start following users to see their lastest question submissions appear here!
-	- else
-		.gallery
-			- @posts.each do |post|
-				.postContainer
-					.postThumbLeft
-						.leftUpper.leftSection
-							%h2.title= link_to post.title, post
-							%p.date
-								Published
-								= time_ago_in_words(post.created_at)
-								ago
-						.leftLower.leftSection
-							%p 
-								Upvotes:
-								= post.get_upvotes.size
-							/ %p
-							/ 	Comment (
-							/ 	= post.comments.size
-							/ 	)
-							%p
-								Tags: 
-								= raw post.tag_list.map { |t| link_to t, category_post_tag_path(post.category_id, t)}.join(', ')
-							%p
-								- if post.completed == true
-									%p.answered Answered
-								- else
-									%p.unanswered Unanswered
-							%p
-								Category:
-								- if post.category_id == nil
-									Uncategorized
-								- else 
-									= Category.find(post.category_id).name
-					.postThumbRight
-						- if post.user != nil
-							.profileIcon
-								=image_tag post.user.avatar.url(:thumb)
-						- else 
-							%p [User Deleted]
 
 
 %script{type: "text/javascript"}

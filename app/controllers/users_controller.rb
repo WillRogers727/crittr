@@ -11,6 +11,7 @@ def show
   @artworks = @user.artworks.paginate(page: params[:page], per_page: 10)
   @posts = @user.posts.paginate(page: params[:page], per_page: 10)
   @comments = @user.comments
+  @page = "userHome"
 end
 
 def following
