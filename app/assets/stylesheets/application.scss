@@ -447,14 +447,15 @@ p {
 
 .threadTitle {
 	width: 100%;
-	line-height: 75px;
+	line-height: 40px;
+	padding: 20px 0 20px 0;
 	font-size: 2em;
 }
 
 .descriptionSection {
 	background-color: #ebebeb;
-	padding-top: 40px;
-	padding-bottom: 40px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }
 
 .descriptionSection p {
@@ -865,8 +866,16 @@ p {
 		font-size: 2em;
 	}
 
-	
+	.threadTitle {
+		line-height: 30px;
+		padding: 20px 0 20px 0;
+		font-size: 1.5em;
+	}
 
+	.descInfo {
+		flex-direction: column;
+		justify-content: space-between;
+	}
 }
 
 

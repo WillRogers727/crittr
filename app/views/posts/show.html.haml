@@ -6,15 +6,14 @@
 .descriptionSection.sixtySection
 	.descInfo.descSection
 		%p
-			Category:
 			- if @post.category_id == nil
 				Uncategorized
 			- else 
-				= Category.find(@post.category_id).name
+				- @cat = Category.find(@post.category_id).name
+				=link_to @cat, category_posts_path(@post.category_id), :class => "catLink"
 		%p
 			Tags: 
-			= @post.tag_list
-
+			= raw @post.tag_list.map { |t| link_to t, category_post_tag_path(@post.category_id, t), :class => "tagLink"}.join(', ')
 		- if @post.completed == true
 			%p.answered Answered
 		- else
@@ -38,6 +37,11 @@
 				.vote	
 					= link_to dislike_post_path(@post), method: :put do
 						= image_tag "down.svg", :class => "arrow"
+	.descDate.descSection
+		%p.date
+			Posted
+			= time_ago_in_words(@post.created_at)
+			ago
 
 	.descControls.descSection
 		- if user_signed_in?

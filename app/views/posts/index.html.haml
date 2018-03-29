@@ -18,23 +18,23 @@
 		- @posts.each do |post|
 			.postContainer
 				.postThumbLeft
-					.leftUpper.leftSection
-						%h2.title= link_to post.title, post
-					.leftLower.leftSection
-						%p
-							- if post.category_id == nil
-								Uncategorized
-							- else 
-								= Category.find(post.category_id).name
-						%p
-							Tags: 
-							= raw post.tag_list.map { |t| link_to t, category_post_tag_path(post.category_id, t), :class => "tagLink"}.join(', ')
-						%p
-							- if post.completed == true
-								%p.answered Answered
-							- else
-								%p.unanswered Unanswered
-				.postThumbMiddle
+					.leftInner
+						.leftUpper.leftSection
+							%h2.title= link_to post.title, post
+						.leftLower.leftSection
+							%p
+								- if post.category_id == nil
+									Uncategorized
+								- else 
+									= Category.find(post.category_id).name
+							%p
+								Tags: 
+								= raw post.tag_list.map { |t| link_to t, category_post_tag_path(post.category_id, t), :class => "tagLink"}.join(', ')
+							%p
+								- if post.completed == true
+									%p.answered Answered
+								- else
+									%p.unanswered Unanswered
 					.voteSection	
 						.vote
 							= link_to like_post_path(post), method: :put do
@@ -52,7 +52,6 @@
 							=link_to post.user.username, post.user, :class => "artUserName"
 					-else
 						%p [User Deleted]		
-
 					%p.date
 						Posted
 						= time_ago_in_words(post.created_at)

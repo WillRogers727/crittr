@@ -83,40 +83,44 @@
 				- @posts.each do |post|
 					.postContainer
 						.postThumbLeft
-							.leftUpper.leftSection
-								%h2.title= link_to post.title, post
-								%p.date
-									Published
-									= time_ago_in_words(post.created_at)
-									ago
-							.leftLower.leftSection
-								%p 
-									Upvotes:
-									= post.get_upvotes.size
-								/ %p
-								/ 	Comment (
-								/ 	= post.comments.size
-								/ 	)
-								%p
-									Tags: 
-									= raw post.tag_list.map { |t| link_to t, category_post_tag_path(post.category_id, t)}.join(', ')
-								%p
-									- if post.completed == true
-										%p.answered Answered
-									- else
-										%p.unanswered Unanswered
-								%p
-									Category:
-									- if post.category_id == nil
-										Uncategorized
-									- else 
-										= Category.find(post.category_id).name
+							.leftInner
+								.leftUpper.leftSection
+									%h2.title= link_to post.title, post
+								.leftLower.leftSection
+									%p
+										- if post.category_id == nil
+											Uncategorized
+										- else 
+											= Category.find(post.category_id).name
+									%p
+										Tags: 
+										= raw post.tag_list.map { |t| link_to t, category_post_tag_path(post.category_id, t), :class => "tagLink"}.join(', ')
+									%p
+										- if post.completed == true
+											%p.answered Answered
+										- else
+											%p.unanswered Unanswered
+							.voteSection	
+								.vote
+									= link_to like_post_path(post), method: :put do
+										= image_tag "up.svg", :class => "arrow"
+								.voteCount
+									- @voteCount = (post.get_upvotes.size) - (post.get_downvotes.size)
+									%p= @voteCount
+								.vote	
+									= link_to dislike_post_path(post), method: :put do
+										= image_tag "down.svg", :class => "arrow"
 						.postThumbRight
 							- if post.user != nil
-								.profileIcon
-									=image_tag post.user.avatar.url(:thumb)
-							- else 
-								%p [User Deleted]
+								.userThumb
+									=image_tag post.user.avatar.url(:thumb), :class => "artUserThumb"
+									=link_to post.user.username, post.user, :class => "artUserName"
+							-else
+								%p [User Deleted]		
+							%p.date
+								Posted
+								= time_ago_in_words(post.created_at)
+								ago
 
 
 %script{type: "text/javascript"}
