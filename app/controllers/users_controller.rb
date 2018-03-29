@@ -2,7 +2,8 @@ class UsersController < ApplicationController
 #users_controller.rb
 before_action :authenticate_user!, except: [:show] 
 def index
-	@users = User.all
+	@search = User.ransack(params[:q])
+	@users = @search.result.paginate(page: params[:page], per_page: 10)
 end
 
 

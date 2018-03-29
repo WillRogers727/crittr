@@ -1,9 +1,14 @@
 
-%h3.convoTitle Messages:
+
+.convoHeader
+	%h3.msgTitle Messages:
+	= link_to "Search Users", users_path, :class => "btn btn-m btn-orange"
 
 .convoSection
-	- if @conversations.size == 0
-		%p No Conversations.. Start one by messaging someone!
+	- if current_user.conversations.size == 0
+		.noConvoSection
+			%p No Conversatisons.. Start one by messaging someone!
+			= link_to "Search Users", users_path, :class => "btn btn-l btn-orange"
 	-else 
 		- @conversations.each do |conversation|
 			- if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id

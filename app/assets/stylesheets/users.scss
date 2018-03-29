@@ -70,6 +70,40 @@
 	cursor: pointer;
 }
 
+.userSearch {
+	width: 90%;
+	padding: 60px 5% 10px 5%;
+	height: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.userList {
+	width: 90%;
+	padding: 20px 5% 20px 5%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.userTile {
+	width: 300px;
+	height: auto;
+	padding: 15px;
+	background-color: #ebebeb;
+	-webkit-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+	-moz-box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+	box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, 0.2);
+	margin: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
 
 /* ========================================== */
 /* ==================MEDIA QUERIES=========== */
@@ -104,5 +138,9 @@
 		width: 150px;
 		height: auto;
 		transition: 0.2s;
+	}
+
+	.userTile {
+		width: 100%;
 	}
 }

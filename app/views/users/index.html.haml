@@ -1,3 +1,17 @@
-= @users.each do |user|
-	= link_to user.email, user
-	= user.email
+%h3.convoTitle All Users
+
+.userSearch
+	.searchForm.userSearch
+		= search_form_for @search, :class => "searchBar" do |f|
+			.searchInput
+				= f.search_field :username_cont
+			= f.submit 'Search', :class => "btn btn-m btn-light"
+.userList
+	- @users.each do |user|
+		.userTile
+			.convoUserThumb
+				=image_tag user.avatar.url(:thumb), :class => "artUserThumb"
+				=link_to user.username, user, :class => "artUserName"
+			.userMsgButton
+				= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', :class => "btn btn-m btn-orange"
+	= will_paginate @users, inner_window: 1, outer_window: 0
