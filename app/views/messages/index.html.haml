@@ -1,5 +1,7 @@
-%h3.msgTitle Other user username here
-
+.msgHeader
+	.backButton= link_to "Back", conversations_path, :class => "btn btn-s btn-dark"
+	%h3.msgTitle= @conversation.user.username
+	
 .messagesContainer
 	- @messages.each do |message|
 		- if message.body 
@@ -19,9 +21,9 @@
 			
 
 .messageReplyForm
-	= link_to "<- Conversations", conversations_path
 	= form_for [@conversation, @message] do |f| 
-		= f.text_area :body
+		.formItem.formInput
+			= f.text_area :body
 		= f.text_field :user_id, value: current_user.id, type: "hidden"
 
-		= f.submit "Send"
+		= f.submit "Send", :class => "btn btn-m btn-orange"
