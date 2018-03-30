@@ -1,3 +1,6 @@
+.backSection.sixtySection
+	- @cat = Category.find(@post.category_id).name
+	= link_to "Back to " + @cat, category_posts_path(@post.category_id), :class => "btn btn-s btn-dark"
 .titleSection.sixtySection
 	%h1.threadTitle= @post.title
 .questionSection.sixtySection
@@ -9,7 +12,6 @@
 			- if @post.category_id == nil
 				Uncategorized
 			- else 
-				- @cat = Category.find(@post.category_id).name
 				=link_to @cat, category_posts_path(@post.category_id), :class => "catLink"
 		%p
 			Tags: 

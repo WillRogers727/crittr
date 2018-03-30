@@ -1,3 +1,6 @@
+.backSection.sixtySection
+	- @cat = Category.find(@artwork.category_id).name
+	= link_to "Back to " + @cat, category_artworks_path(@artwork.category_id), :class => "btn btn-s btn-dark"
 .titleSection.sixtySection
 	%h1.threadTitle= @artwork.title
 .artImageSection

@@ -26,6 +26,9 @@
 * Tirtiary Dark = #d5d5d5
 * Tirtiary Light = #f7f7f7
 
+* Green = #80be5f
+* Red = #be5f5f
+
 
 *font-family: 'Heebo', sans-serif;
 *===============================================
@@ -478,7 +481,6 @@ p {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	padding-right: 40px;
 }
 
 .descVoting { 
@@ -760,7 +762,6 @@ p {
 	transition: 0.2s;
 }
 
-
 .sixtySection {
 	width: 60%;
 	padding-left: 20%;
@@ -781,6 +782,28 @@ p {
 	width: 100%;
 	height: auto;
 	background-color: #123456;
+}
+
+.backSection {
+	height: auto;
+	padding-top: 20px;
+	display: flex;
+	align-items: center;
+	background-color: #ebebeb;
+}
+
+.answered {
+	padding: 5px;
+	background-color: #80be5f;
+	border-radius: 5px;
+	text-align: center;
+}
+
+.unanswered {
+	padding: 5px;
+	background-color: #be5f5f;
+	border-radius: 5px;
+	text-align: center;
 }
 
 
@@ -875,6 +898,16 @@ p {
 	.descInfo {
 		flex-direction: column;
 		justify-content: space-between;
+	}
+
+	.unanswered {
+		padding-left: 5px !important;
+		padding-right: 5px !important;
+	}
+
+	.answered {
+		padding-left: 5px !important;
+		padding-right: 5px !important;
 	}
 }
 
