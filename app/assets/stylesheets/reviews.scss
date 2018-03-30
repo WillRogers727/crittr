@@ -1,3 +1,37 @@
-// Place all the styles related to the reviews controller here.
+/*// Place all the styles related to the reviews controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-lang.com/*/
+
+
+.review {
+	width: 96%;
+	height: auto;
+	padding: 20px 2% 20px 2%;
+	display: flex;
+	flex-direction: column;
+	background-color: #ebebeb;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.reviewUser {
+	display: flex;
+	align-items: center;
+	padding-bottom: 15px;
+}
+
+
+.reviewContent {
+	width: 100%;
+	height: auto;
+	padding: 0 0 15px 0;
+	line-height: 20px;
+}
+
+.reviewApproval p {
+	width: 100%;
+	height: auto;
+	padding: 0 0 15px 0;
+	line-height: 20px;
+	font-weight: 700;
+}

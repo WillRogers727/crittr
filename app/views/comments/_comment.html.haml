@@ -2,14 +2,14 @@
 	.commentCurrent
 		.commentMain
 			.commentMainTop
-				.commentUserPic
-					- if comment.user != nil
+				- if comment.user != nil
+					.commentUserPic
 						=image_tag comment.user.avatar.url(:thumb), :class => "commentUserThumb"
-						%p
-							=link_to comment.user.username, comment.user, :class => "commentUserName"
-							commented:
-					- else 
-						%p [User Deleted]
+					%p
+						=link_to comment.user.username, comment.user, :class => "commentUserName"
+						commented:
+				- else 
+					%p [User Deleted]
 			.commentMainContent
 				%p= comment.comment
 			.commentMainControls

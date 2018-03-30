@@ -130,7 +130,10 @@
 		=image_tag "toggleUpDark.png", :class => "darkToggleArrow"
 	.reviewContent.sixtySection
 		- if @artwork.reviews.size == 0
-			%p No Reviews yet!
+			- if @artwork.user.id != current_user.id
+				%p No Reviews yet.. be the first to add one!
+			- else
+				%p No Reviews yet.. be the first to add one!
 		-else
 			= render @artwork.reviews
 
@@ -147,7 +150,7 @@
 	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
 .commentContent.sixtySection
 	- if @comments.size == 0
-		%p No Comments yet!
+		%p No Comments yet.. be the first to add one!
 	-else	
 		= nested_comments @comments
 	- if user_signed_in?
