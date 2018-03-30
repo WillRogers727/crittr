@@ -288,6 +288,7 @@
 	width: 92%;
 	height: auto;
 	display: flex;
+	flex-direction: row;
 	justify-content: space-between;
 	padding: 20px 2% 20px 2%;
 	margin: 10px 2% 10px 2%;
@@ -295,6 +296,40 @@
 	-webkit-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
 	box-shadow: 10px 10px 5px -9px rgba(0,0,0,0.75);
+}
+
+.noteLeft {
+	display: flex;
+	flex-direction: column;
+	
+}
+
+.noteUser {
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.noteContent {
+	margin-bottom: 20px;
+}
+
+.noteControls {
+	display: flex;
+}
+
+.noNote {
+	color: #ebebeb;
+	width: 92%;
+	padding: 20px 2% 20px 2%;
+}
+
+.noteView {
+	min-width: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 15px;
 }
 
 .hiddenNote {

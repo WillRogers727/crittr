@@ -33,20 +33,28 @@
 							- if pic.notes.size != 0
 								- pic.notes.each do |note|
 									.note
-										%p= note.content
-										- if note.user != nil
-											%p
-												Posted by:
-												= note.user.username
-										- else 
-											%p [User Deleted]
-										%a.noteShow.btn.btn-s.btn-orange{id: "nShow-" + note.id.to_s, name: note.id.to_s } View note
-										%a.noteHide.btn.btn-s.btn-orange.hiddenBtn{id: "nHide-" + note.id.to_s, name: note.id.to_s } Hide Note
-										- if note.user != nil
-											- if user_signed_in? && current_user.id == note.user_id
-												=link_to "Delete Note", note , method: :delete, :remote => true, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"	
+										.noteLeft
+											.noteUser
+												- if note.user != nil
+													.commentUserPic
+														=image_tag note.user.avatar.url(:thumb), :class => "commentUserThumb"
+													%p
+														=link_to note.user.username, note.user, :class => "commentUserName"
+														posted a note:
+												- else 
+													%p [User Deleted]
+											.noteContent
+												%p= note.content
+											.noteControls
+												- if note.user != nil
+													- if user_signed_in? && current_user.id == note.user_id
+														=link_to "Delete Note", note , method: :delete, :remote => true, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"	
+										.noteView
+											%a.noteShow.btn.btn-s.btn-orange{id: "nShow-" + note.id.to_s, name: note.id.to_s } View note
+											%a.noteHide.btn.btn-s.btn-orange.hiddenBtn{id: "nHide-" + note.id.to_s, name: note.id.to_s } Hide Note
+
 							- else
-								%p No notes yet - Be the first to add one
+								%p.noNote No notes yet - Be the first to add one!
 
 	.artToggles
 		- i = 1 # counter to assign class names to toggles
