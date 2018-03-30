@@ -69,19 +69,20 @@
 .descriptionSection.sixtySection
 	.descInfo.descSection
 		%p
-			Category:
 			- if @artwork.category_id == nil
 				Uncategorized
 			- else 
-				= Category.find(@artwork.category_id).name
+				=link_to @cat, category_artworks_path(@artwork.category_id), :class => "catLink"
 		%p
 			Tags: 
-			= @artwork.tag_list
+			= raw @artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(@artwork.category_id, t), :class => "tagLink"}.join(', ')
 
 		- if @artwork.completed == true
 			%p.answered Completed
 		- else
 			%p.unanswered In Progress
+	.descContent.descSection
+		%p= @artwork.description
 	.descTop
 		.descUser.descSection
 			- if @artwork.user != nil
@@ -101,8 +102,18 @@
 				.vote	
 					= link_to dislike_artwork_path(@artwork), method: :put do
 						= image_tag "down.svg", :class => "arrow"
-	.descContent.descSection
-		%p= @artwork.description
+	.descDate.descSection
+		%p.date
+			Posted
+			= time_ago_in_words(@artwork.created_at)
+			ago
+		.descSocial
+			.sIcon.facebookIcon
+				= facebook_button :turbolinks => true, :app_id => '2095083210778655', :static_link => true, :share => true
+			.sIcon.twitterIcon
+				= twitter_button :turbolinks => true, :title=> 'Crittr - ' + @artwork.title,  :hashtags => "Crittr", :static_link => true
+			.sIcon.redditIcon	
+				= reddit_button :turbolinks => true, :title=> 'Crittr - ' + @artwork.title , :static_link => true
 	.descControls.descSection
 		- if user_signed_in?
 			- if @artwork.user != nil
@@ -110,10 +121,7 @@
 					= link_to "Delete Artwork", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
 					- if @artwork.completed != true
 						= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put, :class => "btn btn-m btn-orange"
-	.descSocial.descSection
-		= facebook_button :turbolinks => true, :app_id => '2095083210778655', :static_link => true, :share => true
-		= twitter_button :turbolinks => true, :title=> 'Crittr - ' + @artwork.title,  :hashtags => "Crittr", :static_link => true
-		= reddit_button :turbolinks => true, :title=> 'Crittr - ' + @artwork.title , :static_link => true
+		
 
 - if user_signed_in?
 	- if @artwork.user != nil

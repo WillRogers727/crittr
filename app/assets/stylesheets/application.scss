@@ -471,6 +471,18 @@ p {
 	margin-bottom: 20px;
 }
 
+.descSocial {
+	display: flex;
+}
+
+.sIcon {
+	margin: 0 5px 0 5px;
+}
+
+.socialIcon {
+	width: 32px;
+	height: 32px;
+}
 
 .descTop {
 	display: flex;
@@ -492,6 +504,12 @@ p {
 
 .descUser {
 	flex-grow: 1;
+}
+
+.descDate {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .descControls {

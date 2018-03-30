@@ -3,6 +3,13 @@ $(document).ready(function() {
 	var activeHolder;
 	var activeImage;
 
+	$('.facebookIcon a').empty();
+	$('.twitterIcon a').empty();
+	$('.redditIcon a').empty();
+	$('.facebookIcon a').append("<img class='socialIcon' src='/assets/facebook.png'></img>");
+	$('.twitterIcon a').append("<img class='socialIcon' src='/assets/twitter.png'></img>");
+	$('.redditIcon a').append("<img class='socialIcon' src='/assets/reddit.png'></img>");
+
 	$('.image-1').addClass('visible');
 	$('.image-1').removeClass('hidden');
 
