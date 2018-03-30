@@ -33,6 +33,9 @@
 							- if pic.notes.size != 0
 								- pic.notes.each do |note|
 									.note
+										.noteView
+											%a.noteShow.btn.btn-s.btn-orange{id: "nShow-" + note.id.to_s, name: note.id.to_s } View note
+											%a.noteHide.btn.btn-s.btn-orange.hiddenBtn{id: "nHide-" + note.id.to_s, name: note.id.to_s } Hide Note
 										.noteLeft
 											.noteUser
 												- if note.user != nil
@@ -48,11 +51,7 @@
 											.noteControls
 												- if note.user != nil
 													- if user_signed_in? && current_user.id == note.user_id
-														=link_to "Delete Note", note , method: :delete, :remote => true, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"	
-										.noteView
-											%a.noteShow.btn.btn-s.btn-orange{id: "nShow-" + note.id.to_s, name: note.id.to_s } View note
-											%a.noteHide.btn.btn-s.btn-orange.hiddenBtn{id: "nHide-" + note.id.to_s, name: note.id.to_s } Hide Note
-
+														=link_to "Delete Note", note , method: :delete, :remote => true, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-s btn-dark"		
 							- else
 								%p.noNote No notes yet - Be the first to add one!
 

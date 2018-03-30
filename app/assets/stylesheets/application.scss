@@ -840,6 +840,11 @@ p {
 		padding-right: 15%;
 	}   
 
+	.artImageGallery {
+		width: 70%;
+		margin: 0 0 0 15%;
+	}
+
 	.mainBody {
 		width: 100%;
 		height: auto;
@@ -894,6 +899,18 @@ p {
 		width: 90%;
 		padding-left: 5%;
 		padding-right: 5%;
+	}
+
+	.artImageGallery {
+		width: 98%;
+		margin: 0 0 0 1%;
+	}
+
+	.artImageSection {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		flex-wrap: wrap-reverse;
 	}
 
 	.topLogo {
