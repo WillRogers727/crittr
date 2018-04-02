@@ -439,6 +439,11 @@ p {
   border-radius: 5px;
   transition: 0.3s;
   border: 1px solid #151515;
+
+}
+
+.circleCheck {
+	border-radius: 20px !important; 
 }
 
 .checkContainer:hover input ~ .checkmark {

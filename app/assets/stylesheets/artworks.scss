@@ -170,12 +170,27 @@
 	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
+	margin-left: 10px;
 }
 
 .tContainer {
 	margin: 30px 0 30px 0;
 	font-family: 'Heebo', sans-serif;
 	color: #ebebeb;
+}
+
+.toggleTitle {
+	color: #ebebeb;
+	font-size: 1.2em;
+	font-weight: 700;
+	text-align: center;
+}
+
+.toggleNum {
+	color: #ebebeb;
+	font-size: 1.4em;
+	margin-left: 5px;
+
 }
 
 
@@ -452,6 +467,38 @@
 }
 
 @media screen and (max-width: 600px) {
+
+	.artToggles {
+		width: 96%;
+		padding: 0 2% 0 2%;
+		
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		margin-left: 0;
+	}
+	.toggleCont {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+	}
+
+	.tContainer {
+		margin: 25px 0 15px 0;
+		display: flex;
+		justify-content: center;
+	}
+
+	.toggleTitle {
+		padding: 15px 0 0 0;
+	}
+
+	.artImageGallery {
+		padding: 15px 0 10px 0;
+	}
 
 }
 

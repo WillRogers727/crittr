@@ -58,12 +58,20 @@
 	.artToggles
 		- i = 1 # counter to assign class names to toggles
 		- unless @pictures.size <= 1
-			- while (i <= @pictures.size) do
-				%label.tContainer 
-					Image
-					= i.to_s
-					%input{:type => "radio", :name => "artToggle", :checked => "", :class => "artToggle", :value => i.to_s}
-				- i+=1 #add one to counter per loop
+			%h2.toggleTitle Layer Toggles
+			.toggleCont
+				- while (i <= @pictures.size) do
+					-if i == 1
+						%label.tContainer.checkContainer
+							%p.toggleNum= i.to_s
+							%input{:type => "radio", :name => "artToggle", :checked => true, :class => "artToggle", :value => i.to_s}
+							%span.checkmark.circleCheck
+					-else 
+						%label.tContainer.checkContainer
+							%p.toggleNum= i.to_s
+							%input{:type => "radio", :name => "artToggle", :checked => false, :class => "artToggle", :value => i.to_s}
+							%span.checkmark.circleCheck
+					- i+=1 #add one to counter per loop
 
 .descriptionSection.sixtySection
 	.descInfo.descSection
