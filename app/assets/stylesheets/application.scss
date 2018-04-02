@@ -405,6 +405,76 @@ p {
 	padding: 5px 0 5px 10%;
 }
 
+
+.checkContainer {
+	display: block;
+	position: relative;
+	padding-left: 27px;
+	margin-bottom: 8px;
+	cursor: pointer;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+}
+
+.checkContainerForm {
+	margin-bottom: 21px !important;
+}
+
+.checkContainer input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}   
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #ebebeb;
+  border-radius: 5px;
+  transition: 0.3s;
+  border: 1px solid #151515;
+}
+
+.checkContainer:hover input ~ .checkmark {
+  background-color: #d5d5d5;
+  border: 1px solid #f39221;
+  transition: 0.3s;
+}
+
+.checkContainer input:checked ~ .checkmark {
+  background-color: #f39221;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;	
+}
+
+.checkContainer input:checked ~ .checkmark:after {
+  display: block;
+  transition: 0.3s;
+}
+
+.checkContainer .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border-radius: 2px;
+  border: solid #151515;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
 .sidebarForm {
 	margin: 5px 0 10px 0;
 }
@@ -593,6 +663,19 @@ p {
 .formItem label {
 	font-size: 1.3em;
 	font-weight: 700;
+}
+
+.formLabel {
+	font-size: 1.3em;
+	font-weight: 700;
+	margin-right: 15px;
+}
+
+.labelItem {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
 }
 
 .formItem input {
