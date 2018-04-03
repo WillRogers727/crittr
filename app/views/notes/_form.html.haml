@@ -3,7 +3,7 @@
 		= simple_form_for @note, :url => picture_notes_path do |f|
 			.formHeader
 				%h2 New Note
-				=link_to "Cancel", root_path, :class => "btn btn-m btn-dark"
+				=link_to "Cancel", @note.picture.artwork, :class => "btn btn-m btn-dark"
 			.noticeBox
 				- if @note.errors.any?
 					%h2 Errors:
