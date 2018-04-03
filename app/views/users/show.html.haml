@@ -76,6 +76,10 @@
 									%p
 										Tags: 
 										= raw artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(artwork.category_id, t), :class => "tagLink"}.join(', ')
+									- if artwork.completed == true
+										%p.answered Answered
+									- else
+										%p.unanswered Unanswered
 
 								.voteSection	
 									.vote

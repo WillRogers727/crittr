@@ -926,14 +926,21 @@ p {
 }
 
 .answered {
-	padding: 5px;
+	padding: 5px !important;
 	background-color: #80be5f;
 	border-radius: 5px;
 	text-align: center;
 }
 
+.nsfw {
+	padding: 5px !important;
+	background-color: #ec8c25;
+	border-radius: 5px;
+	text-align: center;
+}
+
 .unanswered {
-	padding: 5px;
+	padding: 5px !important;
 	background-color: #be5f5f;
 	border-radius: 5px;
 	text-align: center;

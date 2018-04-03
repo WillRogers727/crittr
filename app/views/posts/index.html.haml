@@ -35,6 +35,10 @@
 									%p.answered Answered
 								- else
 									%p.unanswered Unanswered
+							%p
+								- if post.nsfw == true
+									%p.nsfw NSFW
+
 					.voteSection	
 						.vote
 							= link_to like_post_path(post), method: :put do
