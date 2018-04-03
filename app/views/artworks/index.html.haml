@@ -48,6 +48,9 @@
 									%p.answered Answered
 								- else
 									%p.unanswered Unanswered
+								%p
+									- if artwork.nsfw == true
+										%p.nsfw NSFW
 
 							.voteSection	
 								.vote

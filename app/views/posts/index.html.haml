@@ -30,14 +30,13 @@
 							%p
 								Tags: 
 								= raw post.tag_list.map { |t| link_to t, category_post_tag_path(post.category_id, t), :class => "tagLink"}.join(', ')
-							%p
-								- if post.completed == true
-									%p.answered Answered
-								- else
-									%p.unanswered Unanswered
-							%p
-								- if post.nsfw == true
-									%p.nsfw NSFW
+							- if post.nsfw == true
+								%p.nsfw NSFW
+							- if post.completed == true
+								%p.answered Answered
+							- else
+								%p.unanswered Unanswered
+							
 
 					.voteSection	
 						.vote

@@ -83,11 +83,12 @@
 		%p
 			Tags: 
 			= raw @artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(@artwork.category_id, t), :class => "tagLink"}.join(', ')
-
 		- if @artwork.completed == true
 			%p.answered Completed
 		- else
 			%p.unanswered In Progress
+		- if @artwork.nsfw == true
+			%p.nsfw NSFW
 	.descContent.descSection
 		%p= @artwork.description
 	.descTop

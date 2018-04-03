@@ -20,6 +20,8 @@
 			%p.answered Answered
 		- else
 			%p.unanswered Unanswered
+		- if @post.nsfw == true
+			%p.nsfw NSFW
 	.descTop
 		.descUser.descSection
 			- if @post.user != nil
