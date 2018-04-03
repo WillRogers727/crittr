@@ -41,6 +41,7 @@ end
 def new
 	@categories = Category.all.reject { |c| c.name == "All" }.map{|c| [c.name, c.id] }
 	@artwork = current_user.artworks.build
+	@page = 'artNew'
 end
 
 def create
@@ -56,7 +57,7 @@ def create
 			render 'new'
 		end
 	else
-		render 'new'
+		render 'new' #this is if no images are posted
 	end
 end
 

@@ -3,6 +3,17 @@ $(document).ready(function() {
 	var activeHolder;
 	var activeImage;
 
+
+  $('.fileInput').change(function(){
+			if ($(this).val()) {
+				$('.imageSubmit').attr('disabled',false); 
+				$('.imageSubmit').removeClass('btn-disabled'); 
+			}
+		});
+
+
+
+
 	$('.facebookIcon a').empty();
 	$('.twitterIcon a').empty();
 	$('.redditIcon a').empty();

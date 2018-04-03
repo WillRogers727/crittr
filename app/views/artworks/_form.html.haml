@@ -12,7 +12,7 @@
 							%li= message
 			.formItem
 				= f.label "Post Image/s"
-				= file_field_tag "images[]", type: :file, multiple: true
+				= file_field_tag "images[]", type: :file, multiple: true, :class => "fileInput"
 			.formItem.formInput
 				= f.label :title, "Post Title"
 				= f.input :title, label: false
@@ -31,4 +31,4 @@
 					= f.check_box :nsfw
 					%span.checkmark
 			.formItem
-				= f.submit 'Submit Artwork', :class => "btn btn-m btn-light btn-submit"
+				= f.submit 'Submit Artwork', disabled: true, :class => "btn btn-m btn-light btn-submit imageSubmit btn-disabled"
