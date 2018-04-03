@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 		if @comment.save
 			redirect_to @commentable
 		else
-			
+			redirect_to @commentable
 		end
 	end
 

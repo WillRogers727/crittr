@@ -133,11 +133,12 @@
 - if user_signed_in?
 	- if @artwork.user != nil
 		- if @artwork.user.id == current_user.id
-			.addToggle.sixtySection
-				%h3.commentHeader Add Images:
-				=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
-			.addContent.sixtySection
-				= render partial: "picture_form"
+			- if @artwork.completed != true
+				.addToggle.sixtySection
+					%h3.commentHeader Add Images:
+					=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
+				.addContent.sixtySection
+					= render partial: "picture_form"
 
 - if @artwork.completed == true
 	.reviewToggle.sixtySection
