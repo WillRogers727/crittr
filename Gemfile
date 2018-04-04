@@ -72,3 +72,5 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'will_paginate', '~> 3.1.0'
 gem 'jquery-turbolinks', '~> 0.2.1'
 gem 'masonry-rails', '~> 0.2.4'
+gem 'sweetalert2'
+

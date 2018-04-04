@@ -15,12 +15,10 @@
 //= require jquery3
 //= require jquery.turbolinks
 //= require jquery_ujs
+//= require custom_confirm.js
 //= require masonry/jquery.masonry
+//= require sweetalert2
 //= require_tree .
-
-
-
-
 
 
 

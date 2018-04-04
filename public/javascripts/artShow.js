@@ -4,6 +4,9 @@ $(document).ready(function() {
 	var activeImage;
 
 
+	//Override the default confirm dialog
+
+
   $('.fileInput').change(function(){
 			if ($(this).val()) {
 				$('.imageSubmit').attr('disabled',false); 
@@ -11,7 +14,7 @@ $(document).ready(function() {
 			}
 		});
 
-
+  
 
 
 	$('.facebookIcon a').empty();
@@ -113,6 +116,10 @@ $(document).ready(function() {
 	});
 
 	
+
+	
+
+
 
 
 });
