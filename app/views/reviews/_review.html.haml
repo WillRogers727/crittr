@@ -18,7 +18,12 @@
 		.reviewControls
 			- if user_signed_in?
 				- if current_user.id == review.user_id
-					=link_to "Delete Review", [@artwork, review] , method: :delete, :data => { :confirm => "Are you sure?"}, :class => "btn btn-s btn-dark"
+					=link_to "Delete Review", [@artwork, review] , method: :delete, :data => { confirm: 'Delete Review?',
+																																										  'confirm-button-text': 'Delete',
+																																										  'cancel-button-text': 'Cancel',
+																																										  'confirm-button-color': '#ec8c25',
+																																										  'cancel-button-color': '#151515',
+																																										  'sweet-alert-type': 'warning'}, :class => "btn btn-s btn-dark"
 				- else
 					= link_to "Approve of this Review", review_approve_path(review), method: :put, :class => "btn btn-s btn-orange"
 		

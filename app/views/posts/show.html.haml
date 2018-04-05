@@ -58,9 +58,20 @@
 		- if user_signed_in?
 			- if @post.user != nil
 				- if current_user.id == @post.user_id
-					= link_to "Delete Question", post_path(@post), method: :delete, :data => { :confirm => "Are you sure?"}, :class => "btn btn-m btn-dark"
+					= link_to "Delete Question", post_path(@post), method: :delete, :data => { confirm: 'Delete Question Post?',
+																																										  'confirm-button-text': 'Delete',
+																																										  'cancel-button-text': 'Cancel',
+																																										  'confirm-button-color': '#ec8c25',
+																																										  'cancel-button-color': '#151515',
+																																										  'sweet-alert-type': 'warning'}, :class => "btn btn-m btn-dark"
 					- if @post.completed != true
-						= link_to "Set as Answered", set_completed_post_path(@post), remote: true, method: :put, :class => "btn btn-m btn-orange"
+						= link_to "Set as Answered", set_completed_post_path(@post), remote: true, method: :put, :data => { confirm: 'Set as Answered?',
+																																										  'confirm-button-text': 'Yes',
+																																										  'cancel-button-text': 'No',
+																																										  'confirm-button-color': '#ec8c25',
+																																										  'cancel-button-color': '#151515',
+																																										  text: 'If your question has been answered, select yes',
+																																										  'sweet-alert-type': 'info'}, :class => "btn btn-m btn-orange"
 
 
 

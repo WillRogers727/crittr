@@ -62,7 +62,12 @@
         <h2>Cancel Account</h2>
     </div>
     <div class="editControlSection">
-      <%= link_to "Cancel account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, :class => "btn btn-m btn-dark" %></p>
+      <%= link_to "Cancel account", registration_path(resource_name), :data => { confirm: 'Cancel Account?',
+                                                                                      'confirm-button-text': 'Yes, Cancel',
+                                                                                      'cancel-button-text': 'No',
+                                                                                      'confirm-button-color': '#ec8c25',
+                                                                                      'cancel-button-color': '#151515',
+                                                                                      'sweet-alert-type': 'warning'}, method: :delete, :class => "btn btn-m btn-dark" %></p>
     </div>
   </div>
 </div>

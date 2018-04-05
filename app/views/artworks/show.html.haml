@@ -22,7 +22,12 @@
 							- if @artwork.user != nil
 								- if @artwork.user.id == current_user.id
 									- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
-										= link_to "Delete Image", picture_path(pic.id), :data => { :confirm => "Are you sure?"}, :method => :delete, :class => "btn btn-s btn-light"
+										= link_to "Delete Image", picture_path(pic.id), :data => { confirm: 'Delete Image?',
+																																										  'confirm-button-text': 'Delete',
+																																										  'cancel-button-text': 'Cancel',
+																																										  'confirm-button-color': '#ec8c25',
+																																										  'cancel-button-color': '#151515',
+																																										  'sweet-alert-type': 'warning'}, :method => :delete, :class => "btn btn-s btn-light"
 								= link_to "New Note", new_picture_note_path(pic.id), :class => "btn btn-s btn-orange"
 					
 					.noteSection
@@ -51,7 +56,12 @@
 											.noteControls
 												- if note.user != nil
 													- if user_signed_in? && current_user.id == note.user_id
-														=link_to "Delete Note", note , method: :delete, :remote => true, :data => { :confirm => "Are you sure?"}, :class => "btn btn-s btn-dark"		
+														=link_to "Delete Note", note , method: :delete, :remote => true, :data => { confirm: 'Delete Note?',
+																																										  'confirm-button-text': 'Delete',
+																																										  'cancel-button-text': 'Cancel',
+																																										  'confirm-button-color': '#ec8c25',
+																																										  'cancel-button-color': '#151515',
+																																										  'sweet-alert-type': 'warning'}, :class => "btn btn-s btn-dark"		
 							- else
 								%p.noNote No notes yet - Be the first to add one!
 
@@ -126,9 +136,20 @@
 		- if user_signed_in?
 			- if @artwork.user != nil
 				- if @artwork.user.id == current_user.id
-					= link_to "Delete Artwork", artwork_path(@artwork), method: :delete, data: {confirm: "Are you sure you want to do this?"}, :class => "btn btn-m btn-dark"
+					= link_to "Delete Artwork", artwork_path(@artwork), method: :delete, :data => { confirm: 'Delete Artwork Post?',
+																																										  'confirm-button-text': 'Delete',
+																																										  'cancel-button-text': 'Cancel',
+																																										  'confirm-button-color': '#ec8c25',
+																																										  'cancel-button-color': '#151515',
+																																										  'sweet-alert-type': 'warning'}, :class => "btn btn-m btn-dark"
 					- if @artwork.completed != true
-						= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put, :class => "btn btn-m btn-orange"
+						= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put, :data => { confirm: 'Set as Completed?',
+																																										  'confirm-button-text': 'Yes',
+																																										  'cancel-button-text': 'No',
+																																										  'confirm-button-color': '#ec8c25',
+																																										  'cancel-button-color': '#151515',
+																																										  text: 'If your artwork is finished, select yes',
+																																										  'sweet-alert-type': 'info'}, :class => "btn btn-m btn-orange"
 		
 
 - if user_signed_in?
