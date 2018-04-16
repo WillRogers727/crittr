@@ -190,13 +190,13 @@
 	- if @comments.size == 0
 		%p No Comments yet.. be the first to add one!
 	-else	
-		= nested_comments @comments
+		= nested_comments @comments	
+.commentFormSection.sixtySection
 	- if user_signed_in?
 		.showForm
 			= render partial: "comments/form", locals: {commentable: @artwork}
 	- else
-		%p Sign in to comment		
-
+		%p Sign in to comment	
 
 
 	

@@ -83,6 +83,7 @@
 		%p No Comments yet!
 	-else	
 		= nested_comments @comments
+.commentFormSection.sixtySection
 	- if user_signed_in?
 		.showForm
 			= render partial: "comments/form", locals: {commentable: @post}

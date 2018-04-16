@@ -8,7 +8,7 @@
 					%ul
 						- @comment.errors.full_messages.each do |message|
 							%li= message
-			.formItem.formInput
+			.formItem.formInput.commentInput
 				= f.text_area :comment
 			.formItem
-				= f.submit 'Submit Comment', :class => "btn btn-m btn-light btn-submit"
+				= f.submit 'Submit Comment', :class => "commentSubmit btn btn-m btn-light btn-submit"

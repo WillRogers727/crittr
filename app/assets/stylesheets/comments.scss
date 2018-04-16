@@ -81,6 +81,16 @@
 
 }
 
+.replyFormActive {
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.commentReplyForm {
+	width: 94%;
+	padding: 0 3% 0 3%;
+}
+
 .commentVoting {
 	display: flex;
 	align-items: center;

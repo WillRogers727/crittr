@@ -12,4 +12,20 @@ $(document).ready(function() {
 	  $('div.commentContent').slideToggle(200).toggleClass('contentActive');
 	  $(".commentToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
 	});
+
+	$("body").on("click", ".replyLink", function() {
+		$('.commentReplyForm').remove(); //remove forms
+		$('.activeReply').show(); //show link again
+		$('.replyLink.activeReply').removeClass('activeReply'); //remove active reply from any links with it currently on
+		$(this).addClass('activeReply');
+		$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
+	});
+	
+
+	$('.commentFormSection .commentSubmit').click(function() {
+		// alert("main form clicked");
+		//set the active reply zone to be inside comment content
+		$('.commentContent').addClass('activeCommentReplySection'); //set active reply section to the main feed of comments
+		$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
+	});
 });
