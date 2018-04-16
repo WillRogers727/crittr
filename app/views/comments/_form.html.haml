@@ -1,6 +1,6 @@
 .form
 	.inner
-		= form_for [@commentable, @comment] do |f|
+		= form_for [@commentable, @comment], remote: true do |f|
 			= f.hidden_field :parent_id
 			.noticeBox
 				- if @comment.errors.any?

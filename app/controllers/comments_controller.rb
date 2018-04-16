@@ -13,11 +13,19 @@ class CommentsController < ApplicationController
 		@comment = @commentable.comments.build(comment_params) # This is the line that causes the error
 		# @comment = @commentable.comments.build(comment_params)--when changed to this, the submit button simply stops submitting anything
 		@comment.user = current_user
-		if @comment.save
-			redirect_to @commentable
-		else
-			redirect_to @commentable
+		
+
+		# if @comment.save
+		# 	redirect_to @commentable
+		# else
+		# 	redirect_to @commentable
+		# end
+
+		respond_to do |format|
+			format.html { redirect_to @commentable }
+			format.js
 		end
+
 	end
 
 	def destroy
