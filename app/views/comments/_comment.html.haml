@@ -14,6 +14,8 @@
 				%p= comment.comment
 			.commentMainControls
 				- if user_signed_in?
+					
+					= link_to "Reply", new_polymorphic_path([@commentable, Comment.new], :parent_id => comment, :id => @commentable), remote: true, :class => "replyLink btn btn-s btn-orange"
 					- if comment.user != nil
 						- if current_user.id == comment.user_id
 							=link_to "Delete", [@commentable, comment] , method: :delete, :data => { confirm: 'Delete Comment?',
@@ -22,7 +24,6 @@
 																																										  'confirm-button-color': '#ec8c25',
 																																										  'cancel-button-color': '#151515',
 																																										  'sweet-alert-type': 'warning'}, :class => "btn btn-s btn-dark btn-delete"
-					= link_to "Reply", new_polymorphic_path([@commentable, Comment.new], :parent_id => comment, :id => @commentable), :class => "btn btn-s btn-orange"
 		.commentVoting
 			.voteSection	
 				.vote

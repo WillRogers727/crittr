@@ -4,8 +4,11 @@ $(document).ready(function() {
 	var activeImage;
 
 
-	//Override the default confirm dialog
-
+	//set the link that was just clicked to be the active reply link, so the form will only appear there
+	$('.replyLink').click(function() {
+		$('.replyLink.activeReply').removeClass('activeReply'); //remove active reply from any links with it currently on
+		$(this).addClass('activeReply');
+	});
 
   $('.fileInput').change(function(){
 			if ($(this).val()) {
