@@ -5,7 +5,6 @@ class CommentsController < ApplicationController
 		@parent_id = params.delete(:parent_id)
 		@commentable = find_commentable
 		@comment = Comment.new(:parent_id => @parent_id, :commentable_id => @commentable.id, :commentable_type => @commentable.class.to_s)
-		
 	end
 
 	def create

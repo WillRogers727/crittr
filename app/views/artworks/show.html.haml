@@ -166,37 +166,39 @@
 	.reviewToggle.sixtySection
 		%h3.commentHeader Reviews
 		=image_tag "toggleUpDark.png", :class => "darkToggleArrow"
-	.reviewContent.sixtySection
-		- if @artwork.reviews.size == 0
-			- if @artwork.user.id != current_user.id
-				%p No Reviews yet.. be the first to add one!
+	.reviewShrinkSection
+		.reviewContentSection.sixtySection
+			- if @artwork.reviews.size == 0
+				- if @artwork.user.id != current_user.id
+					%p No Reviews yet.. be the first to add one!
+				- else
+					%p No Reviews yet.. be the first to add one!
+			-else
+				= render @artwork.reviews
+		.reviewForm.sixtySection
+			- if user_signed_in?
+				- if @artwork.user.id != current_user.id
+					%p Add a review now that this artwork is complete!
+					.showForm
+						= render partial: 'reviews/form'
 			- else
-				%p No Reviews yet.. be the first to add one!
-		-else
-			= render @artwork.reviews
-
-		- if user_signed_in?
-			- if @artwork.user.id != current_user.id
-				%p Add a review now that this artwork is complete!
-				.showForm
-					= render partial: 'reviews/form'
-		- else
-			%p Sign in to add a review!
+				%p Sign in to add a review!
 
 .commentToggle.sixtySection
 	%h3.commentHeader Comments
 	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
-.commentContent.sixtySection
-	- if @comments.size == 0
-		%p No Comments yet.. be the first to add one!
-	-else	
-		= nested_comments @comments	
-.commentFormSection.sixtySection
-	- if user_signed_in?
-		.showForm
-			= render partial: "comments/form", locals: {commentable: @artwork}
-	- else
-		%p Sign in to comment	
+.commentShrinkSection
+	.commentContent.sixtySection
+		- if @comments.size == 0
+			%p No Comments yet.. be the first to add one!
+		-else	
+			= nested_comments @comments	
+	.commentFormSection.sixtySection
+		- if user_signed_in?
+			.showForm
+				= render partial: "comments/form", locals: {commentable: @artwork}
+		- else
+			%p Sign in to comment	
 
 
 	

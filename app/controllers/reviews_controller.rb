@@ -5,13 +5,11 @@ class ReviewsController < ApplicationController
 		@artwork = Artwork.find(params[:artwork_id])
 		@review = @artwork.reviews.create(review_params)
 		@review.user_id = current_user.id if current_user
-		if @review.save
-			redirect_to artwork_path(@artwork)
-		else
-			redirect_to artwork_path(@artwork)
-		end
-
-
+		@review.save
+		respond_to do |format|
+			format.html { redirect_to artwork_path(@artwork) }
+			format.js
+		end	
 	end
 
 	def destroy

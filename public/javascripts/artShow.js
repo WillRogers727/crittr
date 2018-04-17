@@ -120,13 +120,13 @@ $(document).ready(function() {
 
 	$(".commentToggle").on('click', function () {
 		// alert("toggle clicked");
-	  $('div.commentContent').slideToggle(200).toggleClass('contentActive');
+	  $('div.commentShrinkSection').slideToggle(200).toggleClass('contentActive');
 	  $(".commentToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
 	});
 
 	$(".reviewToggle").on('click', function () {
 		// alert("toggle clicked");
-	  $('div.reviewContent').slideToggle(200).toggleClass('contentActive');
+	  $('div.reviewShrinkSection').slideToggle(200).toggleClass('contentActive');
 	  $(".reviewToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
 	});
 

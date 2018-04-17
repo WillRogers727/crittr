@@ -78,14 +78,15 @@
 .commentToggle.sixtySection
 	%h3.commentHeader Comments
 	=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
-.commentContent.sixtySection
-	- if @comments.size == 0
-		%p No Comments yet!
-	-else	
-		= nested_comments @comments
-.commentFormSection.sixtySection
-	- if user_signed_in?
-		.showForm
-			= render partial: "comments/form", locals: {commentable: @post}
-	- else
-		%p Sign in to comment		
+.commentShrinkSection
+	.commentContent.sixtySection
+		- if @comments.size == 0
+			%p No Comments yet!
+		-else	
+			= nested_comments @comments
+	.commentFormSection.sixtySection
+		- if user_signed_in?
+			.showForm
+				= render partial: "comments/form", locals: {commentable: @post}
+		- else
+			%p Sign in to comment		

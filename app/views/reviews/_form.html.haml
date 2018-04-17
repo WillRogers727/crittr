@@ -1,13 +1,7 @@
 .form
 	.inner
-		=simple_form_for([@artwork, @artwork.reviews.build]) do |f|
-			/ .noticeBox
-			/ 	- if @review.errors.any?
-			/ 		%h2 Errors:
-			/ 		%ul
-			/ 			- @review.errors.full_messages.each do |message|
-			/ 				%li= message
-			.formItem.formInput
+		=simple_form_for([@artwork, @artwork.reviews.build], remote: true)do |f|
+			.formItem.formInput.reviewInput
 				= f.text_area :content
 			.formItem
 				= f.submit 'Submit Review', :class => "btn btn-m btn-light btn-submit"
