@@ -1,4 +1,4 @@
-.reviewContainer
+.reviewContainer{:id => "review_#{review.id}"}
 	.review
 		.reviewUser
 			-if review.user != nil
@@ -18,7 +18,7 @@
 		.reviewControls
 			- if user_signed_in?
 				- if current_user.id == review.user_id
-					=link_to "Delete Review", [@artwork, review] , method: :delete, :data => { confirm: 'Delete Review?',
+					=link_to "Delete Review", [@artwork, review] , method: :delete, remote: true, :data => { confirm: 'Delete Review?',
 																																										  'confirm-button-text': 'Delete',
 																																										  'cancel-button-text': 'Cancel',
 																																										  'confirm-button-color': '#ec8c25',

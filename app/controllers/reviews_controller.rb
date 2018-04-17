@@ -16,7 +16,12 @@ class ReviewsController < ApplicationController
 		@artwork = Artwork.find(params[:artwork_id])
 		@review = Review.find(params[:id])
 		@review.destroy
-		redirect_to artwork_path(@artwork), notice: "Your Review was successfully deleted"
+
+		respond_to do |format|
+			format.html { redirect_to artwork_path(@artwork) }
+			format.js
+		end
+		
 	end
 
 	def approve

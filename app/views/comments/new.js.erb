@@ -1,11 +1,10 @@
 $('.activeReply').hide().after('<div class="commentReplyForm"><%= j render("form") %></div>');
 $('.activeReply').parent().addClass("replyFormActive");
 $('.commentReplyForm .commentSubmit').click(function() {
-		// alert("comment reply button clicked");
-		currentComment = $(this).closest('.comment');
-		currentCommentReply = currentComment.children('.commentReply');
-		$(currentCommentReply).addClass('activeCommentReplySection');
-		//set the active reply zone to be under the current comment
-		$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
-	});
-
+	// alert("comment reply button clicked");
+	currentComment = $(this).closest('.comment');
+	currentCommentReply = currentComment.children('.commentReply');
+	$(currentCommentReply).addClass('activeCommentReplySection');
+	//set the active reply zone to be under the current comment
+	$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
+});

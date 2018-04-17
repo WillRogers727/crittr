@@ -3,15 +3,6 @@ $(document).ready(function() {
 	var activeHolder;
 	var activeImage;
 
-
-	//set the link that was just clicked to be the active reply link, so the form will only appear there
-	// $('.replyLink').click(function() {
-	// 	$('.commentReplyForm').remove(); //remove forms
-	// 	$('.activeReply').show(); //show link again
-	// 	$('.replyLink.activeReply').removeClass('activeReply'); //remove active reply from any links with it currently on
-	// 	$(this).addClass('activeReply');
-	// });
-
 	$("body").on("click", ".replyLink", function() {
 		$('.commentReplyForm').remove(); //remove forms
 		$('.activeReply').show(); //show link again
@@ -19,6 +10,9 @@ $(document).ready(function() {
 		$(this).addClass('activeReply');
 		$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
 	});
+
+
+	
 	
 
 	$('.commentFormSection .commentSubmit').click(function() {
