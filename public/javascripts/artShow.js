@@ -12,9 +12,6 @@ $(document).ready(function() {
 	});
 
 
-	
-	
-
 	$('.commentFormSection .commentSubmit').click(function() {
 		// alert("main form clicked");
 		//set the active reply zone to be inside comment content
@@ -29,7 +26,36 @@ $(document).ready(function() {
 			}
 		});
 
+  //button on new comment form is only enabled when the text area contains a character
+  $('.commentInput textarea').keyup(function() {
+  	textLength = $('.commentInput textarea').val().length;
+  	if (textLength > 0) {
+  		//button is enabled
+  		$('.commentSubmitBtn input').attr('disabled',false); 
+  		$('.commentSubmitBtn input').removeClass('btn-disabled')
+  	} else {
+  		//button is disabled
+  		$('.commentSubmitBtn input').attr('disabled',true); 
+  		$('.commentSubmitBtn input').addClass('btn-disabled')
+  	}
+  });
+
   
+	//button on review form is only enabled when the text area contains more than 100 chars
+  $('.reviewInput textarea').keyup(function() {
+  	textLength = $('.reviewInput textarea').val().length;
+  	if (textLength >= 100) {
+  		//button is enabled
+  		$('.reviewSubmitBtn input').attr('disabled',false); 
+  		$('.reviewSubmitBtn input').removeClass('btn-disabled')
+  	} else {
+  		//button is disabled
+  		$('.reviewSubmitBtn input').attr('disabled',true); 
+  		$('.reviewSubmitBtn input').addClass('btn-disabled')
+  	}
+  });
+
+
 
 
 	$('.facebookIcon a').empty();

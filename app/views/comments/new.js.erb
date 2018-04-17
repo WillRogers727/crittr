@@ -8,3 +8,18 @@ $('.commentReplyForm .commentSubmit').click(function() {
 	//set the active reply zone to be under the current comment
 	$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
 });
+
+
+//button on reply form is only enabled when the text area contains a character
+$('.commentReplyForm .commentInput textarea').keyup(function() {
+	textLength = $('.commentReplyForm .commentInput textarea').val().length;
+	if (textLength > 0) {
+		//button is enabled
+		$('.commentReplyForm .commentSubmitBtn input').attr('disabled',false); 
+		$('.commentReplyForm .commentSubmitBtn input').removeClass('btn-disabled')
+	} else {
+		//button is disabled
+		$('.commentReplyForm .commentSubmitBtn input').attr('disabled',true); 
+		$('.commentReplyForm .commentSubmitBtn input').addClass('btn-disabled')
+	}
+});

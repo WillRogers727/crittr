@@ -2,6 +2,6 @@
 	.inner
 		=simple_form_for([@artwork, @artwork.reviews.build], remote: true)do |f|
 			.formItem.formInput.reviewInput
-				= f.text_area :content
-			.formItem
-				= f.submit 'Submit Review', :class => "btn btn-m btn-light btn-submit"
+				= f.text_area :content, placeholder: "Minimum 100 characters"
+			.formItem.reviewSubmitBtn
+				= f.submit 'Submit Review', disabled: true, :class => "btn btn-m btn-light btn-submit btn-disabled"

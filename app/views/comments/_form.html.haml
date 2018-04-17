@@ -10,5 +10,5 @@
 							%li= message
 			.formItem.formInput.commentInput
 				= f.text_area :comment
-			.formItem
-				= f.submit 'Submit Comment', :class => "commentSubmit btn btn-m btn-light btn-submit"
+			.formItem.commentSubmitBtn
+				= f.submit 'Submit Comment', disabled: true, :class => "commentSubmit btn btn-m btn-light btn-submit btn-disabled"
