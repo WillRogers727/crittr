@@ -20,13 +20,13 @@
 
         <% if resource.provider != "facebook" %>
           <div class="formItem formInput">
-            <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+            <%= f.input :password, autocomplete: "off", hint: "Leave blank if you don't want to change it", required: false %>
           </div>
           <div class="formItem formInput">
             <%= f.input :password_confirmation, required: false %>
           </div>
           <div class="formItem formInput">
-            <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+            <%= f.input :current_password, hint: "Enter your current password to confirm your changes", required: true %>
           </div>
         <% end %>
 

@@ -11,13 +11,19 @@
 						- @post.errors.full_messages.each do |message|
 							%li= message
 			.formItem.formInput
-				= f.label :title, "Post Title"
+				.labelContainer
+					= f.label :title, "Post Title"
+					%p.prompt.required *
 				= f.input :title, label: false
 			.formItem.formInput
-				= f.label :content, "Post Content"
+				.labelContainer
+					= f.label :content, "Post Content"
+					%p.prompt.required *
 				= f.input :content, label: false
 			.formItem.formInput
-				= f.label :tag_list, "Tags (separated by commas)"
+				.labelContainer
+					= f.label :tag_list, "Tags"
+					%p.prompt Separated with commas
 				= f.input :tag_list, label: false
 			.formItem
 				= f.label :category_id, "Art or Design Category"

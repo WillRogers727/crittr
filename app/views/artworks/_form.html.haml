@@ -11,16 +11,24 @@
 						- @artwork.errors.full_messages.each do |message|
 							%li= message
 			.formItem
-				= f.label "Post Image/s"
+				.labelContainer
+					= f.label "Post Image/s"
+					%p.prompt Minimum 1 Image
 				= file_field_tag "images[]", type: :file, multiple: true, :class => "fileInput"
 			.formItem.formInput
-				= f.label :title, "Post Title"
+				.labelContainer
+					= f.label :title, "Post Title"
+					%p.prompt.required *
 				= f.input :title, label: false
 			.formItem.formInput
-				= f.label :description, "Post Description"
+				.labelContainer
+					= f.label :description, "Post Description"
+					%p.prompt.required *
 				= f.input :description, label: false
 			.formItem.formInput
-				= f.label :tag_list, "Tags (separated by commas)"
+				.labelContainer
+					= f.label :tag_list, "Tags"
+					%p.prompt Separated with commas
 				= f.input :tag_list, label: false
 			.formItem
 				= f.label :category_id, "Art or Design Category"

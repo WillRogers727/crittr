@@ -515,7 +515,6 @@ p {
 
 .container {
 	width: 60%;
-	max-width: 1140px;
 	margin: 0 auto;
 }
 
@@ -695,6 +694,12 @@ p {
 	font-size: 1.3em;
 	font-weight: 700;
 	margin-right: 15px;
+}
+.labelContainer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: center;
 }
 
 .labelItem {
@@ -983,6 +988,14 @@ p {
 	font-family: 'Heebo', sans-serif !important;
 }
 
+.prompt {
+	font-size: 0.8em;
+	padding: 3px 0 0 10px;
+}
+
+.prompt.required {
+	color: #be5f5f;
+}
 
 	
 
