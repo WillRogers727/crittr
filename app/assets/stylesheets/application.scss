@@ -333,6 +333,10 @@ p {
 	background-color: #151515;
 }
 
+.sidebarContent:after {
+	background-color: #123456;
+}
+
 
 .closed {
 	transform: translateX(-160px);
