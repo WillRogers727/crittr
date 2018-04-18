@@ -21,6 +21,11 @@ $(document).ready(function() {
 		$(this).addClass('activeApprove');
 	});
 
+	$("body").on("click", ".commentVoteSection", function() {
+		$('.activeVote').removeClass('activeVote');
+		$('.commentVotes', this).addClass('activeVote');
+	});
+
 
 	$('.commentFormSection .commentSubmit').click(function() {
 		// alert("main form clicked");

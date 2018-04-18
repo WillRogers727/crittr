@@ -26,6 +26,25 @@ $(document).ready(function() {
 		$('.postVotes', this).addClass('activeVote');
 	});
 
+	$("body").on("click", ".commentVoteSection", function() {
+		$('.activeVote').removeClass('activeVote');
+		$('.commentVotes', this).addClass('activeVote');
+	});
+
+
+	//button on new comment form is only enabled when the text area contains a character
+  $('.commentInput textarea').keyup(function() {
+  	textLength = $('.commentInput textarea').val().length;
+  	if (textLength > 0) {
+  		//button is enabled
+  		$('.commentSubmitBtn input').attr('disabled',false); 
+  		$('.commentSubmitBtn input').removeClass('btn-disabled')
+  	} else {
+  		//button is disabled
+  		$('.commentSubmitBtn input').attr('disabled',true); 
+  		$('.commentSubmitBtn input').addClass('btn-disabled')
+  	}
+  });
 
 	$('.commentFormSection .commentSubmit').click(function() {
 		// alert("main form clicked");

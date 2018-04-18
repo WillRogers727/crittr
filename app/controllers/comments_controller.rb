@@ -34,13 +34,21 @@ class CommentsController < ApplicationController
 	def upvote
 		@comment = Comment.find(params[:id])
 		@comment.upvote_by current_user
-		redirect_back(fallback_location: root_path)
+		
+		respond_to do |format|
+	    format.html { redirect_back(fallback_location: root_path) }
+	    format.js
+	  end
 	end
 
 	def downvote
 		@comment = Comment.find(params[:id])
 		@comment.downvote_by current_user
-		redirect_back(fallback_location: root_path) #maybe change to - :back returns you to the same page - upvotes/downvotes can be on index and show pages
+		
+		respond_to do |format|
+	    format.html { redirect_back(fallback_location: root_path) }
+	    format.js
+	  end
 	end
 
 	private

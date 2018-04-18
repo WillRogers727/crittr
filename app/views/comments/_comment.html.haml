@@ -25,15 +25,15 @@
 																																										  'cancel-button-color': '#151515',
 																																										  'sweet-alert-type': 'warning'}, :class => "btn btn-s btn-dark btn-delete deleteLink"
 		.commentVoting
-			.voteSection	
+			.voteSection.commentVoteSection
 				.vote
-					= link_to like_comment_path(comment), method: :put do
+					= link_to like_comment_path(comment), method: :put, remote: true do
 						= image_tag "up.svg", :class => "arrow"
 				.voteCount
 					- @voteCount = (comment.get_upvotes.size) - (comment.get_downvotes.size)
-					%p= @voteCount
+					%p.commentVotes= @voteCount
 				.vote	
-					= link_to dislike_comment_path(comment), method: :put do
+					= link_to dislike_comment_path(comment), method: :put, remote: true do
 						= image_tag "down.svg", :class => "arrow"
 	.commentReply
 		= nested_comments comment.children
