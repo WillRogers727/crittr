@@ -16,6 +16,11 @@ $(document).ready(function() {
 		$('.artVotes', this).addClass('activeVote');
 	});
 
+	$("body").on("click", ".review", function() {
+		$('.activeApprove').removeClass('activeApprove');
+		$(this).addClass('activeApprove');
+	});
+
 
 	$('.commentFormSection .commentSubmit').click(function() {
 		// alert("main form clicked");

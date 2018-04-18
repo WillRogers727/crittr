@@ -14,7 +14,7 @@
 		.reviewApproval
 			%p
 				Users that agree with this review: 
-				= review.get_upvotes.size
+			%p.approveCount= review.get_upvotes.size
 		.reviewControls
 			- if user_signed_in?
 				- if current_user.id == review.user_id
@@ -25,6 +25,6 @@
 																																										  'cancel-button-color': '#151515',
 																																										  'sweet-alert-type': 'warning'}, :class => "btn btn-s btn-dark"
 				- else
-					= link_to "Approve of this Review", review_approve_path(review), method: :put, :class => "btn btn-s btn-orange"
+					= link_to "Approve of this Review", review_approve_path(review), method: :put, remote: true, :class => "btn btn-s btn-orange approveBtn"
 		
 		

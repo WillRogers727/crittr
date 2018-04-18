@@ -27,7 +27,11 @@ class ReviewsController < ApplicationController
 	def approve
 		@review = Review.find(params[:review_id])
 		@review.upvote_by current_user
-		redirect_back(fallback_location: root_path)
+
+		respond_to do |format|
+    	format.html { redirect_back(fallback_location: root_path) }
+    	format.js
+  	end
 	end
 
 	
