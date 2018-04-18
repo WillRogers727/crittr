@@ -169,9 +169,9 @@
 		.reviewContentSection.sixtySection
 			- if @artwork.reviews.size == 0
 				- if @artwork.user.id != current_user.id
-					%p No Reviews yet.. be the first to add one!
+					%p.noReviews No Reviews yet.. be the first to add one!
 				- else
-					%p No Reviews yet.. be the first to add one!
+					%p.noReviews No Reviews yet.. be the first to add one!
 			-else
 				= render @artwork.reviews
 		.reviewForm.sixtySection
@@ -189,7 +189,7 @@
 .commentShrinkSection
 	.commentContent.sixtySection
 		- if @comments.size == 0
-			%p No Comments yet.. be the first to add one!
+			%p.noComments No Comments yet.. be the first to add one!
 		-else	
 			= nested_comments @comments	
 	.commentFormSection.sixtySection

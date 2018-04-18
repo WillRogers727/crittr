@@ -81,7 +81,7 @@
 .commentShrinkSection
 	.commentContent.sixtySection
 		- if @comments.size == 0
-			%p No Comments yet!
+			%p.noComments No Comments yet!
 		-else	
 			= nested_comments @comments
 	.commentFormSection.sixtySection

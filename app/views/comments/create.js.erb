@@ -4,3 +4,4 @@ $('.replyLink.activeReply').removeClass('activeReply'); //remove active reply cl
 $('.activeCommentReplySection').append('<%= j render "comment", :comment => @comment %>');
 $('.activeCommentReplySection').removeClass('activeCommentReplySection'); //remove active reply section
 $('.commentInput textarea').val('');
+$('.noComments').hide();
