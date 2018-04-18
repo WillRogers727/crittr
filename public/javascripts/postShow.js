@@ -21,6 +21,11 @@ $(document).ready(function() {
 		$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
 	});
 	
+	$("body").on("click", ".postVoteSection", function() {
+		$('.activeVote').removeClass('activeVote');
+		$('.postVotes', this).addClass('activeVote');
+	});
+
 
 	$('.commentFormSection .commentSubmit').click(function() {
 		// alert("main form clicked");

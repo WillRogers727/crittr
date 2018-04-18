@@ -88,14 +88,14 @@
 										- if artwork.nsfw == true
 											%p.nsfw NSFW
 
-								.voteSection	
+								.voteSection.artVoteSection
 									.vote
-										= link_to like_artwork_path(artwork), method: :put do
+										= link_to like_artwork_path(artwork), method: :put, remote: true do
 											= image_tag "up.svg", :class => "arrow"
 									.voteCount
-										%p= artwork.get_upvotes.size
+										%p.artVotes= artwork.get_upvotes.size
 									.vote	
-										= link_to dislike_artwork_path(artwork), method: :put do
+										= link_to dislike_artwork_path(artwork), method: :put, remote: true do
 											= image_tag "down.svg", :class => "arrow"
 										/ %p= artwork.get_downvotes.size
 							.extraInfo	
@@ -138,15 +138,15 @@
 									%p.answered Answered
 								- else
 									%p.unanswered Unanswered
-					.voteSection	
+					.voteSection.postVoteSection	
 						.vote
-							= link_to like_post_path(post), method: :put do
+							= link_to like_post_path(post), method: :put, remote: true do
 								= image_tag "up.svg", :class => "arrow"
 						.voteCount
 							- @voteCount = (post.get_upvotes.size) - (post.get_downvotes.size)
-							%p= @voteCount
+							%p.postVotes= @voteCount
 						.vote	
-							= link_to dislike_post_path(post), method: :put do
+							= link_to dislike_post_path(post), method: :put, remote: true do
 								= image_tag "down.svg", :class => "arrow"
 				.postThumbRight
 					- if post.user != nil

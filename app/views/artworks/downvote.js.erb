@@ -1,0 +1,2 @@
+// alert("Disliked");
+$('.activeVote').html('<%= j ((@artwork.get_upvotes.size) - (@artwork.get_downvotes.size)).to_s %>');

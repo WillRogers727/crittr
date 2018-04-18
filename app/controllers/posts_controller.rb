@@ -75,13 +75,22 @@ class PostsController < ApplicationController
 	def upvote
 		@post = Post.find(params[:id])
 		@post.upvote_by current_user
-		redirect_back(fallback_location: root_path)
+		
+		respond_to do |format|
+	    format.html { redirect_back(fallback_location: root_path) }
+	    format.js
+	  end
+
 	end
 
 	def downvote
 		@post = Post.find(params[:id])
 		@post.downvote_by current_user
-		redirect_back(fallback_location: root_path)
+		
+		respond_to do |format|
+	    format.html { redirect_back(fallback_location: root_path) }
+	    format.js
+	  end
 	end
 
 	def set_completed

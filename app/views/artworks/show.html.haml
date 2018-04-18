@@ -110,15 +110,14 @@
 			- else
 				%p [User Deleted]
 		.descVoting.descSection
-			.voteSection	
+			.voteSection.artVoteSection	
 				.vote
-					= link_to like_artwork_path(@artwork), method: :put do
+					= link_to like_artwork_path(@artwork), method: :put, remote: true do
 						= image_tag "up.svg", :class => "arrow"
 				.voteCount
-					- @voteCount = (@artwork.get_upvotes.size) - (@artwork.get_downvotes.size)
-					%p= @voteCount
-				.vote	
-					= link_to dislike_artwork_path(@artwork), method: :put do
+					%p.artVotes= @voteCount = (@artwork.get_upvotes.size) - (@artwork.get_downvotes.size)
+				.vote
+					= link_to dislike_artwork_path(@artwork), method: :put, remote: true do
 						= image_tag "down.svg", :class => "arrow"
 	.descDate.descSection
 		%p.date

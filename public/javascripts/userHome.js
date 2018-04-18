@@ -13,6 +13,16 @@ $(document).ready(function() {
 	  $(".userPostToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
 	});
 
+	$("body").on("click", ".artVoteSection", function() {
+		$('.activeVote').removeClass('activeVote');
+		$('.artVotes', this).addClass('activeVote');
+	});
+
+	$("body").on("click", ".postVoteSection", function() {
+		$('.activeVote').removeClass('activeVote');
+		$('.postVotes', this).addClass('activeVote');
+	});
+
 
 
 });
