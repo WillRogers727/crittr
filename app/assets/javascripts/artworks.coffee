@@ -7,18 +7,26 @@ $ ->
 		$('#arts').masonry
 			itemselector: '.artworkContainer'
 			isFitWidth: true
+			horizontalOrder: true
+			isOriginLeft: true
 
 	$('.thumbnail').hover ->
 		$('#arts').masonry
 			itemselector: '.artworkContainer'
 			isFitWidth: true
+			horizontalOrder: true
+			isOriginLeft: true
 
 	$('.thumbnail').click ->
 		$('#arts').masonry
 			itemselector: '.artworkContainer'
 			isFitWidth: true
+			horizontalOrder: true
+			isOriginLeft: true
 
 	$('.userArtToggle').mouseleave ->
 		$('#arts').masonry
 			itemselector: '.artworkContainer'
 			isFitWidth: true
+			horizontalOrder: true
+			isOriginLeft: true
