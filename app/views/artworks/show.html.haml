@@ -6,6 +6,7 @@
 .artImageSection
 	.artImageGallery
 		- unless @pictures.empty?
+		
 			- c = 1 #counter to assign class names to images
 			- @pictures.each do |pic|
 				.artImage{class: "hidden image-" + c.to_s}
@@ -113,12 +114,20 @@
 			.voteSection.artVoteSection	
 				.vote
 					= link_to like_artwork_path(@artwork), method: :put, remote: true do
-						= image_tag "up.svg", :class => "arrow"
+						- if user_signed_in?
+							- if current_user.voted_up_on? @artwork
+								.triangle.arrow.voted
+							-else
+								.triangle.arrow
 				.voteCount
 					%p.artVotes= @voteCount = (@artwork.get_upvotes.size) - (@artwork.get_downvotes.size)
 				.vote
 					= link_to dislike_artwork_path(@artwork), method: :put, remote: true do
-						= image_tag "down.svg", :class => "arrow"
+						- if user_signed_in?
+							- if current_user.voted_down_on? @artwork
+								.triangle.triDown.arrow.voted
+							- else
+								.triangle.triDown.arrow
 	.descDate.descSection
 		%p.date
 			Posted

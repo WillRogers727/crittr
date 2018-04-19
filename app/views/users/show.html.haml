@@ -91,12 +91,12 @@
 								.voteSection.artVoteSection
 									.vote
 										= link_to like_artwork_path(artwork), method: :put, remote: true do
-											= image_tag "up.svg", :class => "arrow"
+											= image_tag "up.png", :class => "arrow"
 									.voteCount
 										%p.artVotes= artwork.get_upvotes.size
 									.vote	
 										= link_to dislike_artwork_path(artwork), method: :put, remote: true do
-											= image_tag "down.svg", :class => "arrow"
+											= image_tag "down.png", :class => "arrow"
 										/ %p= artwork.get_downvotes.size
 							.extraInfo	
 								.userThumb
@@ -141,13 +141,13 @@
 					.voteSection.postVoteSection	
 						.vote
 							= link_to like_post_path(post), method: :put, remote: true do
-								= image_tag "up.svg", :class => "arrow"
+								= image_tag "up.png", :class => "arrow"
 						.voteCount
 							- @voteCount = (post.get_upvotes.size) - (post.get_downvotes.size)
 							%p.postVotes= @voteCount
 						.vote	
 							= link_to dislike_post_path(post), method: :put, remote: true do
-								= image_tag "down.svg", :class => "arrow"
+								= image_tag "down.png", :class => "arrow"
 				.postThumbRight
 					- if post.user != nil
 						.userThumb
