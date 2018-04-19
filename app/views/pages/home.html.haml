@@ -58,13 +58,20 @@
 									.voteSection.artVoteSection	
 										.vote
 											= link_to like_artwork_path(artwork), method: :put, remote: true do
-												= image_tag "up.png", :class => "arrow"
+												- if user_signed_in?
+													- if current_user.voted_up_on? artwork
+														.triangle.arrow.voted
+													-else
+														.triangle.arrow
 										.voteCount
-											%p.artVotes= artwork.get_upvotes.size
-										.vote	
+											%p.artVotes= @voteCount = (artwork.get_upvotes.size) - (artwork.get_downvotes.size)
+										.vote
 											= link_to dislike_artwork_path(artwork), method: :put, remote: true do
-												= image_tag "down.png", :class => "arrow"
-											/ %p= artwork.get_downvotes.size
+												- if user_signed_in?
+													- if current_user.voted_down_on? artwork
+														.triangle.triDown.arrow.voted
+													- else
+														.triangle.triDown.arrow
 								.extraInfo	
 									- if artwork.user != nil
 										.userThumb
@@ -111,13 +118,20 @@
 							.voteSection.postVoteSection	
 								.vote
 									= link_to like_post_path(post), method: :put, remote: true do
-										= image_tag "up.png", :class => "arrow"
+										- if user_signed_in?
+											- if current_user.voted_up_on? post
+												.triangle.arrow.voted
+											-else
+												.triangle.arrow
 								.voteCount
-									- @voteCount = (post.get_upvotes.size) - (post.get_downvotes.size)
-									%p.postVotes= @voteCount
-								.vote	
+									%p.postVotes= @voteCount = (post.get_upvotes.size) - (post.get_downvotes.size)
+								.vote
 									= link_to dislike_post_path(post), method: :put, remote: true do
-										= image_tag "down.png", :class => "arrow"
+										- if user_signed_in?
+											- if current_user.voted_down_on? post
+												.triangle.triDown.arrow.voted
+											- else
+												.triangle.triDown.arrow
 						.postThumbRight
 							- if post.user != nil
 								.userThumb

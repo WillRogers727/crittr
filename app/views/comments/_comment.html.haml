@@ -28,12 +28,20 @@
 			.voteSection.commentVoteSection
 				.vote
 					= link_to like_comment_path(comment), method: :put, remote: true do
-						= image_tag "up.png", :class => "arrow"
+						- if user_signed_in?
+							- if current_user.voted_up_on? comment
+								.triangle.arrow.voted
+							-else
+								.triangle.arrow
 				.voteCount
 					- @voteCount = (comment.get_upvotes.size) - (comment.get_downvotes.size)
 					%p.commentVotes= @voteCount
-				.vote	
+				.vote
 					= link_to dislike_comment_path(comment), method: :put, remote: true do
-						= image_tag "down.png", :class => "arrow"
+						- if user_signed_in?
+							- if current_user.voted_down_on? comment
+								.triangle.triDown.arrow.voted
+							- else
+								.triangle.triDown.arrow
 	.commentReply
 		= nested_comments comment.children

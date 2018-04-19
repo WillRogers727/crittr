@@ -23,6 +23,11 @@ $(document).ready(function() {
 		$('.postVotes', this).addClass('activeVote');
 	});
 
-
+	$("body").on("click", ".vote a", function() {
+		$('.activeVoteArrows').removeClass('activeVoteArrows');
+		$(this).closest('.voteSection').addClass('activeVoteArrows');
+		$('.activeVoteArrows .vote .arrow').removeClass('voted');
+		$('.arrow', this).addClass('voted');
+	});
 
 });
