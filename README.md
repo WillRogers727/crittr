@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Crittr Web App
 
-Things you may want to cover:
+Created by: Will Rogers
 
-* Ruby version
+Created on Ubuntu Gnome V16.04
 
-* System dependencies
+Ruby Version: 2.3.1 
 
-* Configuration
+Rails Version: 5.1.4
 
-* Database creation
+https://github.com/WillRogers727/crittr
 
-* Database initialization
+Domain for marking: www.crittr.co.uk
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
-
-* ...
