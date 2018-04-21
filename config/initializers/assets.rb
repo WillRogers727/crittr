@@ -12,5 +12,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-# Rails.application.config.assets.precompile += ['blankAvatar.png', 'crittrLogo.png', 'up.svg', 'down.svg', 'up.png', 'down.png']
+Rails.application.config.assets.precompile += ['blankAvatar.png', 'crittrLogo.png']
 Rails.application.config.assets.precompile += %w[*.png *.jpg *.jpeg *.gif *.svg]
