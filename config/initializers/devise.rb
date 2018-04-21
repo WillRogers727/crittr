@@ -13,8 +13,8 @@ Devise.setup do |config|
 
   
 
-  config.secret_key = ENV['DEVISE_SECRET_KEY'] ? Rails.env.production? : Rails.env.staging?
-  
+  config.secret_key = ENV['DEVISE_SECRET_KEY'] if Rails.env.staging?
+  config.secret.key = "0cf44236c01ed2b8dc77306b189b740aeff16793ec8bbc912be772cf4e2ea5f942245778f6e03db3dc4a3bce545248d43e8d0c85dc19a6a4c50efe07ace53ecf" if Rails.env.production?
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
