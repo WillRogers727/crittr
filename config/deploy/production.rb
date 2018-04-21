@@ -26,7 +26,7 @@ role :web, %w{deploy@159.65.20.124}
 role :db, %w{deploy@159.65.20.124}, :primary => true
 set :branch, "production"
 set :rails_env, "production"
-set :deploy_to, "/var/www/crittr_sproduction"
+set :deploy_to, "/var/www/crittr_production"
 
 
 
