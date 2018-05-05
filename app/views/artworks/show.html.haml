@@ -135,11 +135,11 @@
 			ago
 		.descSocial
 			.sIcon.facebookIcon
-				= facebook_button :turbolinks => true, :app_id => '2095083210778655', :static_link => true, :share => true
+				= facebook_button :turbolinks => false, :app_id => '2095083210778655', :static_link => true, :share => true
 			.sIcon.twitterIcon
-				= twitter_button :turbolinks => true, :title=> 'Crittr - ' + @artwork.title,  :hashtags => "Crittr", :static_link => true
+				= twitter_button :turbolinks => false, :title=> 'Crittr - ' + @artwork.title,  :hashtags => "Crittr", :static_link => true
 			.sIcon.redditIcon	
-				= reddit_button :turbolinks => true, :title=> 'Crittr - ' + @artwork.title , :static_link => true
+				= reddit_button :turbolinks => false, :title=> 'Crittr - ' + @artwork.title , :static_link => true
 	.descControls.descSection
 		- if user_signed_in?
 			- if @artwork.user != nil
