@@ -17,72 +17,75 @@
 
 		.artworkThumbSection
 			#arts.transitions-enabled
-				- @artworks.each do |artwork|
-					%div.artworkContainer
-						.thumbnail
-							- if artwork.pictures.any?
-								.thumbToggles
-									- i = 1 # counter to assign class names to toggles
-									- unless artwork.pictures.size <= 1
-										- while (i <= artwork.pictures.size) do
-											.tToggle{:id => i.to_s} 
-											- i+=1 #add one to counter per loop
+				- if @artworks.size == 0
+					%p.noPosts No posts found...Try searching again!
+				- else
+					- @artworks.each do |artwork|
+						%div.artworkContainer
+							.thumbnail
+								- if artwork.pictures.any?
+									.thumbToggles
+										- i = 1 # counter to assign class names to toggles
+										- unless artwork.pictures.size <= 1
+											- while (i <= artwork.pictures.size) do
+												.tToggle{:id => i.to_s} 
+												- i+=1 #add one to counter per loop
 
-								- c = 1 #counter to assign class names to thumbs
-								- artwork.pictures.each do |p|
-									.thumbImg{class: "hidden thumb-" + c.to_s}
-										= image_tag p.image.url
-									- c+=1 #add one to counter per loop
-						.infoSection	
-							.info
-								%h2.title= link_to artwork.title, artwork
-								%p.category
-									- if artwork.category_id == nil
-										Uncategorized
-									- else 
-										= Category.find(artwork.category_id).name
-								- if artwork.tags.size == 0
-									%p Tags: --
-								- else
+									- c = 1 #counter to assign class names to thumbs
+									- artwork.pictures.each do |p|
+										.thumbImg{class: "hidden thumb-" + c.to_s}
+											= image_tag p.image.url
+										- c+=1 #add one to counter per loop
+							.infoSection	
+								.info
+									%h2.title= link_to artwork.title, artwork
+									%p.category
+										- if artwork.category_id == nil
+											Uncategorized
+										- else 
+											= Category.find(artwork.category_id).name
+									- if artwork.tags.size == 0
+										%p Tags: --
+									- else
+										%p
+											Tags: 
+											= raw artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(artwork.category_id, t), :class => "tagLink"}.join(', ')
+									- if artwork.completed == true
+										%p.answered Completed
+									- else
+										%p.unanswered In Progress
 									%p
-										Tags: 
-										= raw artwork.tag_list.map { |t| link_to t, category_artwork_tag_path(artwork.category_id, t), :class => "tagLink"}.join(', ')
-								- if artwork.completed == true
-									%p.answered Completed
-								- else
-									%p.unanswered In Progress
-								%p
-									- if artwork.nsfw == true
-										%p.nsfw NSFW
+										- if artwork.nsfw == true
+											%p.nsfw NSFW
 
-							.voteSection.artVoteSection	
-								.vote
-									= link_to like_artwork_path(artwork), method: :put, remote: true do
-										- if user_signed_in?
-											- if current_user.voted_up_on? artwork
-												.triangle.arrow.voted
-											-else
-												.triangle.arrow
-								.voteCount
-									%p.artVotes= @voteCount = (artwork.get_upvotes.size) - (artwork.get_downvotes.size)
-								.vote
-									= link_to dislike_artwork_path(artwork), method: :put, remote: true do
-										- if user_signed_in?
-											- if current_user.voted_down_on? artwork
-												.triangle.triDown.arrow.voted
-											- else
-												.triangle.triDown.arrow
-						.extraInfo	
-							- if artwork.user != nil
-								.userThumb
-									=image_tag artwork.user.avatar.url(:thumb), :class => "artUserThumb"
-									=link_to artwork.user.username, artwork.user, :class => "artUserName"
-							-else
-								%p [User Deleted]		
-							%p.date
-								Posted 
-								= time_ago_in_words(artwork.created_at)
-								ago
+								.voteSection.artVoteSection	
+									.vote
+										= link_to like_artwork_path(artwork), method: :put, remote: true do
+											- if user_signed_in?
+												- if current_user.voted_up_on? artwork
+													.triangle.arrow.voted
+												-else
+													.triangle.arrow
+									.voteCount
+										%p.artVotes= @voteCount = (artwork.get_upvotes.size) - (artwork.get_downvotes.size)
+									.vote
+										= link_to dislike_artwork_path(artwork), method: :put, remote: true do
+											- if user_signed_in?
+												- if current_user.voted_down_on? artwork
+													.triangle.triDown.arrow.voted
+												- else
+													.triangle.triDown.arrow
+							.extraInfo	
+								- if artwork.user != nil
+									.userThumb
+										=image_tag artwork.user.avatar.url(:thumb), :class => "artUserThumb"
+										=link_to artwork.user.username, artwork.user, :class => "artUserName"
+								-else
+									%p [User Deleted]		
+								%p.date
+									Posted 
+									= time_ago_in_words(artwork.created_at)
+									ago
 
 		= will_paginate @artworks, inner_window: 1, outer_window: 0
 
