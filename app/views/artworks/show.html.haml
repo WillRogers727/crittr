@@ -168,6 +168,7 @@
 					%h3.commentHeader Add Images:
 					=image_tag "toggleUpDark.png", :class => "darkToggleArrow" 
 				.addContent.sixtySection
+					%p.imageInstruction Once you have made improvements to your piece, add updated images to show what you have changed and receive more feedback!
 					= render partial: "picture_form"
 
 - if @artwork.completed == true

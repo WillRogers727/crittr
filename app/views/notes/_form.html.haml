@@ -10,6 +10,8 @@
 					%ul
 						- @note.errors.full_messages.each do |message|
 							%li= message
+
+			%p.imageInstruction Draw an annotation onto the image using the colours provided, then write a comment to explain what improvements you think should be made to the piece!
 			.formItem.formInput
 				= f.label :content, "Note Content"
 				= f.input :content, label: false
