@@ -1,3 +1,4 @@
+// $(document).on('ready turbolinks:load', function() {
 $(document).ready(function() {
 	
 	var activeHolder;
@@ -177,12 +178,5 @@ $(document).ready(function() {
 	  $('div.addContent').slideToggle(200).toggleClass('contentActive');
 	  $(".addToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
 	});
-
-	
-
-	
-
-
-
-
 });
+// });

@@ -1,3 +1,4 @@
+
 $(document).ready(function() {
 
 	$(".userArtToggle").on('click', function () {

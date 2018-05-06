@@ -1,3 +1,4 @@
+// $(document).on('turbolinks:load', function() {
 $(document).ready(function() {
 
 	$("body").on("click", ".artVoteSection", function() {
@@ -44,6 +45,7 @@ $(document).ready(function() {
 	}
 
 });
+// });
 
 
 

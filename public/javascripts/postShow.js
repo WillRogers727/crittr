@@ -1,3 +1,5 @@
+// $(document).on('turbolinks:load', function() {
+	
 $(document).ready(function() {
 
 	$('.facebookIcon a').empty();
@@ -60,3 +62,4 @@ $(document).ready(function() {
 		$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
 	});
 });
+// });

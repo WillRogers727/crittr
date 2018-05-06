@@ -1,9 +1,10 @@
-$(document).ready(function() {
-	$('.fileInput').change(function(){
-		if ($(this).val()) {
-			$('.imageSubmit').attr('disabled',false); 
-			$('.imageSubmit').removeClass('btn-disabled'); 
-		}
+// $(document).on('turbolinks:load', function() {
+	$(document).ready(function() {
+		$('.fileInput').change(function(){
+			if ($(this).val()) {
+				$('.imageSubmit').attr('disabled',false); 
+				$('.imageSubmit').removeClass('btn-disabled'); 
+			}
+		});
 	});
-});
-	
+// });	

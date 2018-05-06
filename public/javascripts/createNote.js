@@ -1,3 +1,4 @@
+// $(document).on('turbolinks:load', function() {
 var lastY;
 var lastX;
 var mousePressed = false;
@@ -103,6 +104,7 @@ $(document).ready(function() {
 
 
 
+// });
 
 
 

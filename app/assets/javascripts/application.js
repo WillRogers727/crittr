@@ -11,7 +11,9 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require turbolinks
 //= require jquery3
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require masonry/jquery.masonry
 //= require sweetalert2
