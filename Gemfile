@@ -23,7 +23,7 @@ gem 'therubyracer', platforms: :ruby
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5.0.0'
+# gem 'turbolinks', '~> 5.0.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -70,7 +70,7 @@ gem 'shareable', '~> 1.1', '>= 1.1.4'
 gem 'omniauth-facebook'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'will_paginate', '~> 3.1.0'
-gem 'jquery-turbolinks', '~> 0.2.1'
+# gem 'jquery-turbolinks', '~> 0.2.1'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'sweet-alert2-rails'
