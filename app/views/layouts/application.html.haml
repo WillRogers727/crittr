@@ -9,6 +9,26 @@
   = javascript_include_tag 'application', 'data-turbolinks-track': 'reload' 
   = favicon_link_tag 'favicon.png', rel: 'shortcut icon', type: 'image/png'
 
+  - if @page == 'newNote'
+    = javascript_include_tag '/javascripts/createNote.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
+
+  - if @page == 'artShow'
+    = javascript_include_tag '/javascripts/artShow.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
+
+  - if @page == 'postShow'
+    = javascript_include_tag '/javascripts/postShow.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
+
+  - if @page == 'index'
+    = javascript_include_tag '/javascripts/indexPage.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
+
+  - if @page == 'userHome'
+    = javascript_include_tag '/javascripts/userHome.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
+
+  - if @page == 'artNew'
+    = javascript_include_tag '/javascripts/artNew.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
+
+
+
   
 %body
   %header.topBar
@@ -37,23 +57,5 @@
     =yield
     
         
-  - if @page == 'newNote'
-    = javascript_include_tag '/javascripts/createNote.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
-
-  - if @page == 'artShow'
-    = javascript_include_tag '/javascripts/artShow.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
-
-  - if @page == 'postShow'
-    = javascript_include_tag '/javascripts/postShow.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
-
-  - if @page == 'index'
-    = javascript_include_tag '/javascripts/indexPage.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
-
-  - if @page == 'userHome'
-    = javascript_include_tag '/javascripts/userHome.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
-
-  - if @page == 'artNew'
-    = javascript_include_tag '/javascripts/artNew.js', type: "text/javascript", 'data-turbolinks-track': 'reload' 
-
-
+  
 
