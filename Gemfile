@@ -74,4 +74,3 @@ gem 'jquery-turbolinks', '~> 0.2.1'
 gem 'masonry-rails', '~> 0.2.4'
 gem 'rails-assets-sweetalert2', '~> 5.1.1', source: 'https://rails-assets.org'
 gem 'sweet-alert2-rails'
-
