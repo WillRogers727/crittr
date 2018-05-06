@@ -1,5 +1,5 @@
-$(document).on('ready turbolinks:load', function() {
-// $(document).ready(function() {
+// $(document).on('ready turbolinks:load', function() {
+$(document).ready(function() {
 	
 	var activeHolder;
 	var activeImage;
