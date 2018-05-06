@@ -1,5 +1,5 @@
-// $(document).on('turbolinks:load', function() {
-$(document).ready(function() {
+$(document).on('turbolinks:visit', function() {
+// $(document).ready(function() {
 
 	$("body").on("click", ".artVoteSection", function() {
 		$('.activeVote').removeClass('activeVote');
