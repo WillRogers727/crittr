@@ -417,6 +417,7 @@ p {
 	padding: 5px 0 5px 10%;
 	text-decoration: none;
 	color: #d5d5d5;
+	height: 15px;
 }
 
 .sort_link {
@@ -424,6 +425,7 @@ p {
 	padding: 5px 0 5px 10%;
 	text-decoration: none;
 	color: #d5d5d5;
+	height: 15px;
 }
 
 .filterItem {
@@ -932,6 +934,12 @@ p {
 	padding-right: 20%;
 }
 
+.signInUp {
+	max-width: 500px !important;
+	padding-left: calc(50vw - 250px);
+	padding-right: calc(50vw - 250px);
+}
+
 .galSection {
 	width: 96%;
 	padding: 0 2% 0 2%;
@@ -1163,6 +1171,8 @@ p {
 		padding-left: 5%;
 		padding-right: 5%;
 	}
+
+
 
 	.noteArtImageGallery {
 		width: 90%;
