@@ -6,7 +6,7 @@
 		%p Got a quick question or need some tips? Use the question forum to get answers fast!
 	.introControls
 		=link_to "Artwork Forum", category_artworks_path(1), :class => "btn btn-l btn-light"
-		=link_to "Question Forum", category_posts_path(1), :class => "btn btn-l btn-light"
+		=link_to "Question Forum", category_posts_path(1), data: {:confirm => "Are you sure you want to do that?"}, :class => "btn btn-l btn-light"
 
 .userArtToggle.galSection
 	%h3.commentHeader= @artTitle

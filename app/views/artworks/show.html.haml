@@ -23,7 +23,7 @@
 							- if @artwork.user != nil
 								- if @artwork.user.id == current_user.id
 									- unless @pictures.size == 1 #if there is only one picture, dont show the delete list
-										= link_to "Delete Image", picture_path(pic.id), :data => { confirm: 'Delete Image?',
+										= link_to "Delete Image", picture_path(pic.id), :turbolinks => false, :data => { confirm: 'Delete Image?',
 																																										  'confirm-button-text': 'Delete',
 																																										  'cancel-button-text': 'Cancel',
 																																										  'confirm-button-color': '#ec8c25',
