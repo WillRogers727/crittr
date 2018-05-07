@@ -57,7 +57,7 @@
 											.noteControls
 												- if note.user != nil
 													- if user_signed_in? && current_user.id == note.user_id
-														=link_to "Delete Note", note , method: :delete, :remote => true, :data => { confirm: 'Delete Note?',
+														=link_to "Delete Note", note , method: :delete, :data => { confirm: 'Delete Note?',
 																																										  'confirm-button-text': 'Delete',
 																																										  'cancel-button-text': 'Cancel',
 																																										  'confirm-button-color': '#ec8c25',

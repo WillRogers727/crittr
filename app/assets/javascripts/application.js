@@ -15,8 +15,6 @@
 //= require jquery3
 //= require jquery_ujs
 //= require masonry/jquery.masonry
-//= require sweetalert2
-//= require sweet-alert2-rails
 //= require_tree .
 
 
