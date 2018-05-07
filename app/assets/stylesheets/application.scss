@@ -316,7 +316,8 @@ p {
 .sidebar {
 	width: 200px;
 	min-width: 200px;
-	height: 100vh;
+	height: auto;
+	min-height: 100vh;
 	margin: 0;
 	padding: 0;
 	float: left;
