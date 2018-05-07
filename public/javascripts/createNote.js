@@ -34,6 +34,46 @@ function InitThis() {
 		mousePressed = false;
 		pushImg();
 	});
+	
+	//touch controls
+	$('.noteCanvas').addEventListener("touchstart", function (e) {
+		// alert("mouse down");
+		mousePressed = true;
+		Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+	});
+
+	$('.noteCanvas').addEventListener("touchmove", function (e) {
+		if (mousePressed) {
+			// alert("mouse moved while pressed");
+			Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
+		}
+	});
+
+	$('.noteCanvas').addEventListener("touchend", function (e) {
+		// alert("mouse up");	
+		mousePressed = false;
+		pushImg();
+	});
+
+
+
+	document.body.addEventListener("touchstart", function (e) {
+		if (e.target == canvas) {
+			e.preventDefault();
+		}
+	}, false);
+
+	document.body.addEventListener("touchmove", function (e) {
+		if (e.target == canvas) {
+			e.preventDefault();
+		}
+	}, false);
+
+	document.body.addEventListener("touchend", function (e) {
+		if (e.target == canvas) {
+			e.preventDefault();
+		}
+	}, false);
 
 } //end init function
 
@@ -44,7 +84,7 @@ function Draw(x, y, isDown) {
 		ctx.lineWidth = 4;
 		ctx.lineJoin = "round";
 		ctx.moveTo(lastX, lastY);
-		ctx.lineTo(x, y);
+		ctx.lineTo(x, y); 
 		ctx.closePath();
 		ctx.stroke();
 	}

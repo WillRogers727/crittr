@@ -17,3 +17,4 @@ class AddCats < ActiveRecord::Migration[5.1]
   end
 
 end
+

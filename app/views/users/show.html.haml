@@ -12,7 +12,7 @@
 			.profileInfo
 				%p
 					Member Since:
-					= @user.created_at.to_date
+					= @user.created_at.strftime("%d/%m/%Y")
 				%p
 					Posts: 
 					= (@user.artworks.size) + (@user.posts.size)
