@@ -11,7 +11,7 @@ function InitThis() {
 	ctx = canvas.getContext("2d");
 
 	$('.noteCanvas').mousedown(function (e) {
-		// alert("mouse down");
+		alert("mouse down");
 		mousePressed = true;
 		Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
 	});
@@ -38,33 +38,25 @@ function InitThis() {
 
 	//touch controls
 	$('.noteCanvas').on("touchstart", function (e) {
-		handleStart(evt);
-
-
-		// // alert("touch start");
-		// mousePressed = true;
-		// var touches = e.touches || [];
-  //   var touch = touches[0] || {};
-		// Draw(touch.pageX - $(this).offset().left, touch.pageY - $(this).offset().top, false);
+		e.preventDefault(); //stops a mouse event from being triggered
+		var touches = evt.changedTouches;
+		// alert("touch start");
+		mousePressed = true;
+		Draw(touches[0].pageX - $(this).offset().left, touches[0].pageY - $(this).offset().top, false);
+		alert("touch start after draw");
 	});
 
 	$('.noteCanvas').on("touchmove", function (e) {
-		
-
-
-		// if (mousePressed) {
-		// 	// alert("touch move");
-		// 	Draw(touch.pageX - $(this).offset().left, touch.pageY - $(this).offset().top, true);
-		// }
+		if (mousePressed) {
+			// alert("touch move");
+			Draw(touch.pageX - $(this).offset().left, touch.pageY - $(this).offset().top, true);
+		}
 	});
 
 	$('.noteCanvas').on("touchend", function (e) {
-		
-
-
-		// // alert("touchend");	
-		// mousePressed = false;
-		// pushImg();
+		// alert("touchend");	
+		mousePressed = false;
+		pushImg();
 	});
 
 
@@ -72,35 +64,9 @@ function InitThis() {
 } //end init function
 
 
-function handleStart(evt) {
-  evt.preventDefault();
-  // log("touchstart.");
-  var el = canvas;
-  var touches = evt.changedTouches;
-        
-  for (var i = 0; i < touches.length; i++) {
-    // log("touchstart:" + i + "...");
-    ongoingTouches.push(copyTouch(touches[i]));
-    ctx.beginPath();
-    ctx.strokeStyle = $('#selColour').val();
-		ctx.lineWidth = 4;
-		ctx.lineJoin = "round";
- 
- 		ctx.moveTo(touches[i].pageX, touches[i].pageY);
-		ctx.lineTo(touches[i].pageX, touches[i].pageY); 
-		ctx.closePath();
-		ctx.stroke();
-
-    
-    // log("touchstart:" + i + ".");
-  }
-}
-
-
 function Draw(x, y, isDown) {
-	alert('entered draw');
 	if (isDown) {
-		alert("is down true");
+		// alert("is down true");
 		ctx.beginPath();
 		ctx.strokeStyle = $('#selColour').val();
 		ctx.lineWidth = 4;
