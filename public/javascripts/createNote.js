@@ -11,7 +11,7 @@ function InitThis() {
 	ctx = canvas.getContext("2d");
 
 	$('.noteCanvas').mousedown(function (e) {
-		alert("mouse down");
+		// alert("mouse down");
 		mousePressed = true;
 		Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
 	});
@@ -39,13 +39,13 @@ function InitThis() {
 	$('.noteCanvas').on("touchstart", function (e) {
 		// alert("touch start");
 		mousePressed = true;
-		Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+		Draw(touch.pageX - $(this).offset().left, touch.pageY - $(this).offset().top, false);
 	});
 
 	$('.noteCanvas').on("touchmove", function (e) {
 		if (mousePressed) {
 			// alert("touch move");
-			Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
+			Draw(touch.pageX - $(this).offset().left, touch.pageY - $(this).offset().top, true);
 		}
 	});
 
