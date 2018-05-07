@@ -18,7 +18,10 @@
 					- recipient = User.find(conversation.sender_id)
 				.convoUserThumb
 					=image_tag recipient.avatar.url(:thumb), :class => "artUserThumb"
-					=link_to recipient.username, recipient, :class => "artUserName"
+					- if recipient.username == current_user.username
+						=link_to "Me", recipient, :class => "artUserName"
+					- else 	
+						=link_to recipient.username, recipient, :class => "artUserName"
 				.convoBtn
 					= link_to "Open", conversation_messages_path(conversation), :class => "btn btn-m btn-orange"
 
