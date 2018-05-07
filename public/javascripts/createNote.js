@@ -39,20 +39,20 @@ function InitThis() {
 	$('.noteCanvas').on("touchstart", function (e) {
 		// alert("touch start");
 		mousePressed = true;
-		// Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+		Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
 	});
 
 	$('.noteCanvas').on("touchmove", function (e) {
 		if (mousePressed) {
-			alert("touch move");
-			// Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
+			// alert("touch move");
+			Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
 		}
 	});
 
 	$('.noteCanvas').on("touchend", function (e) {
-		alert("touchend");	
+		// alert("touchend");	
 		mousePressed = false;
-		// pushImg();
+		pushImg();
 	});
 
 
