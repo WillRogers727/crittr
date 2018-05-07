@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :views
   devise_for :users, controllers: { registrations: 'users/registrations', omniauth_callbacks: 'users/omniauth_callbacks' }
-  authenticated :users do
+  authenticated :user do
     root 'pages#home', as: 'authenticated_root'
   end
   devise_scope :user do
