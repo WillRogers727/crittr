@@ -37,8 +37,8 @@ function InitThis() {
 
 	//touch controls
 	$('.noteCanvas').on("touchstart", function (e) {
-		alert("touch start");
-		// mousePressed = true;
+		// alert("touch start");
+		mousePressed = true;
 		// Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
 	});
 
@@ -51,7 +51,7 @@ function InitThis() {
 
 	$('.noteCanvas').on("touchend", function (e) {
 		alert("touchend");	
-		// mousePressed = false;
+		mousePressed = false;
 		// pushImg();
 	});
 
