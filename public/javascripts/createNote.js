@@ -112,12 +112,17 @@ $(document).ready(function() {
 	$(window).resize(function () { 
 		var cHeight = getCurrentHeight(canvas);
 		var cWidth = getCurrentWidth(canvas);
-		// alert(cHeight);
 	  setCanvasHeight(canvas,container);
 	  var scale = (cHeight/canvas.height);
-	  // alert(scale);
 	  redraw(ctx, scale, cWidth, cHeight, url);
+	});
 
+	$(document).scroll(function() {
+		var cHeight = getCurrentHeight(canvas);
+		var cWidth = getCurrentWidth(canvas);
+	  setCanvasHeight(canvas,container);
+	  var scale = (cHeight/canvas.height);
+	  redraw(ctx, scale, cWidth, cHeight, url);
 	});
 
 	InitThis();
