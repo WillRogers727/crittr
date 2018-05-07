@@ -35,10 +35,13 @@ function InitThis() {
 		pushImg();
 	});
 
+
 	//touch controls
 	$('.noteCanvas').on("touchstart", function (e) {
 		// alert("touch start");
 		mousePressed = true;
+		var touches = e.touches || [];
+    var touch = touches[0] || {};
 		Draw(touch.pageX - $(this).offset().left, touch.pageY - $(this).offset().top, false);
 	});
 
@@ -60,7 +63,9 @@ function InitThis() {
 } //end init function
 
 function Draw(x, y, isDown) {
+	alert('entered draw');
 	if (isDown) {
+		alert("is down true");
 		ctx.beginPath();
 		ctx.strokeStyle = $('#selColour').val();
 		ctx.lineWidth = 4;
