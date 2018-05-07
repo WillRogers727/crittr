@@ -42,22 +42,25 @@ function InitThis() {
 		e.preventDefault(); //stops a mouse event from being triggered
 		var touches = e.changedTouches;
 
-		alert(touches[0].pageX);
+		// alert(touches[0].pageX);
 		// alert("touch start");
 		mousePressed = true;
-		Draw(touches[0].pageX - $(this).offset().left, touches[0].pageY - $(this).offset().top, true);
-		alert("touch start after draw");
+		Draw(touches[0].pageX - $(this).offset().left, touches[0].pageY - $(this).offset().top, false);
+		// alert("touch start after draw");
 	});
 
 	$('.noteCanvas').on("touchmove", function (e) {
 		if (mousePressed) {
+
+			e.preventDefault(); //stops a mouse event from being triggered
+			var touches = e.changedTouches;
 			// alert("touch move");
-			Draw(touch.pageX - $(this).offset().left, touch.pageY - $(this).offset().top, true);
+			Draw(touches[0].pageX - $(this).offset().left, touches[0].pageY - $(this).offset().top, true);
 		}
 	});
 
 	$('.noteCanvas').on("touchend", function (e) {
-		// alert("touchend");	
+		alert("touchend");	
 		mousePressed = false;
 		pushImg();
 	});
