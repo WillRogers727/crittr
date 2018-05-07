@@ -151,7 +151,7 @@
 																																										  'cancel-button-color': '#151515',
 																																										  'sweet-alert-type': 'warning'}, :class => "btn btn-m btn-dark"
 					- if @artwork.completed != true
-						= link_to "Set as Completed", set_completed_artwork_path(@artwork), remote: true, method: :put, :data => { confirm: 'Set as Completed?',
+						= link_to "Set as Completed", set_completed_artwork_path(@artwork), method: :put, :data => { confirm: 'Set as Completed?',
 																																										  'confirm-button-text': 'Yes',
 																																										  'cancel-button-text': 'No',
 																																										  'confirm-button-color': '#ec8c25',
