@@ -3,15 +3,15 @@ var lastY;
 var lastX;
 var mousePressed = false;
 var ctx;
-
+var url;
 
 
 function InitThis() {
 	var canvas = document.querySelector('canvas');
 	ctx = canvas.getContext("2d");
-
+	pushImg();
 	$('.noteCanvas').mousedown(function (e) {
-		alert("mouse down");
+		// alert("mouse down");
 		mousePressed = true;
 		Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
 	});
@@ -89,10 +89,11 @@ function Draw(x, y, isDown) {
 function clearArea() {
 	ctx.setTransform(1, 0, 0, 1, 0, 0);
 	ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+	url = ctx.canvas.toDataURL('image/png');
 }
 
 function pushImg() {
-	var url = ctx.canvas.toDataURL('image/png');
+	url = ctx.canvas.toDataURL('image/png');
 	// alert(url);
 	$("#canvasContent").val(url);
 }
@@ -109,7 +110,14 @@ $(document).ready(function() {
 		
 	// as the window changes with, adjust height of the canvas and container
 	$(window).resize(function () { 
-	   setCanvasHeight(canvas,container);
+		var cHeight = getCurrentHeight(canvas);
+		var cWidth = getCurrentWidth(canvas);
+		// alert(cHeight);
+	  setCanvasHeight(canvas,container);
+	  var scale = (cHeight/canvas.height);
+	  // alert(scale);
+	  redraw(ctx, scale, cWidth, cHeight, url);
+
 	});
 
 	InitThis();
@@ -131,6 +139,32 @@ $(document).ready(function() {
 
 		container.style.height= h + 'px';
 		container.height = container.offsetHeight;
+	}
+
+	function getCurrentHeight(canvas) {
+		var currentHeight = canvas.height;
+		// alert(currentHeight);
+		return currentHeight;
+	}
+
+	function getCurrentWidth(canvas) {
+		var currentWidth = canvas.width;
+		// alert(currentHeight);
+		return currentWidth;
+	}
+
+	function redraw(ctx, scale, originalWidth, originalHeight, url) {
+		ctx.canvas.height=originalHeight/scale;
+		ctx.canvas.width=originalWidth/scale;
+
+		ctx.scale(scale,scale);
+		
+		var img = new Image;
+		img.src = url;
+
+		ctx.drawImage(img, 0,0, ctx.canvas.width, ctx.canvas.height);
+		
+		
 	}
 		
 
