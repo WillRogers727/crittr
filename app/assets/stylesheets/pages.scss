@@ -18,6 +18,7 @@
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
+	min-height: 250px;
 }
 
 .introText h1 {
@@ -83,6 +84,8 @@
 
 	.introText {
 		padding-bottom: 30px;
+		height: auto;
+		min-height: 250px;
 	}
 
 	.introText h1 {
@@ -90,7 +93,7 @@
 	}
 
 	.introControls {
-		height: 100px;
+		height: 150px;
 		flex-grow: none;
 		width: 100%;
 		display: flex;
