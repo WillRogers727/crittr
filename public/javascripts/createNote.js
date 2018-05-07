@@ -45,7 +45,7 @@ function InitThis() {
 		alert(touches[0].pageX);
 		// alert("touch start");
 		mousePressed = true;
-		Draw(touches[0].pageX - $(this).offset().left, touches[0].pageY - $(this).offset().top, false);
+		Draw(touches[0].pageX - $(this).offset().left, touches[0].pageY - $(this).offset().top, true);
 		alert("touch start after draw");
 	});
 
