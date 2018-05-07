@@ -2,7 +2,7 @@
 	.noteArtImageGallery
 		.noteArtImage
 			= image_tag @picture.image.url, :id => "canvasImg"
-		%canvas.noteCanvas	
+		%canvas.noteCanvas{:ontouchmove => "event.preventDefault();"}
 	.noteDrawingControls
 		%select#selColour
 			%option{value: "black", selected: "selected"}= "black"

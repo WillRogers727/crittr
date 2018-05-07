@@ -34,25 +34,25 @@ function InitThis() {
 		mousePressed = false;
 		pushImg();
 	});
-	
+
 	//touch controls
 	$('.noteCanvas').addEventListener("touchstart", function (e) {
-		// alert("mouse down");
-		mousePressed = true;
-		Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
+		alert("touch start");
+		// mousePressed = true;
+		// Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
 	});
 
 	$('.noteCanvas').addEventListener("touchmove", function (e) {
 		if (mousePressed) {
-			// alert("mouse moved while pressed");
-			Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
+			alert("touch move");
+			// Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
 		}
 	});
 
 	$('.noteCanvas').addEventListener("touchend", function (e) {
-		// alert("mouse up");	
-		mousePressed = false;
-		pushImg();
+		alert("touchend");	
+		// mousePressed = false;
+		// pushImg();
 	});
 
 
