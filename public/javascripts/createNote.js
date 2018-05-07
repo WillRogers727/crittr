@@ -11,7 +11,7 @@ function InitThis() {
 	ctx = canvas.getContext("2d");
 
 	$('.noteCanvas').mousedown(function (e) {
-		// alert("mouse down");
+		alert("mouse down");
 		mousePressed = true;
 		Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
 	});
@@ -36,44 +36,26 @@ function InitThis() {
 	});
 
 	//touch controls
-	$('.noteCanvas').addEventListener("touchstart", function (e) {
+	$('.noteCanvas').on("touchstart", function (e) {
 		alert("touch start");
 		// mousePressed = true;
 		// Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, false);
 	});
 
-	$('.noteCanvas').addEventListener("touchmove", function (e) {
+	$('.noteCanvas').on("touchmove", function (e) {
 		if (mousePressed) {
 			alert("touch move");
 			// Draw(e.pageX - $(this).offset().left, e.pageY - $(this).offset().top, true);
 		}
 	});
 
-	$('.noteCanvas').addEventListener("touchend", function (e) {
+	$('.noteCanvas').on("touchend", function (e) {
 		alert("touchend");	
 		// mousePressed = false;
 		// pushImg();
 	});
 
 
-
-	$(document.body).addEventListener("touchstart", function (e) {
-		if (e.target == canvas) {
-			e.preventDefault();
-		}
-	}, false);
-
-	$(document.body).addEventListener("touchmove", function (e) {
-		if (e.target == canvas) {
-			e.preventDefault();
-		}
-	}, false);
-
-	$(document.body).addEventListener("touchend", function (e) {
-		if (e.target == canvas) {
-			e.preventDefault();
-		}
-	}, false);
 
 } //end init function
 
