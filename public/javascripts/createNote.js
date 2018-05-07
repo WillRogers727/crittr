@@ -60,7 +60,7 @@ function InitThis() {
 	});
 
 	$('.noteCanvas').on("touchend", function (e) {
-		alert("touchend");	
+		// alert("touchend");	
 		mousePressed = false;
 		pushImg();
 	});
