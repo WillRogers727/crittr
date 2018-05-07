@@ -38,8 +38,11 @@ function InitThis() {
 
 	//touch controls
 	$('.noteCanvas').on("touchstart", function (e) {
+		alert("touch start");
 		e.preventDefault(); //stops a mouse event from being triggered
 		var touches = evt.changedTouches;
+
+		alert(touches[0].pageX);
 		// alert("touch start");
 		mousePressed = true;
 		Draw(touches[0].pageX - $(this).offset().left, touches[0].pageY - $(this).offset().top, false);
