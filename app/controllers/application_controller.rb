@@ -23,15 +23,4 @@ before_action :configure_permitted_parameters, if: :devise_controller?
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :avatar])
   end
 
-  def after_sign_in_path_for(resource)
-  	sign_in_url = new_user_session_url
-  	if request.referer == sign_in_url || request.referer.include?("google")
-  		super
-  		goals_path
-  	else
-  		stored_location_for(resource) || request.referer || root_path
-  	end
-  end	
-
-
 end
