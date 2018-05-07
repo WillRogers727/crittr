@@ -11,7 +11,10 @@
 		.userTile
 			.convoUserThumb
 				=image_tag user.avatar.url(:thumb), :class => "artUserThumb"
-				=link_to user.username, user, :class => "artUserName"
+				- if user.id == current_user.id
+					=link_to "Me", user, :class => "artUserName"
+				-else 
+					=link_to user.username, user, :class => "artUserName"
 			.userMsgButton
 				= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', :class => "btn btn-m btn-orange"
 	= will_paginate @users, inner_window: 1, outer_window: 0
