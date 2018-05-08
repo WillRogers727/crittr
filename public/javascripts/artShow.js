@@ -1,9 +1,9 @@
-// $(document).on('ready turbolinks:load', function() {
 $(document).ready(function() {
 	
 	var activeHolder;
 	var activeImage;
 
+	//set active reply so only that comment shows a reply form
 	$("body").on("click", ".replyLink", function() {
 		$('.commentReplyForm').remove(); //remove forms
 		$('.activeReply').show(); //show link again
@@ -12,11 +12,13 @@ $(document).ready(function() {
 		$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
 	});
 
+	//set active voting section
 	$("body").on("click", ".artVoteSection", function() {
 		$('.activeVote').removeClass('activeVote');
 		$('.artVotes', this).addClass('activeVote');
 	});
 
+	//set change vote of active vote section when clicked
 	$("body").on("click", ".vote a", function() {
 		$('.activeVoteArrows').removeClass('activeVoteArrows');
 		$(this).closest('.voteSection').addClass('activeVoteArrows');
@@ -24,11 +26,14 @@ $(document).ready(function() {
 		$('.arrow', this).addClass('voted');
 	});
 
+	//set active review 
 	$("body").on("click", ".review", function() {
 		$('.activeApprove').removeClass('activeApprove');
 		$(this).addClass('activeApprove');
 	});
 
+
+//set active comment vote section
 	$("body").on("click", ".commentVoteSection", function() {
 		$('.activeVote').removeClass('activeVote');
 		$('.commentVotes', this).addClass('activeVote');
@@ -42,6 +47,8 @@ $(document).ready(function() {
 		$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
 	});
 
+
+	//when new image file input changes make button active and useable
   $('.fileInput').change(function(){
 			if ($(this).val()) {
 				$('.imageSubmit').attr('disabled',false); 
@@ -80,7 +87,7 @@ $(document).ready(function() {
 
 
 
-
+  //remove default social media sharing styling and assign custom images
 	$('.facebookIcon a').empty();
 	$('.twitterIcon a').empty();
 	$('.redditIcon a').empty();
@@ -91,6 +98,8 @@ $(document).ready(function() {
 	$('.image-1').addClass('visible');
 	$('.image-1').removeClass('hidden');
 
+
+	//assignt he first radia box as checked when page is loaded
 	$("input:radio[name=artToggle][disabled=false]:first").attr('checked', true);
 	
 	//images are toggled
@@ -103,7 +112,7 @@ $(document).ready(function() {
 			$('.'+imgClass).removeClass('hidden');
 			image = $('.'+imgClass+' > .artImageHolder img');
 			holder = $('.'+imgClass+' > .artImageHolder');
-
+			//get height of current image and assign a height to the background holder
 			getActiveImage();
 			setHolderHeight();
 	});
@@ -131,23 +140,27 @@ $(document).ready(function() {
 		activeHolder.height = activeHolder.offsetHeight;
 	}
 
+	//run note display function when buttons are selected
 	$('.noteShow').click(function() {
 		var val = this.name;
 		showNote(val);
 	});
-
+	//run note display function when buttons are selected
 	$('.noteHide').click(function() {
 		var val = this.name;
 		hideNote(val);
 	});
 
 
+	//shows the current note image with the assigned value, changes button
 	function showNote(val) {
 		$('.noteImg-' + val).removeClass('hiddenNote');
 		$('#nShow-' + val).addClass('hiddenBtn');
 		$('#nHide-' + val).removeClass('hiddenBtn');
 	}
 
+
+	//hides the note images and changes button back
 	function hideNote(val) {
 		$('.noteImg-' + val).addClass('hiddenNote');
 		$('#nHide-' + val).addClass('hiddenBtn');
@@ -155,28 +168,31 @@ $(document).ready(function() {
 
 	}
 
+	//toggle note content to be hidden or visible
 	$("a.contentToggle.NoteToggle").on('click', function () {
 		// alert("toggle clicked");
 	  $('div.noteContent').slideToggle(200).toggleClass('contentActive');
 	  $("a.contentToggle.NoteToggle > .toggleArrow").toggleClass('toggleArrowActive');
 	});
 
+	//toggle comment content to be hidden or visible
 	$(".commentToggle").on('click', function () {
 		// alert("toggle clicked");
 	  $('div.commentShrinkSection').slideToggle(200).toggleClass('contentActive');
 	  $(".commentToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
 	});
 
+	//toggle review content to be hidden or visible
 	$(".reviewToggle").on('click', function () {
 		// alert("toggle clicked");
 	  $('div.reviewShrinkSection').slideToggle(200).toggleClass('contentActive');
 	  $(".reviewToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
 	});
 
+	//toggle new images content to be hidden or visible
 	$(".addToggle").on('click', function () {
 		// alert("toggle clicked");
 	  $('div.addContent').slideToggle(200).toggleClass('contentActive');
 	  $(".addToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
 	});
 });
-// });

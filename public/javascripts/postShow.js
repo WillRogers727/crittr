@@ -1,7 +1,7 @@
-// $(document).on('turbolinks:load', function() {
-	
 $(document).ready(function() {
 
+
+	//remove default social media sharing icons and replace with custom images
 	$('.facebookIcon a').empty();
 	$('.twitterIcon a').empty();
 	$('.redditIcon a').empty();
@@ -9,12 +9,16 @@ $(document).ready(function() {
 	$('.twitterIcon a').append("<img class='socialIcon' src='/assets/twitter.png'></img>");
 	$('.redditIcon a').append("<img class='socialIcon' src='/assets/reddit.png'></img>");
 	
+
+	//toggle comment section to be hidden
 	$(".commentToggle").on('click', function () {
 		// alert("toggle clicked");
 	  $('div.commentShrinkSection').slideToggle(200).toggleClass('contentActive');
 	  $(".commentToggle > .darkToggleArrow").toggleClass('toggleArrowActive');
 	});
 
+
+	//assign active reply link to only toggle from on that comment
 	$("body").on("click", ".replyLink", function() {
 		$('.commentReplyForm').remove(); //remove forms
 		$('.activeReply').show(); //show link again
@@ -23,16 +27,18 @@ $(document).ready(function() {
 		$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
 	});
 	
+
+	//assign active vote section
 	$("body").on("click", ".postVoteSection", function() {
 		$('.activeVote').removeClass('activeVote');
 		$('.postVotes', this).addClass('activeVote');
 	});
-
+	//assign active vote voteSection
 	$("body").on("click", ".commentVoteSection", function() {
 		$('.activeVote').removeClass('activeVote');
 		$('.commentVotes', this).addClass('activeVote');
 	});
-
+	//change vote depending on active vote section when clicked
 	$("body").on("click", ".vote a", function() {
 		$('.activeVoteArrows').removeClass('activeVoteArrows');
 		$(this).closest('.voteSection').addClass('activeVoteArrows');
@@ -62,4 +68,3 @@ $(document).ready(function() {
 		$('.commentMainControls').removeClass('replyFormActive'); //remove reply form styling
 	});
 });
-// });
