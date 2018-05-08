@@ -3,9 +3,14 @@
 	.gallery
 		.galleryTopbar
 			.titleSubmit
-				%h1.forumTitle
-					=@category.name
-					Posts
+				.titleAndSub
+					%h1.forumTitle
+						=@category.name
+						Posts
+					- if @tagPresent 
+						%p.tagTitle
+							Filtered by Tag: 
+							= @tagName
 				.submitButton
 					- if user_signed_in?
 						= link_to "Submit", new_category_post_path, :class => "btn btn-m btn-orange"

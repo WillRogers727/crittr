@@ -11,19 +11,25 @@ def index
 	if @category.id == 1 
 		
 		if params[:tag]
+			@tagPresent = true
+			@tagName = params[:tag]
 			@allArtworks = Artwork.all
 			@search = @allArtworks.tagged_with(params[:tag]).ransack(params[:q])
 	  		@artworks = @search.result.paginate(page: params[:page], per_page: 25)
 		else
+			@tagPresent = false
 			@allArtworks = Artwork.all
 			@search = @allArtworks.ransack(params[:q])
 	  		@artworks = @search.result.paginate(page: params[:page], per_page: 25)
 		end
 	else
 		if params[:tag]
+			@tagPresent = true
+			@tagName = params[:tag]
 			@search = @category.artworks.tagged_with(params[:tag]).ransack(params[:q])
 	  		@artworks = @search.result.paginate(page: params[:page], per_page: 25)
 		else
+			@tagPresent = false
 			@search = @category.artworks.ransack(params[:q])
 	  		@artworks = @search.result.paginate(page: params[:page], per_page: 25)
 		end

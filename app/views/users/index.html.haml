@@ -7,14 +7,17 @@
 				= f.search_field :username_cont
 			= f.submit 'Search', :class => "btn btn-m btn-light"
 .userList
-	- @users.each do |user|
-		.userTile
-			.convoUserThumb
-				=image_tag user.avatar.url(:thumb), :class => "artUserThumb"
-				- if user.id == current_user.id
-					=link_to "Me", user, :class => "artUserName"
-				-else 
-					=link_to user.username, user, :class => "artUserName"
-			.userMsgButton
-				= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', :class => "btn btn-m btn-orange"
+	- if @users.size == 0
+		%p.noPosts No Results...
+	-else
+		- @users.each do |user|
+			.userTile
+				.convoUserThumb
+					=image_tag user.avatar.url(:thumb), :class => "artUserThumb"
+					- if user.id == current_user.id
+						=link_to "Me", user, :class => "artUserName"
+					-else 
+						=link_to user.username, user, :class => "artUserName"
+				.userMsgButton
+					= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', :class => "btn btn-m btn-orange"
 	= will_paginate @users, inner_window: 1, outer_window: 0

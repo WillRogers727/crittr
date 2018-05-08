@@ -243,6 +243,15 @@ p {
 	align-items: center;
 }
 
+.titleAndSub {
+	display: flex;
+	flex-direction: column;
+}
+
+.tagTitle {
+	padding-bottom: 20px;
+}
+
 .submitButton {
 	margin-left: 15px;
 }
