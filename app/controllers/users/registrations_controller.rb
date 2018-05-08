@@ -5,6 +5,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if resource.provider == "facebook"
       params.delete("current_password")
       resource.update_without_password(params)
+      #update without password is provider is fb
     else
       resource.update_with_password(params)
     end

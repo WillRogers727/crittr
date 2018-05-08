@@ -1,6 +1,8 @@
 class ReviewsController < ApplicationController
 	before_action :authenticate_user!
 	
+
+	#select current artwork, create review and respond to request using ajax
 	def create
 		@artwork = Artwork.find(params[:artwork_id])
 		@review = @artwork.reviews.create(review_params)
@@ -12,6 +14,8 @@ class ReviewsController < ApplicationController
 		end	
 	end
 
+
+	#find current artwork and review, delete review with ajax response and return to artwork
 	def destroy
 		@artwork = Artwork.find(params[:artwork_id])
 		@review = Review.find(params[:id])
@@ -24,6 +28,8 @@ class ReviewsController < ApplicationController
 		
 	end
 
+
+	#same as upvote method, use upvote_by from acts_as_votable and respond via ajax
 	def approve
 		@review = Review.find(params[:review_id])
 		@review.upvote_by current_user
@@ -38,6 +44,7 @@ class ReviewsController < ApplicationController
 
 	private
 
+	#defined strong params
 	def review_params
     params.require(:review).permit(:content)
   end 

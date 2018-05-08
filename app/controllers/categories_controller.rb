@@ -16,6 +16,9 @@ class CategoriesController < ApplicationController
   def edit
   end
 
+
+
+  #categories asre directly created with db, so creation not neccessary but generic implementation was created
   def create
     @category = Category.new(category_params)
 

@@ -1,5 +1,5 @@
 class AuthenticationsController < ApplicationController
-
+	#remove facebook data from db when unlinking facebook
 	def destroy
 		current_user.update_attributes(provider: nil, uid: nil)
 		redirect_to edit_user_registration_path, notice: "Facebook Account Unlinked"

@@ -1,5 +1,7 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
+	#account linking from edit profile page
+	# if current user exists then apply omniauth and link account
 	def facebook
 	  if current_user.present?
 	    current_user.apply_omniauth(request.env["omniauth.auth"])
@@ -11,6 +13,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 		    set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
 		  else
 		    session["devise.facebook_data"] = request.env["omniauth.auth"]
+		    #if failed redirect to sign up page
 		    redirect_to new_user_registration_url
 		  end
 	  end
