@@ -376,6 +376,13 @@ p {
 	color: #d5d5d5;
 }
 
+.fLinkFlex {
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+}
+
 .sidebarForumLink {
 	width: 100%;
 	height: 50px;
@@ -449,7 +456,7 @@ p {
 .contentPaddingSection {
 	background-color: #182736;
 	width: 100%;
-	height: 75px;
+	height: 150px;
 }
 
 
