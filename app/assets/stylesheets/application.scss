@@ -381,6 +381,7 @@ p {
 	height: 50px;
 	line-height: 50px;
 	margin: 5px 0 5px 0;
+	font-size: 15px !important;
 	/*background-color: red;*/
 }
 
@@ -439,6 +440,7 @@ p {
 
 .contentFilterSubmit {
 	width: 100%;
+	height: 50px;
 	display: flex;
 	justify-content: center;
 /*	background-color: purple;*/
@@ -490,53 +492,6 @@ p {
   -ms-transform: rotate(-90deg) ;
   transition: 0.2s;
 }
-
-/*
-.sideSection {
-	width: 85%;
-	height: auto;
-	padding: 20px 5% 20px 10%;
-	display: flex;
-	flex-direction: column;
-}
-*/
-/*.forumLinks {
-	width: 90%;
-	height: auto;
-	margin: 20px 5% 20px 5%;
-	display: flex;
-	flex-direction: column;
-}
-*/
-/*.forumLinks a {
-	margin-top: 10px;
-}
-
-.filterLink {
-	width: 80%;
-	height: auto;
-	padding: 0 10% 20px 10%;
-	display: flex;
-	flex-direction: column;
-}
-*/
-/*.sidebarHeader {
-	color: #f7f7f7;
-	font-size: 1.2em;
-	margin: 5px 0 5px 0;
-	height: 20px;
-}*/
-
-
-/*.sideLink {
-	width: 90%;
-	margin: 5px 0 5px 10%;
-	text-decoration: none;
-	color: #d5d5d5;
-	height: 15px;
-}*/
-
-
 
 .filterItem {
 	color: #f7f7f7;
