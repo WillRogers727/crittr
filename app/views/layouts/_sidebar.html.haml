@@ -27,11 +27,6 @@
 				%h2.sideHeader Filter
 				= search_form_for [@category, @search], :class => "filterBar" do |f|
 					.contentFilterItem
-						= f.label :completed_true, :class => "checkContainer" do
-							Completed
-							= f.check_box :completed_true
-							%span.checkmark
-					.contentFilterItem
 						= f.label :nsfw_false, :class => "checkContainer" do
 							Hide NSFW
 							= f.check_box :nsfw_false
