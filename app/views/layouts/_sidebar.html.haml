@@ -1,9 +1,10 @@
 .sidebar
 	.sidebarContent
 		.content
+			%h2.sideHeader Forum
 			.contentBox
-				= link_to "Artwork Forum", category_artworks_path(1), :class => "btn btn-m btn-light sidebarForumLink"
-				= link_to "Question Forum", category_posts_path(1), :class => "btn btn-m btn-light sidebarForumLink"
+				= link_to "Artwork", category_artworks_path(1), :class => "btn btn-m btn-light sidebarForumLink"
+				= link_to "Question", category_posts_path(1), :class => "btn btn-m btn-light sidebarForumLink"
 			.contentBox
 				%h2.sideHeader Category
 				.contentFlexSect
