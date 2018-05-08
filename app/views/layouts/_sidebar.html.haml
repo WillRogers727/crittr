@@ -1,41 +1,81 @@
+/ .sidebar
+/ 	.sidebarContent
+/ 		.forumLinks
+/ 			= link_to "Artwork Forum", category_artworks_path(1), :class => "btn btn-m btn-light"
+/ 			= link_to "Question Forum", category_posts_path(1), :class => "btn btn-m btn-light"
+/ 		.sideSection
+/ 			%h2.sidebarHeader Category
+/ 			- if section == 1 #if artwork forum links go to artwork forum path
+/ 				- @categories.each do |cat|
+/ 					= link_to cat.name, category_artworks_path(cat.id), :class => "sideLink"
+/ 			- else # else it links to the posts forum
+/ 				- @categories.each do |cat|
+/ 					= link_to cat.name, category_posts_path(cat.id), :class => "sideLink"
+
+/ 		.sideSection
+/ 			%h2.sidebarHeader Sort by
+/ 			=sort_link(@search, :created_at, "Date Created")
+/ 			=sort_link(@search, :title, "By Title")
+/ 			=sort_link(@search, :cached_votes_up, "By Upvotes")
+/ 			=sort_link(@search, :cached_votes_down, "By Downvotes")
+
+/ 		= search_form_for [@category, @search], :class => "filterBar" do |f|
+/ 			.filtering.sideSection
+/ 				%h2.sidebarHeader Filter by
+/ 				.filterItem.sideLink
+/ 					= f.label :completed_true, :class => "checkContainer" do
+/ 						Completed
+/ 						= f.check_box :completed_true
+/ 						%span.checkmark
+/ 				.filterItem.sideLink
+/ 					= f.label :nsfw_false, :class => "checkContainer" do
+/ 						Hide NSFW
+/ 						= f.check_box :nsfw_false
+/ 						%span.checkmark
+/ 			.filterLink
+/ 				= f.submit 'Filter', :class => "btn btn-m btn-light"
+/ 	.sidebarToggle
+/ 		=image_tag "toggleDown.png", :class => "toggleArrow toggleSide"  
+
+	
+	
 .sidebar
 	.sidebarContent
-		.forumLinks
-			= link_to "Artwork Forum", category_artworks_path(1), :class => "btn btn-m btn-light"
-			= link_to "Question Forum", category_posts_path(1), :class => "btn btn-m btn-light"
-		.sideSection
-			%h2.sidebarHeader Category
-			- if section == 1 #if artwork forum links go to artwork forum path
-				- @categories.each do |cat|
-					= link_to cat.name, category_artworks_path(cat.id), :class => "sideLink"
-			- else # else it links to the posts forum
-				- @categories.each do |cat|
-					= link_to cat.name, category_posts_path(cat.id), :class => "sideLink"
-
-		.sideSection
-			%h2.sidebarHeader Sort by
-			=sort_link(@search, :created_at, "Date Created")
-			=sort_link(@search, :title, "By Title")
-			=sort_link(@search, :cached_votes_up, "By Upvotes")
-			=sort_link(@search, :cached_votes_down, "By Downvotes")
-
-		= search_form_for [@category, @search], :class => "filterBar" do |f|
-			.filtering.sideSection
-				%h2.sidebarHeader Filter by
-				.filterItem.sideLink
-					= f.label :completed_true, :class => "checkContainer" do
-						Completed
-						= f.check_box :completed_true
-						%span.checkmark
-				.filterItem.sideLink
-					= f.label :nsfw_false, :class => "checkContainer" do
-						Hide NSFW
-						= f.check_box :nsfw_false
-						%span.checkmark
-			.filterLink
-				= f.submit 'Filter', :class => "btn btn-m btn-light"
+		.content
+			.contentBox
+				= link_to "Artwork Forum", category_artworks_path(1), :class => "btn btn-m btn-light sidebarForumLink"
+				= link_to "Question Forum", category_posts_path(1), :class => "btn btn-m btn-light sidebarForumLink"
+			.contentBox
+				%h2.sideHeader Category
+				.contentFlexSect
+					- if section == 1 #if artwork forum links go to artwork forum path
+						- @categories.each do |cat|
+							= link_to cat.name, category_artworks_path(cat.id), :class => "contentLink"
+					- else # else it links to the posts forum
+						- @categories.each do |cat|
+							= link_to cat.name, category_posts_path(cat.id), :class => "contentLink"
+			.contentBox
+				%h2.sideHeader Sort By
+				.contentFlexSect
+					=sort_link(@search, :created_at, "Date Created")
+					=sort_link(@search, :title, "By Title")
+					=sort_link(@search, :cached_votes_up, "By Upvotes")
+					=sort_link(@search, :cached_votes_down, "By Downvotes")
+			.contentBox
+				%h2.sideHeader Filter
+				= search_form_for [@category, @search], :class => "filterBar" do |f|
+					.contentFilterItem
+						= f.label :completed_true, :class => "checkContainer" do
+							Completed
+							= f.check_box :completed_true
+							%span.checkmark
+					.contentFilterItem
+						= f.label :nsfw_false, :class => "checkContainer" do
+							Hide NSFW
+							= f.check_box :nsfw_false
+							%span.checkmark
+					.contentFilterSubmit		
+						= f.submit 'Filter', :class => "btn btn-m btn-light"
+			.contentPaddingSection
 	.sidebarToggle
 		=image_tag "toggleDown.png", :class => "toggleArrow toggleSide"  
-
-	
-	
